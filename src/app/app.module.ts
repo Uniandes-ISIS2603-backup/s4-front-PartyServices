@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ProductoModule } from './producto/producto.module';
 import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente/cliente.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ClienteModule } from './cliente/cliente.module';
   imports: [
     BrowserModule,
     ProductoModule,
-    ClienteModule
+    ClienteModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
