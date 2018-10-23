@@ -4,4 +4,7 @@
 id agenda:
 <input type="text" name="" id="" >
 <button (click) ="obtenerFechas()">Obtener fechas</button>
+<div *ngFor= "let fecha of fechas ">
+  <div>{{fecha.jornada}}</div>
+</div>
 
