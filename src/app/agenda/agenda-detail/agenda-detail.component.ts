@@ -9,7 +9,7 @@ import { AgendaService } from '../agenda.service';
 })
 export class AgendaDetailComponent implements OnInit {
 
-  @Input agenda : Agenda;
+  @Input() agenda : Agenda;
 
   constructor(private agendaService : AgendaService) { }
 
@@ -18,10 +18,10 @@ export class AgendaDetailComponent implements OnInit {
   }
 
   getAgenda(){
-    // this.agendaService.getAgenda(51)
-    //   .subscribe( agenda =>{
-    //     this.agenda=agenda;
-    //   });
+    this.agendaService.getAgenda(51)
+      .subscribe( agenda =>{
+        this.agenda=agenda;
+      });
   }
 
 }

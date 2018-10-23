@@ -6,7 +6,7 @@ import { Agenda } from '../agenda/agenda';
 import { Observable } from 'rxjs';
 
 const API_URL = environment.apiURL;
-const fecha = '/agenda';
+const agenda = '/agenda';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,8 @@ export class AgendaService {
    * @param idAgenda id de la agenda a buscar
    * @returns la agenda
    */
-  getAgenda(idAgenda : number ) : Observable<Agenda>{
-    return this.http.get<Agenda>(API_URL+Agenda+'/'+idAgenda);
+  getAgenda(idAgenda : number ) : Observable<Agenda>
+  {
+    return this.http.get<Agenda>(API_URL+agenda+'/'+idAgenda);
   }
 }
