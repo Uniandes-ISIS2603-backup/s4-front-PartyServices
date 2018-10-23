@@ -28,6 +28,7 @@ export class FechaService {
    * @returns las fechas de una agenda
    */
   getFechas(idAgenda : number) : Observable<Fecha[]>{
+    //console.log(8);
     return this.http.get<Fecha[]>(API_URL+fecha+'/idAgenda'+'/'+idAgenda);
   }
 }
