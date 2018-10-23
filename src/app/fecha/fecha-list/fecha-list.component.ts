@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Fecha } from '../fecha';
+import { FechaService } from '../fecha.service';
 
 @Component({
   selector: 'app-fecha-list',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FechaListComponent implements OnInit {
 
-  constructor() { }
+  public idAgenda : number;
+  public fechas : Observable<Fecha[]>;
+  constructor(private fechaService : FechaService) { }
 
   ngOnInit() {
   }
 
+  obtenerFechas(){
+    this.fechas=this.fechaService.getFechas(2);
+    console.log(6)
+  }
 }
