@@ -18,7 +18,16 @@ export class FechaDetailComponent implements OnInit {
   }
 
   getFecha(){
-    this.fechaService.getFecha(51,"2018-11-10T00:00:00-05:00","Tarde")
+    this.fechaService.getFecha(59)
+    .subscribe( fecha =>{
+        this.fecha=fecha;
+      }
+    );
+  }
+
+
+  findFecha(){
+    this.fechaService.findFecha(51,"2018-11-10T00:00:00-05:00","Tarde")
       .subscribe( fecha=>{
         this.fecha=fecha;
       }
