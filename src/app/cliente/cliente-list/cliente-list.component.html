@@ -3,13 +3,18 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Nombre del cliente</th>    
+                    <th>Id</th>
+                    <th>Nombre</th>    
+                    <th>Contraseña</th>
+                    <th>correo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let cliente of clientes">
                     <td>{{cliente.id}}</td>
-                  
+                    <td>{{cliente.nombreUsuario}}</td>
+                    <td>{{cliente.contrasenia}}</td>
+                    <td>{{cliente.email}}</td>
                 </tr>
             </tbody>
         </table>
