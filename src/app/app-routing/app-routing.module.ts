@@ -4,12 +4,14 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
 
+import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
+
 
 
 const routes: Routes = [
 
     {
-        path: 'clientes',
+        path: 'clientes', 
         children: [
             {
                 path: 'list',
@@ -17,6 +19,17 @@ const routes: Routes = [
             }
         ]
         
+    },
+    {
+        path: 'producto' ,
+        children: [
+            {
+                path: 'list',
+                component: ProductoListComponent,
+                pathMatch: 'full'
+
+            }
+        ]
     }
 ];
 
