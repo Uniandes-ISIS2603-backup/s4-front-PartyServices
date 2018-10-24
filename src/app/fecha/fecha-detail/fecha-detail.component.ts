@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Fecha } from '../fecha';
 import { FechaService } from '../fecha.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-fecha-detail',
@@ -11,14 +12,20 @@ export class FechaDetailComponent implements OnInit {
 
   @Input() fecha : Fecha;
 
-  constructor(private fechaService : FechaService) { }
+  public idFecha : number;
+  constructor(
+    private fechaService : FechaService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit() {
+    this.idFecha =+ this.route.snapshot.paramMap.get('idFecha');
     this.getFecha();
   }
 
   getFecha(){
-    this.fechaService.getFecha(59)
+    this.fechaService.getFecha(this.idFecha)
     .subscribe( fecha =>{
         this.fecha=fecha;
       }
