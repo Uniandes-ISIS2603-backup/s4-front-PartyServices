@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente/cliente.module';
 
 import { HttpClientModule } from '@angular/common/http';
-
+import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
@@ -21,7 +21,8 @@ import { FechaModule } from './fecha/fecha.module';
     ClienteModule,
     HttpClientModule,
     AgendaModule,
-    FechaModule
+    FechaModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
