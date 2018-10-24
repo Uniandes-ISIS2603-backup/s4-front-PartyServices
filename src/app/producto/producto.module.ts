@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductoListComponent } from './producto-list/producto-list.component';
+import { ProductoService} from './producto.service' ;
+
 
 @NgModule({
   imports: [
+
     CommonModule
+     
   ],
-  declarations: [ProductoListComponent],
-  exports: [ProductoListComponent] 
+  declarations: [
+    ProductoListComponent
+  ],
+  providers: [ProductoService] ,
+  exports: [
+    ProductoListComponent
+  ] 
 })
 export class ProductoModule { }

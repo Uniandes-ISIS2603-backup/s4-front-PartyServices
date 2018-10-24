@@ -1,3 +1,26 @@
-<div>
-  producto-list works!
+<div class="container-fluid">
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Tipo Servicio</th>
+          <th>Dueño</th>
+          <th>Costo</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td><span>{{producto.id}}</span></td>
+          <td>{{producto.nombre}}</td>
+          <td>{{producto.tipoServicio}}</td>
+          <td>{{producto.duenio}}</td>
+          <td>{{producto.costo}}</td>
+          <td>{{producto.cantidad}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,19 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to Party Services!
   </h1>
-    <app-producto-list>   
-    </app-producto-list>
+  <ul class="nav nav-tabs">
+        <li class="nav nav-item">
+            <a id="productoTag" class="nav-link" routerLink="/producto/list">Productos</a>
+            <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+        </li>
+    </ul>
     <app-cliente-list></app-cliente-list>
     <app-fecha-list></app-fecha-list>
     <app-fecha-detail></app-fecha-detail>
     <app-agenda-detail></app-agenda-detail>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
-        </li>
-    </ul>
+   
+    
     <div class="list">
         <router-outlet></router-outlet>
     </div>

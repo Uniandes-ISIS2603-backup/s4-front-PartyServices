@@ -5,18 +5,21 @@ import { HttpClient } from '@angular/common/http';
 import {Producto} from './producto';
 
 import {environment} from '../../environments/environment' ;
-const API_URL = environment.apiURL;
-const productos = '/productos' ;
+const API_URL = "../../assets/";
+const productos = 'productos.json' ;
 
-
-
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductoService {
 
+   /**
+    * Constructor of the service
+    * @param http The HttpClient - This is necessary in order to perform requests
+    */
   constructor(private http: HttpClient) { }
+
+
+
+
   getProductos() : Observable<Producto[]> {
         return this.http.get<Producto[]>(API_URL + productos);
     }
