@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { Fecha } from '../fecha/fecha';
 import { Observable } from 'rxjs';
 const API_URL = environment.apiURL;
-const fecha = '/fecha'
+const fecha = '/fecha';
 
 /**
  * El servicio con todo lo relacionado a fecha
@@ -27,8 +27,25 @@ export class FechaService {
    * @param idAgenda el id de la agenda
    * @returns las fechas de una agenda
    */
-  getFechas(idAgenda : number) : Observable<Fecha[]>{
-    //console.log(8);
+  getFechas(idAgenda : number) : Observable<Fecha[]>
+  {
     return this.http.get<Fecha[]>(API_URL+fecha+'/idAgenda'+'/'+idAgenda);
+  }
+
+  /**
+   * Retorna el Observable con la fecha buscada por idAgenda, dia y jornada
+   * @param idAgenda id de la agenda de la fecha
+   * @param dia dia de la fecha
+   * @param jornada jornada de la fecha
+   * @returns la fecha buscada
+   */
+  findFecha(idAgenda : number, dia : string, jornada : string):Observable<Fecha>
+  {
+    return this.http.get<Fecha>(API_URL+fecha+'/'+idAgenda+'/'+dia+'/'+jornada);
+  }
+
+  getFecha(idFecha : number) : Observable<Fecha>
+  {
+    return this.http.get<Fecha>(API_URL+fecha+'/'+idFecha);
   }
 }

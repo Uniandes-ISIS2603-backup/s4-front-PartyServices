@@ -11,14 +11,18 @@ import { FechaService } from '../fecha.service';
 export class FechaListComponent implements OnInit {
 
   public idAgenda : number;
-  public fechas : Observable<Fecha[]>;
+  @Input() fechas : Fecha[];
   constructor(private fechaService : FechaService) { }
 
   ngOnInit() {
   }
 
   obtenerFechas(){
-    this.fechas=this.fechaService.getFechas(2);
+    this.fechaService.getFechas(51)
+      .subscribe(fechas => {
+        this.fechas=fechas;
+      }
+      );
     console.log(6)
   }
 }
