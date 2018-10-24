@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Fecha } from '../fecha';
+import { FechaService } from '../fecha.service';
 
 @Component({
   selector: 'app-fecha-detail',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FechaDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() fecha : Fecha;
+
+  constructor(private fechaService : FechaService) { }
 
   ngOnInit() {
+    this.getFecha();
+  }
+
+  getFecha(){
+    this.fechaService.getFecha(59)
+    .subscribe( fecha =>{
+        this.fecha=fecha;
+      }
+    );
+  }
+
+
+  findFecha(){
+    this.fechaService.findFecha(51,"2018-11-10T00:00:00-05:00","Tarde")
+      .subscribe( fecha=>{
+        this.fecha=fecha;
+      }
+    );
   }
 
 }

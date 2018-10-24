@@ -1,3 +1,23 @@
-<p>
-  cliente-list works!
-</p>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>    
+                    <th>Contraseña</th>
+                    <th>correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let cliente of clientes">
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nombreUsuario}}</td>
+                    <td>{{cliente.contrasenia}}</td>
+                    <td>{{cliente.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--<div><p>La lista de clientes funciona</p></div>-->

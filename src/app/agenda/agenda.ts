@@ -13,12 +13,12 @@ export class Agenda
     /**
      * Fecha de penitencia
      */
-    fechaPenitencia : Date;
+    fechaPenitencia : string;
 
     /**
      * Proveedor de la agenda
      */
-    proveedor : any;
+    proveedorDTO : any;
 
     /**
      * Jornada de los lunes que no labora
@@ -55,8 +55,5 @@ export class Agenda
      */
     jornadaDomingoND : string;
 
-    /**
-     * Fechas ocupadas
-     */
-    fechasOcupadas : any;
+    
 }
