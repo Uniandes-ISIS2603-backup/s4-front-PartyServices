@@ -2,7 +2,7 @@
 * Esta clase representa un cliente de la aplicación.
 * Contiene toda la información relevante de un cliente.
 */
-export interface Cliente {
+export class Cliente {
     /**
     * El ID del cliente
     */
@@ -11,7 +11,7 @@ export interface Cliente {
     /**
     * El nombre del cliente
     */
-    nombreUsuario: string;
+    login: string;
     
     /**
     * La contraseña del cliente
@@ -26,7 +26,7 @@ export interface Cliente {
      /**
     * La fecha de nacimiento del cliente
     */
-    //fechaNacimiento: Date;
+    fechaNacimiento: string;
     
 }
 
