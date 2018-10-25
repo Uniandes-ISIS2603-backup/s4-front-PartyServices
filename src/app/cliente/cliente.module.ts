@@ -8,6 +8,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteService } from './cliente.service';
+import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { ClienteService } from './cliente.service';
         CommonModule,
         FormsModule
   ],
-  declarations: [ClienteListComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent],
   providers: [ClienteService],
   exports:[ClienteListComponent],
 })
