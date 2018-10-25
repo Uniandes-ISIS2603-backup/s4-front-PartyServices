@@ -4,6 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
 
+import {ValoracionListComponent} from '../valoracion/valoracion-list/valoracion-list.component';
+
 import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { FechaListComponent } from '../fecha/fecha-list/fecha-list.component';
@@ -29,6 +31,17 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ProductoListComponent,
+                pathMatch: 'full'
+
+            }
+        ]
+    },
+    {
+        path: 'valoracion' ,
+        children: [
+            {
+                path: 'list',
+                component: ValoracionListComponent,
                 pathMatch: 'full'
 
             }

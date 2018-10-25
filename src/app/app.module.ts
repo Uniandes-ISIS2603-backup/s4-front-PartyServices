@@ -10,6 +10,9 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
+import { ClienteModule } from './cliente/cliente.module';
+import { ProductoModule } from './producto/producto.module';
+import { ValoracionModule } from './valoracion/valoracion.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,14 @@ import { FechaModule } from './fecha/fecha.module';
     HttpClientModule,
     AgendaModule,
     FechaModule,
-    AppRoutingModule
+    ValoracionModule,
+    
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
