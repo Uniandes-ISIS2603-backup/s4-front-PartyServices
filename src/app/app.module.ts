@@ -13,6 +13,7 @@ import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { ProductoModule } from './producto/producto.module';
+import { ValoracionModule } from './valoracion/valoracion.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductoModule } from './producto/producto.module';
     ClienteModule,
     AgendaModule,
     FechaModule,
+    ValoracionModule,
     
     BrowserModule,
     AppRoutingModule,
