@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-//import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
+import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
@@ -35,11 +35,11 @@ import { ValoracionModule } from './valoracion/valoracion.module';
   ],
   bootstrap: [AppComponent],
     providers: [
-        /*{
+        {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,
             multi: true
-        }*/
+        }
     ]
 })
 export class AppModule { }
