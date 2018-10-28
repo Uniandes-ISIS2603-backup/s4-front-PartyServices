@@ -1,11 +1,28 @@
-<p>
-  fecha-detail works!
-</p>
+<h2>
 <b>Id fecha:</b>
-{{fecha?.id}} <br> 
+{{fecha?.id}} <br></h2> 
 <b>Id agenda:</b>
 {{fecha?.agenda?.id}}<br>
 <b>Dia de la fecha:</b>
 {{fecha?.dia}}<br>
 <b>Jornada de la fecha:</b>
 {{fecha?.jornada}}<br>
+<div>
+<h3>
+<b>Eventos de la fecha: {{eventos?.length}}</b>
+</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre del evento</th>
+      <th scope="col">Cliente del evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of eventos">
+      <td>{{evento?.nombre}}</td>
+      <td routerLink="/clientes/{{evento.cliente.id}}">{{evento?.cliente.login}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

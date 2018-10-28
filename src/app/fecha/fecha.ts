@@ -29,5 +29,5 @@ export class Fecha
     /**
      * Eventos de la fecha
      */
-    eventos : any;
+    eventos : any []  ;
 }

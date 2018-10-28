@@ -1,6 +1,4 @@
-<p>
-  fecha-list works!
-</p>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,13 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor= "let fecha of fechas ">
-      <td>{{fecha?.id}}</td>
+    <tr *ngFor= "let fecha of fechas " routerLink="/agenda/{{fecha.agenda.id}}/fecha/{{fecha.id}}">
+      <td >{{fecha?.id}}</td>
       <td>{{fecha?.jornada}}</td>
       <td>{{fecha?.dia}}</td>
       <td>{{fecha?.agenda?.id}}</td>
     </tr>
   </tbody>
 </table>
-
-
