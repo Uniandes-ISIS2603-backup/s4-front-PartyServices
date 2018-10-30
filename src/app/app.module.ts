@@ -10,6 +10,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
+import { ProveedorModule } from './proveedor/proveedor.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FechaModule } from './fecha/fecha.module';
     BrowserModule,
     ProductoModule,
     ClienteModule,
+    ProveedorModule,
     HttpClientModule,
     AgendaModule,
     FechaModule,

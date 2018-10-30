@@ -1,3 +1,22 @@
-<p>
-  proovedor-list works!
-</p>
+<div class="container-fluid">
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <thead class="bg-danger">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th> 
+          <th>Constraseña</th>
+          <th>calificacion</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let proveedor of proveedores">
+          <td><span>{{proveedor.id}}</span></td>
+          <td>{{proveedor.nombre}}</td>
+          <td>{{proveedor.contrasenia}}</td>
+          <td>{{proveedor.calificacion}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

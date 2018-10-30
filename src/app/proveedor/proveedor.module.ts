@@ -1,11 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProovedorListComponent } from '../Proveedor/proovedor-list/proovedor-list.component';
+import { ProveedorListComponent } from './proveedor-list/proveedor-list.component';
+import { ProveedorService} from './proveedor.service' ;
+
 
 @NgModule({
   imports: [
+
     CommonModule
+     
   ],
-  declarations: [ProovedorListComponent]
+  declarations: [
+    ProveedorListComponent
+  ],
+  providers: [proveedorService] ,
+  exports: [
+    ProveedorListComponent
+  ] 
 })
 export class ProveedorModule { }
