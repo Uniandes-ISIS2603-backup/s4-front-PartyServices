@@ -1,15 +1,25 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from '../app-routing/app-routing.module';
+
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteService } from './cliente.service';
+import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 
 @NgModule({
   imports: [
-    CommonModule
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule
   ],
-  declarations: [ClienteListComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent],
   providers: [ClienteService],
-  exports:[ClienteListComponent]
+  exports:[ClienteListComponent],
 })
 export class ClienteModule { }

@@ -1,14 +1,17 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cliente } from './cliente';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+
+import { Cliente } from './cliente';
+import {ClienteDetail} from './cliente-detail'
 
 /**
 * El servicio para proveer todo lo relacionado con cliente.
 */
-const API_URL = "../../assets/";
-const clientes = 'clientes.json';
+const API_URL = environment.apiURL;
+const clientes = '/clientes';
 
 @Injectable()
 export class ClienteService {
@@ -19,7 +22,19 @@ export class ClienteService {
     */
     constructor(private http: HttpClient) { }
     
+    /**
+     * Retorna un objeto observable que contiene la lista de clientes del API
+     * @return La lista de clientes en "tiempo real".
+     */
     getClientes() : Observable<Cliente[]> {
         return this.http.get<Cliente[]>(API_URL + clientes);
     }
+    
+    /**
+     * Retorna un objeto observable con el detalle de un cliente específico del API
+     * @return El detalle del cliente.
+     */
+     getClienteDetail(clienteId) : Observable<ClienteDetail> {
+         return this.http.get<ClienteDetail>(API_URL + clientes + '/' + clienteId);
+     }
 }

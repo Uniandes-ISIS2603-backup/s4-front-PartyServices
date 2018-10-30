@@ -3,7 +3,7 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Id</th>
+                    
                     <th>Nombre</th>    
                     <th>Contraseña</th>
                     <th>correo</th>
@@ -11,8 +11,10 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let cliente of clientes">
-                    <td>{{cliente.id}}</td>
-                    <td>{{cliente.nombreUsuario}}</td>
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.login}}</dd>
+                    </td>
+                    
                     <td>{{cliente.contrasenia}}</td>
                     <td>{{cliente.email}}</td>
                 </tr>
