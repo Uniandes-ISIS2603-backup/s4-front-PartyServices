@@ -11,13 +11,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
-<<<<<<< HEAD
 import { ProveedorModule } from './proveedor/proveedor.module';
-=======
 import { ClienteModule } from './cliente/cliente.module';
 import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
->>>>>>> df1a985f2ed0eb1ed088f990d466262ae7582ce1
 
 @NgModule({
   declarations: [
@@ -26,11 +23,8 @@ import { ValoracionModule } from './valoracion/valoracion.module';
   imports: [
     ProductoModule,
     ClienteModule,
-<<<<<<< HEAD
     ProveedorModule,
     HttpClientModule,
-=======
->>>>>>> df1a985f2ed0eb1ed088f990d466262ae7582ce1
     AgendaModule,
     FechaModule,
     ValoracionModule,

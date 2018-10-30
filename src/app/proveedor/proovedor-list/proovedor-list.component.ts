@@ -5,9 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import {Proveedor} from '../../proveedor/proveedor' ;
 import {ProveedorService} from '../../proveedor/proveedor.service' ;
 @Component({
-  selector: 'app-proveedor-list',
-  templateUrl: './proveedor-list.component.html',
-  styleUrls: ['./proveedor-list.component.css']
+  selector: 'app-proovedor-list',
+  templateUrl: './proovedor-list.component.html',
+  styleUrls: ['./proovedor-list.component.css']
 })
 export class ProveedorListComponent implements OnInit {
 

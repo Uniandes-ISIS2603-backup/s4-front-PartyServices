@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import {Proveedor} from './proveedor';
 
 import {environment} from '../../environments/environment' ;
-const API_URL = "../../assets/";
-const proveedores = 'proveedores.json' ;
+const API_URL = environment.apiURL;
+const proveedores = '/proveedor';
 
 @Injectable()
 export class ProveedorService {

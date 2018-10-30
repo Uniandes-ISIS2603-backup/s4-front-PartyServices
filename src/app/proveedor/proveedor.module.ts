@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProveedorListComponent } from './proveedor-list/proveedor-list.component';
+import { ProveedorListComponent } from './proovedor-list/proovedor-list.component';
 import { ProveedorService} from './proveedor.service' ;
 
 
@@ -13,7 +13,7 @@ import { ProveedorService} from './proveedor.service' ;
   declarations: [
     ProveedorListComponent
   ],
-  providers: [proveedorService] ,
+  providers: [ProveedorService] ,
   exports: [
     ProveedorListComponent
   ] 
