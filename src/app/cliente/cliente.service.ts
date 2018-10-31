@@ -37,4 +37,13 @@ export class ClienteService {
      getClienteDetail(clienteId) : Observable<ClienteDetail> {
          return this.http.get<ClienteDetail>(API_URL + clientes + '/' + clienteId);
      }
+     
+     /**
+    * Creates a new book
+    * @param cliente The new cliente
+    * @returns The cliente with its new id if it was created, false if it wasn't
+    */
+    createCliente(cliente): Observable<ClienteDetail>{
+        return this.http.post<ClienteDestail>(API_URL + clientes,cliente)
+    }
 }
