@@ -12,7 +12,8 @@ import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.com
 import { FechaListComponent } from '../fecha/fecha-list/fecha-list.component';
 import { FechaDetailComponent } from '../fecha/fecha-detail/fecha-detail.component';
 
-
+import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
+import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
 
 const routes: Routes = [
 
@@ -47,6 +48,28 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ValoracionListComponent,
+                pathMatch: 'full'
+
+            }
+        ]
+    },
+    {
+        path: 'tematica' ,
+        children: [
+            {
+                path: 'list',
+                component: TematicaListComponent,
+                pathMatch: 'full'
+
+            }
+        ]
+    },
+    {
+        path: 'servicio' ,
+        children: [
+            {
+                path: 'list',
+                component: ServicioListComponent,
                 pathMatch: 'full'
 
             }

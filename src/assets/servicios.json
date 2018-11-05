@@ -1,31 +1,31 @@
 [{
   "id": 1,
-  "nombre": "Action"
+  "nombre": "Sillas"
 }, {
   "id": 2,
-  "nombre": "Musical"
+  "nombre": "JBalvin"
 }, {
   "id": 3,
-  "nombre": "Drama"
+  "nombre": "Payasos"
 }, {
   "id": 4,
-  "nombre": "Romance"
+  "nombre": "Velas"
 }, {
   "id": 5,
-  "nombre": "Terror"
+  "nombre": "Piano"
 }, {
   "id": 6,
-  "nombre": "War"
+  "nombre": "Camuflados"
 }, {
   "id": 7,
-  "nombre": "Zombies"
+  "nombre": "Muñecos"
 }, {
   "id": 8,
-  "nombre": "Thriller"
+  "nombre": "DJ"
 }, {
   "id": 9,
-  "nombre": "Children"
+  "nombre": "Disfraces"
 }, {
   "id": 10,
-  "nombre": "Classic"
+  "nombre": "Trajes"
 }]
