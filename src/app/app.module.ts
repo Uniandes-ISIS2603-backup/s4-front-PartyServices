@@ -14,6 +14,8 @@ import { FechaModule } from './fecha/fecha.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
+import { TematicaModule } from './tematica/tematica.module';
+import { ServicioModule } from './servicio/servicio.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { ValoracionModule } from './valoracion/valoracion.module';
     AgendaModule,
     FechaModule,
     ValoracionModule,
+    TematicaModule,
+    ServicioModule,
     
     BrowserModule,
     AppRoutingModule,
