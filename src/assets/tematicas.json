@@ -1,0 +1,31 @@
+[{
+  "id": 1,
+  "nombre": "Action"
+}, {
+  "id": 2,
+  "nombre": "Musical"
+}, {
+  "id": 3,
+  "nombre": "Drama"
+}, {
+  "id": 4,
+  "nombre": "Romance"
+}, {
+  "id": 5,
+  "nombre": "Terror"
+}, {
+  "id": 6,
+  "nombre": "War"
+}, {
+  "id": 7,
+  "nombre": "Zombies"
+}, {
+  "id": 8,
+  "nombre": "Thriller"
+}, {
+  "id": 9,
+  "nombre": "Children"
+}, {
+  "id": 10,
+  "nombre": "Classic"
+}]

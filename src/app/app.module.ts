@@ -8,14 +8,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
-
+import { TematicaModule } from './tematica/tematica.module';
+import { ServicioModule } from './servicio/servicio.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +27,8 @@ import { ValoracionModule } from './valoracion/valoracion.module';
     AgendaModule,
     FechaModule,
     ValoracionModule,
-    
+    TematicaModule,
+    ServicioModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
