@@ -16,7 +16,7 @@ export class Cliente {
     /**
     * La contraseña del cliente
     */
-    contraseña: string;
+    contrasenia: string;
     
     /**
     * El e-mail del cliente
@@ -26,7 +26,7 @@ export class Cliente {
      /**
     * La fecha de nacimiento del cliente
     */
-    fechaNacimiento: string;
+    fechaNacimiento: any;
     
 }
 

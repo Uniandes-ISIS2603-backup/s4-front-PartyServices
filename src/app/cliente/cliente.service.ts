@@ -37,4 +37,13 @@ export class ClienteService {
      getClienteDetail(clienteId) : Observable<ClienteDetail> {
          return this.http.get<ClienteDetail>(API_URL + clientes + '/' + clienteId);
      }
+     
+     /**
+    * Crea un nuevo cliente
+    * @param cliente. El nuevo cliente a crear en la base de datos.
+    * @returns The cliente with its new id if it was created, false if it wasn't
+    */
+    createCliente(cliente): Observable<ClienteDetail>{
+        return this.http.post<ClienteDetail>(API_URL + clientes,cliente)
+    }
 }

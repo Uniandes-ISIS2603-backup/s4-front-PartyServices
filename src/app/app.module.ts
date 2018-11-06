@@ -16,7 +16,7 @@ import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
 import { TematicaModule } from './tematica/tematica.module';
 import { ServicioModule } from './servicio/servicio.module';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent
@@ -29,13 +29,13 @@ import { ServicioModule } from './servicio/servicio.module';
     ValoracionModule,
     TematicaModule,
     ServicioModule,
-    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   bootstrap: [AppComponent],
     providers: [
