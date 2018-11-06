@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
+import {ProveedorListComponent} from '../proveedor/proovedor-list/proovedor-list.component';
 import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component'
 
 import {ValoracionListComponent} from '../valoracion/valoracion-list/valoracion-list.component';
@@ -16,6 +17,8 @@ import {ProductoListComponent} from '../producto/producto-list/producto-list.com
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 
 
+import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
+import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
 
 const routes: Routes = [
 
@@ -50,43 +53,76 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'proveedor' ,
+        children: [
+            {
+                path: 'list',
+                component: ProveedorListComponent,
+            },
+            {
+                path: 'agenda' ,
+                children: [
+                    {
+                        path: ':id',
+                        component: AgendaDetailComponent,
+                        pathMatch: 'full',
+                    },
+                    {
+                        path: ':id/fecha',
+                        children:[
+                            {
+                                path: 'list',
+                                component: FechaListComponent,
+                                 pathMatch: 'full'
+                            },
+                            {
+                                path: ':idFecha',
+                                component: FechaDetailComponent,
+                                pathMatch: 'full',
+                            }
+                        ],
+                        
+                    }
+                    
+                ]
+            }
+        ]
+        },
+        {
         path: 'valoracion' ,
         children: [
             {
                 path: 'list',
                 component: ValoracionListComponent,
+
                 pathMatch: 'full'
 
             }
         ]
     },
     {
-        path: 'agenda' ,
+        path: 'tematica' ,
         children: [
             {
-                path: ':id',
-                component: AgendaDetailComponent,
-                pathMatch: 'full',
+                path: 'list',
+                component: TematicaListComponent,
+                pathMatch: 'full'
+
             },
-            {
-                path: ':id/fecha',
-                children:[
-                    {
-                        path: 'list',
-                        component: FechaListComponent,
-                         pathMatch: 'full'
-                    },
-                    {
-                        path: ':idFecha',
-                        component: FechaDetailComponent,
-                        pathMatch: 'full',
-                    }
-                ],
-                
-            }
-            
         ]
     },
+    {
+        path: 'servicio' ,
+        children: [
+            {
+                path: 'list',
+                component: ServicioListComponent,
+                pathMatch: 'full'
+
+            }
+        ]
+    },
+    
 ];
 
 @NgModule({

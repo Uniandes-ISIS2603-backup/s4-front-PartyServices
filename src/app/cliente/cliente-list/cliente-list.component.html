@@ -1,25 +1,43 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    
-                    <th>Nombre</th>    
-                    <th>Contraseña</th>
-                    <th>correo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let cliente of clientes">
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.login}}</dd>
-                    </td>
-                    
-                    <td>{{cliente.contrasenia}}</td>
-                    <td>{{cliente.email}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Registrarse</button>
+            </div>           
+            <br>
+            <br>
+             <div class="card">
+                <div class="card-body">       
+                    <table class="table table-striped">
+                        <thead class="bg-danger">
+                            <tr>
+                                <th class="h4 theadList">Nombre</th>
+                                <th class="h4 theadList">Correo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let cliente of clientes"
+                                (click)="onSelected(author.id)">
+                            <td style="cursor: pointer;">
+                                <dd class="figure-caption nombreCliente" routerLink="/clientes/{{cliente.id}}">{{cliente.login}}</dd>
+                            </td>
+
+                            <td>{{cliente.email}}</td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            
+            <div *ngIf="showCreate">
+                <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
+            </div>
+        </div> 
     </div>
 </div>
-<!--<div><p>La lista de clientes funciona</p></div>-->
+

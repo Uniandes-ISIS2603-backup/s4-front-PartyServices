@@ -6,6 +6,7 @@ import { ProductoDetailComponent } from './producto-detail/producto-detail.compo
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ProductoCreateComponent } from './producto-create/producto-create.component';
 
+
 @NgModule({
   imports: [
 
