@@ -1,0 +1,11 @@
+.theadList{
+    font-family: Comic Sans MS;
+    font-weight: bold;
+}
+
+.nombreCliente{
+    color:fireBrick;
+    font-weight: bold;
+    text-decoration:underline;
+}
+
