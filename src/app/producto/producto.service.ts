@@ -4,9 +4,10 @@ import { HttpClient } from '@angular/common/http';
 
 import {Producto} from './producto';
 
+
 import {environment} from '../../environments/environment' ;
-const API_URL = "../../assets/";
-const productos = 'productos.json' ;
+const API_URL = environment.apiURL;
+const productos = '/producto' ;
 
 @Injectable()
 export class ProductoService {
@@ -22,5 +23,10 @@ export class ProductoService {
 
   getProductos() : Observable<Producto[]> {
         return this.http.get<Producto[]>(API_URL + productos);
+    }
+
+
+    getProductoDetail(nombre) :Observable<Producto>{
+        return this.http.get<Producto>(API_URL + productos + '/' + nombre);
     }
 }
