@@ -11,10 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
+import { ProveedorModule } from './proveedor/proveedor.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
-
+import { TematicaModule } from './tematica/tematica.module';
+import { ServicioModule } from './servicio/servicio.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,16 +25,20 @@ import { ValoracionModule } from './valoracion/valoracion.module';
   imports: [
     ProductoModule,
     ClienteModule,
+    ProveedorModule,
+    HttpClientModule,
     AgendaModule,
     FechaModule,
     ValoracionModule,
-    
+    TematicaModule,
+    ServicioModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   bootstrap: [AppComponent],
     providers: [

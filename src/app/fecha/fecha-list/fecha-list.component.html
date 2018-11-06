@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor= "let fecha of fechas " routerLink="/agenda/{{fecha.agenda.id}}/fecha/{{fecha.id}}">
+    <tr *ngFor= "let fecha of fechas " routerLink="/proveedor/agenda/{{fecha.agenda.id}}/fecha/{{fecha.id}}">
       <td >{{fecha?.id}}</td>
       <td>{{fecha?.jornada}}</td>
       <td>{{fecha?.dia}}</td>

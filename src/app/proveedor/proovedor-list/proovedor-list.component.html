@@ -5,20 +5,18 @@
         <tr>
           <th>Id</th>
           <th>Nombre</th> 
-          <th>Tipo Servicio</th>
-          <th>Dueño</th>
-          <th>Costo</th>
-          <th>Cantidad</th>
+          <th>Constraseña</th>
+          <th>calificacion</th>
+          <th>Agenda</th>
         </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let producto of productos">
+        <tr *ngFor="let proveedor of proveedores">
           <td><span>{{proveedor.id}}</span></td>
           <td>{{proveedor.nombre}}</td>
-          <td>{{producto.tipoServicio}}</td>
-          <td>{{producto.duenio}}</td>
-          <td>{{producto.costo}}</td>
-          <td>{{producto.cantidad}}</td>
+          <td>{{proveedor.contrasenia}}</td>
+          <td>{{proveedor.calificacion}}</td>
+          <td><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
         </tr>
       </tbody>
     </table>
