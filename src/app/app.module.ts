@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AgendaModule } from './agenda/agenda.module';
 import { FechaModule } from './fecha/fecha.module';
@@ -31,7 +32,8 @@ import { ValoracionModule } from './valoracion/valoracion.module';
     HttpClientModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   bootstrap: [AppComponent],
     providers: [

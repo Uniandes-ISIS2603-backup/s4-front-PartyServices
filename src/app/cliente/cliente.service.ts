@@ -39,11 +39,11 @@ export class ClienteService {
      }
      
      /**
-    * Creates a new book
-    * @param cliente The new cliente
+    * Crea un nuevo cliente
+    * @param cliente. El nuevo cliente a crear en la base de datos.
     * @returns The cliente with its new id if it was created, false if it wasn't
     */
     createCliente(cliente): Observable<ClienteDetail>{
-        return this.http.post<ClienteDestail>(API_URL + clientes,cliente)
+        return this.http.post<ClienteDetail>(API_URL + clientes,cliente)
     }
 }

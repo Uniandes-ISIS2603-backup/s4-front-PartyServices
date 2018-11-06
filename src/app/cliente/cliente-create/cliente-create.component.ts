@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
+import {ClienteService} from '../cliente.service';
+import {Cliente} from '../cliente'
 
 type DateString = {month: number, day: number, year: number};
 
@@ -22,8 +24,7 @@ export class ClienteCreateComponent implements OnInit {
     constructor(
         private dp: DatePipe,
         private clienteService:ClienteService,
-        private toastrService: ToastrService,
-        private router: Router
+        private toastrService: ToastrService
     ) {}
     
     /**
@@ -32,28 +33,52 @@ export class ClienteCreateComponent implements OnInit {
      cliente: Cliente;
      
      /**
+    * The output which tells the parent component
+    * that the user no longer wants to create an cliente
+    */
+    @Output() cancel = new EventEmitter();
+
+    /**
+    * The output which tells the parent component
+    * that the user created a new cliente
+    */
+    @Output() create = new EventEmitter();
+     
+     
+    /**
+    * Emits the signal to tell the parent component that the
+    * user no longer wants to create an cliente
+    */
+    cancelCreation(): void {
+        this.cancel.emit();
+    }
+    
+    /**
     * Cancels the creation of the new cliente
     * Redirects to the cliente list page
     */
-    cancelCreation(): void {
+    /*cancelCreation(): void {
         this.toastrService.warning('No se pudo registrar el cliente', 'Registrar cliente');
         this.router.navigate(['/clientes/list']);
-    }
+    }*/
     
     /**
     * Creates a new cliente
     */
-    createCliente(): cliente {
-        /*let dateB: Date = new Date((<DateString> this.book.publishingdate).year, (<DateString> this.book.publishingdate).month, (<DateString> this.book.publishingdate).day);
-        this.book.publishingdate = this.dp.transform(dateB, 'yyyy-MM-dd');*/
+    createCliente(): Cliente {
+        console.log(this.cliente);
+        let dateB: Date = new Date(this.cliente.fechaNacimiento.day, this.cliente.fechaNacimiento.month-1, this.cliente.fechaNacimiento.year);
+        this.cliente.fechaNacimiento = this.dp.transform(dateB, 'dd/MM/yyyy');
+        console.log(this.cliente)
+        console.log(this.cliente.fechaNacimiento);
         this.clienteService.createCliente(this.cliente)
-            .subscribe(cliente => {
-                this.cliente.id = cliente.id;
-                this.router.navigate(['/clientes/' + cliente.id]);
-            }, err => {
-                this.toastrService.error(err, 'Error');
+            .subscribe((cliente) => {
+                this.cliente = cliente;
+                this.create.emit();
+                this.toastrService.success("El cliente ha sido creado satisfactoriamente.", "Crear cliente");
+                
             });
-        return this.cliente;
+            return this.cliente;
     }
 
   ngOnInit() {
