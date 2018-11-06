@@ -53,4 +53,8 @@ export class FechaService {
   {
     return this.http.get<any>(API_URL+fecha+'/'+idFecha+'/'+'eventos');
   }
+
+  crearFecha(fechaO : Fecha, idAgenda: number):Observable<Fecha>{
+    return this.http.post<Fecha>(API_URL+fecha+'/'+idAgenda,fechaO);
+  }
 }

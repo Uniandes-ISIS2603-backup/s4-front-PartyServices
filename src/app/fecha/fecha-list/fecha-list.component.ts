@@ -12,6 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FechaListComponent implements OnInit {
 
   public idAgenda : number;
+  /**
+    * Shows or hides the fecha-create-component
+    */
+   showCreate: boolean;
   @Input() fechas : Fecha[];
   constructor(
     private fechaService : FechaService,
@@ -31,4 +35,10 @@ export class FechaListComponent implements OnInit {
       }
       );
   }
+  /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+}
 }
