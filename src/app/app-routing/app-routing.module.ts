@@ -7,10 +7,13 @@ import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.c
 
 import {ValoracionListComponent} from '../valoracion/valoracion-list/valoracion-list.component';
 
-import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
+
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { FechaListComponent } from '../fecha/fecha-list/fecha-list.component';
 import { FechaDetailComponent } from '../fecha/fecha-detail/fecha-detail.component';
+
+import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
+import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 
 
 
@@ -38,6 +41,11 @@ const routes: Routes = [
                 component: ProductoListComponent,
                 pathMatch: 'full'
 
+            },
+            {
+                path: ':nombre' ,
+                component: ProductoDetailComponent,
+                
             }
         ]
     },

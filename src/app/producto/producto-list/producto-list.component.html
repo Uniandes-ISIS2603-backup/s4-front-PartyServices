@@ -1,24 +1,16 @@
 <div class="container-fluid">
-  <div class="col-md-6">
+  <div class="col-md-3">
     <table class="table table-bordered">
-      <thead class="bg-danger">
-        <tr>
-          <th>Id</th>
-          <th>Nombre</th> 
-          <th>Tipo Servicio</th>
-          <th>Dueño</th>
-          <th>Costo</th>
-          <th>Cantidad</th>
+      <thead style="background-color: #dc3545;color:aliceblue">
+        <tr>          
+          <th>Productos</th> 
         </tr>
       </thead>
       <tbody >
         <tr *ngFor="let producto of productos">
-          <td><span>{{producto.id}}</span></td>
-          <td>{{producto.nombre}}</td>
-          <td>{{producto.tipoServicio}}</td>
-          <td>{{producto.duenio}}</td>
-          <td>{{producto.costo}}</td>
-          <td>{{producto.cantidad}}</td>
+          <td >
+            <dd class="figure-caption"  routerLink="/producto/{{producto.nombre}}">{{producto.nombre}}</dd>
+          </td> 
         </tr>
       </tbody>
     </table>
