@@ -7,6 +7,7 @@
           <th>Nombre</th> 
           <th>Constraseña</th>
           <th>calificacion</th>
+          <th>Agenda</th>
         </tr>
       </thead>
       <tbody >
@@ -15,6 +16,7 @@
           <td>{{proveedor.nombre}}</td>
           <td>{{proveedor.contrasenia}}</td>
           <td>{{proveedor.calificacion}}</td>
+          <td><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
         </tr>
       </tbody>
     </table>

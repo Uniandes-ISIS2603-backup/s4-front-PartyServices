@@ -49,6 +49,33 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ProveedorListComponent,
+            },
+            {
+                path: 'agenda' ,
+                children: [
+                    {
+                        path: ':id',
+                        component: AgendaDetailComponent,
+                        pathMatch: 'full',
+                    },
+                    {
+                        path: ':id/fecha',
+                        children:[
+                            {
+                                path: 'list',
+                                component: FechaListComponent,
+                                 pathMatch: 'full'
+                            },
+                            {
+                                path: ':idFecha',
+                                component: FechaDetailComponent,
+                                pathMatch: 'full',
+                            }
+                        ],
+                        
+                    }
+                    
+                ]
             }
         ]
         },
@@ -72,7 +99,7 @@ const routes: Routes = [
                 component: TematicaListComponent,
                 pathMatch: 'full'
 
-            }
+            },
         ]
     },
     {
@@ -86,33 +113,7 @@ const routes: Routes = [
             }
         ]
     },
-    {
-        path: 'agenda' ,
-        children: [
-            {
-                path: ':id',
-                component: AgendaDetailComponent,
-                pathMatch: 'full',
-            },
-            {
-                path: ':id/fecha',
-                children:[
-                    {
-                        path: 'list',
-                        component: FechaListComponent,
-                         pathMatch: 'full'
-                    },
-                    {
-                        path: ':idFecha',
-                        component: FechaDetailComponent,
-                        pathMatch: 'full',
-                    }
-                ],
-                
-            }
-            
-        ]
-    },
+    
 ];
 
 @NgModule({
