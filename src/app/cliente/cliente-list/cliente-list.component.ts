@@ -16,6 +16,11 @@ export class ClienteListComponent implements OnInit {
      */
     constructor(private clienteService: ClienteService) { }
     
+    
+    /**
+    * Shows or hides the cliente-create-component
+    */
+    showCreate: boolean;
     /**
      * La lista de clientes de la aplicación
      */
@@ -27,12 +32,20 @@ export class ClienteListComponent implements OnInit {
     getClientes(): void {
         this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
     }
+    
+    /**
+    * Shows or hides the create component
+    */
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+    }
 
   /**
      * Esto inicializará el componente recuperando la lista de clientes del servicio
      * Este método se llamará justo cuando el componente sea creado. 
      */
     ngOnInit() {
+      this.showCreate = false;
       this.getClientes();
     }
 
