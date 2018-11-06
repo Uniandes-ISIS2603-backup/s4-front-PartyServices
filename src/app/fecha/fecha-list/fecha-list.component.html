@@ -1,15 +1,19 @@
-<p>
-  fecha-list works!
-</p>
-<div *ngFor= "let fecha of fechas ">
-  <div><b>Id Fecha:</b>
-     {{fecha?.id}}
-     <b>Jornada:</b>
-     {{fecha?.jornada}}
-     <b>Dia:</b>
-     {{fecha?.dia}}
-     <b>Id agenda:</b>
-     {{fecha?.agenda?.id}}
-  </div>
-</div>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id Fecha</th>
+      <th scope="col">Jornada</th>
+      <th scope="col">Dia</th>
+      <th scope="col">Id Agenda</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor= "let fecha of fechas " routerLink="/agenda/{{fecha.agenda.id}}/fecha/{{fecha.id}}">
+      <td >{{fecha?.id}}</td>
+      <td>{{fecha?.jornada}}</td>
+      <td>{{fecha?.dia}}</td>
+      <td>{{fecha?.agenda?.id}}</td>
+    </tr>
+  </tbody>
+</table>

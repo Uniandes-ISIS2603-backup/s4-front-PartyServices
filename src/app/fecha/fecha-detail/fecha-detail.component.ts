@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FechaDetailComponent implements OnInit {
 
   @Input() fecha : Fecha;
+  @Input() eventos : any[];
 
   public idFecha : number;
   constructor(
@@ -22,6 +23,7 @@ export class FechaDetailComponent implements OnInit {
   ngOnInit() {
     this.idFecha =+ this.route.snapshot.paramMap.get('idFecha');
     this.getFecha();
+    this.getEventosFecha();
   }
 
   getFecha(){
@@ -30,6 +32,13 @@ export class FechaDetailComponent implements OnInit {
         this.fecha=fecha;
       }
     );
+  }
+
+  getEventosFecha(){
+    this.fechaService.getEventosDeFecha(this.idFecha)
+    .subscribe( eventos =>{
+      this.eventos=eventos;
+    } )
   }
 
 

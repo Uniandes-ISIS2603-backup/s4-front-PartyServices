@@ -1,12 +1,58 @@
-<p>
-  agenda-detail works!
-</p>
-<b>Id agenda: </b>{{agenda?.id}}<br>
-<b>Fecha penitencia: </b>{{agenda?.fechaPenitencia}}<br>
-<b>Jornada lunes no trabaja: </b>{{agenda?.jornadaLunesND}}<br>
-<b>Jornada martes no trabaja: </b>{{agenda?.jornadaMartesND}}<br>
-<b>Jornada miercoles no trabaja: </b>{{agenda?.jornadaMiercolesND}}<br>
-<b>Jornada jueves no trabaja: </b>{{agenda?.jornadaJuevesND}}<br>
-<b>Jornada viernes no trabaja: </b>{{agenda?.jornadaViernesND}}<br>
-<b>Jornada sabado no trabaja: </b>{{agenda?.jornadaSabadoND}}<br>
-<b>Jornada domingo no trabaja: </b>{{agenda?.jornadaDomingoND}}<br>
+<h1>Agenda del proveedor <span class="badge badge-secondary" style="background-color:#dc3545">PAPAS</span></h1>
+Id: {{agenda?.id}}
+<div class="row" style="padding:20px">
+ 
+  <div class="col">
+    <table class="table">
+      <tbody>
+        <tr style="background-color: #dc3545;color:aliceblue">
+         
+            <td> <b>Id agenda:</b> </td>
+            <td> <b>{{agenda?.id}} </b></td>
+          
+        </tr>
+        <tr>
+            <td><b>Jornada lunes no trabaja:</b> </td> 
+            <td>{{agenda?.jornadaLunesND}}</td>
+        </tr>
+        <tr>
+          <td><b>Jornada martes no trabaja:</b> </td>
+          <td>{{agenda?.jornadaMartesND}}</td>
+        </tr>
+        <tr>
+            <td><b>Jornada miercoles no trabaja:</b> </td>
+            <td>{{agenda?.jornadaMiercolesND}}</td>
+        </tr>
+        <tr>
+            <td><b>Jornada jueves no trabaja:</b> </td>
+            <td>{{agenda?.jornadaJuevesND}}</td>
+        </tr>
+        <tr>
+            <td><b>Jornada viernes no trabaja:</b> </td>
+            <td>{{agenda?.jornadaViernesND}}</td>
+        </tr>
+        <tr>
+            <td><b>Jornada sabado no trabaja:</b> </td>
+            <td>{{agenda?.jornadaSabadoND}}</td>
+        </tr>
+        <tr>
+            <td><b>Jornada domingo no trabaja:</b> </td>
+            <td>{{agenda?.jornadaDomingoND}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="row">
+      <b>Fecha penitencia: </b>{{agenda?.fechaPenitencia}}<br>
+    </div>
+    <div class="row">
+      <h2 routerLink="/agenda/{{agenda?.id}}/fecha/list">Ver mis fechas</h2>
+    </div>
+    <div class="row">
+      <img style="width:420px; height: 420px" class="mw-100" alt="Responsive image" src="http://mondovinofilm.com/wp-content/uploads/2018/09/Calendario-Octubre-2018-Para-Imprimir-Pdf.jpg" alt="" class="src">
+    </div>
+  </div>
+</div>
+
+

@@ -61,15 +61,22 @@ const routes: Routes = [
                 pathMatch: 'full',
             },
             {
-                path: ':id/fechas',
-                component: FechaListComponent,
-                pathMatch: 'full',
-            },
-            {
-                path: ':id/fecha/:idFecha',
-                component: FechaDetailComponent,
-                pathMatch: 'full',
+                path: ':id/fecha',
+                children:[
+                    {
+                        path: 'list',
+                        component: FechaListComponent,
+                         pathMatch: 'full'
+                    },
+                    {
+                        path: ':idFecha',
+                        component: FechaDetailComponent,
+                        pathMatch: 'full',
+                    }
+                ],
+                
             }
+            
         ]
     },
 ];
