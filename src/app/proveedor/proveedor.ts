@@ -1,3 +1,5 @@
+import { Agenda } from "../agenda/agenda";
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,7 +26,7 @@
     /**
      * Nombre del dueño del producto
      */
-    agenda: any ;
+    agenda: Agenda ;
     
     /**
      * Costo del producto
