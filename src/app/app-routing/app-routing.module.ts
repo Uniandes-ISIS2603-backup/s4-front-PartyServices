@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
+import {ProveedorListComponent} from '../proveedor/proovedor-list/proovedor-list.component';
 import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component'
 
 import {ValoracionListComponent} from '../valoracion/valoracion-list/valoracion-list.component';
@@ -43,11 +44,21 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'proveedor' ,
+        children: [
+            {
+                path: 'list',
+                component: ProveedorListComponent,
+            }
+        ]
+        },
+        {
         path: 'valoracion' ,
         children: [
             {
                 path: 'list',
                 component: ValoracionListComponent,
+
                 pathMatch: 'full'
 
             }
