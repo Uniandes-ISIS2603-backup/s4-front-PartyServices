@@ -1,18 +1,40 @@
 <div class="container-fluid">
-  <div class="col-md-6">
-    <table class="table table-bordered">
-      <thead class="bg-danger">
-        <tr>
-          <th>Id</th>
-          <th>Nombre</th> 
-        </tr>
-      </thead>
-      <tbody >
-        <tr *ngFor="let tematica of tematicas">
-          <td><span>{{tematica.id}}</span></td>
-          <td>{{tematica.nombre}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an tematica</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let tematica of tematicas">
+                        <td style="cursor: pointer;">
+                <dd class="figure-caption" routerLink="/tematicas/{{tematica.id}}">{{tematica.name}}</dd>
+                </td>
+                <td>
+                    <button [ngClass]="{ 'btn-primary': (!showEdit || tematica_edit_id != tematica.id), 'btn-danger': (showEdit && tematica_edit_id == tematica.id) }"
+                        type="button" class="btn" (click)="showHideEdit(tematica.id)">Edit</button>
+                </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <div *ngIf="showCreate">
+                <app-tematica-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-tematica-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-tematica-edit [tematica_id]="tematica_edit_id" (cancel)="showHideEdit(tematica_edit_id)" (update)="updateTematica()"></app-tematica-edit>
+            </div>
+        </div>
+
+    </div>
 </div>

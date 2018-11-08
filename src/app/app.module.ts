@@ -16,7 +16,7 @@ import { ClienteModule } from './cliente/cliente.module';
 import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
 import { TematicaModule } from './tematica/tematica.module';
-import { ServicioModule } from './servicio/servicio.module';
+//import { ServicioModule } from './servicio/servicio.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FechaModule,
     ValoracionModule,
     TematicaModule,
-    ServicioModule,
+    //ServicioModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
