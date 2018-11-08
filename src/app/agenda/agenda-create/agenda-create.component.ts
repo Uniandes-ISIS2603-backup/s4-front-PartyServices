@@ -25,9 +25,11 @@ export class AgendaCreateComponent implements OnInit {
      ) { }
 
   ngOnInit() {
+    this.agenda=new Agenda();
   }
 
   crearAgenda() : Agenda{
+    console.log(this.agenda);
     this.agendaService.createAgenda( this.agenda.proveedorDTO,this.agenda )
       .subscribe(
         agenda=>{

@@ -1,3 +1,40 @@
+
+<h2 class="text-center card-title">Registro de una agenda</h2>
 <form name="agenda" (ngSubmit)="f.form.valid && crearAgenda()" #f="ngForm" novalidate>
-<label for="idProveedor">Id del proveedor</label>
-<form>
+<div class="form-row">
+    <div class="col">
+        <label for="jornadaLunesND"><b>Lunes:</b></label>
+    </div>
+    <div class="col">
+        <select title="jornadaLunesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaLunesND" [ngModelOptions]="{standalone: true}"  >
+            <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+            <option value="Manana" [ngValue]="Manana">&#9728; Manana</option >
+            <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+            <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+        </select>
+    </div>
+</div>
+<div class="form-row">
+    <div class="col">
+        <label for="jornadaMartesND"><b>Martes:</b></label>
+    </div>
+    <div class="col">
+        <select title="jornadaMartesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaMartesND" [ngModelOptions]="{standalone: true}"  >
+            <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+            <option value="Manana" [ngValue]="Manana">&#9728; Manana</option >
+            <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+            <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+        </select>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="row form-inline justify-content-center align-self-center">
+  <button type="submit" class="btn btn-primary">Crear</button>
+  <div class="divider"></div>
+  <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+</div>

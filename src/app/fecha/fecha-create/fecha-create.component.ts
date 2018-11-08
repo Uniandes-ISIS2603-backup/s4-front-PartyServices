@@ -52,6 +52,8 @@ export class FechaCreateComponent implements OnInit {
     this.fechaService.crearFecha(this.fecha,this.idAgenda)
       .subscribe((fecha)=>{
         this.fecha=fecha;
+        this.create.emit();
+        this.toastrService.success("La agenda fue creada", "Agenda creada");
       });
     return this.fecha;
   }
