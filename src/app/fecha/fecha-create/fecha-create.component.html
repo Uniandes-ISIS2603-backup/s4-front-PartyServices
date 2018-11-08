@@ -7,7 +7,7 @@
 
   <div class="form-group">
       <label for="jornada"><b>Jornada</b></label>
-      <input type="text"  name="jornada" class="form-control" id="jornada" [(ngModel)]="fecha.jornanda" 
+      <input type="text"  name="jornada" class="form-control" id="jornada" [(ngModel)]="fecha.jornada" 
           #jornada="ngModel" [ngClass]="{ 'is-invalid': f.submitted && jornada.invalid }" required>
       <div class="invalid-feedback">
           <div>Jornada inválida</div>
