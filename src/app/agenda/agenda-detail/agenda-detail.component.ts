@@ -20,7 +20,7 @@ export class AgendaDetailComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.idAgenda =+ this.route.snapshot.paramMap.get('id');
+    this.idAgenda = +this.route.snapshot.paramMap.get('id');
     this.getAgenda();
   }
 

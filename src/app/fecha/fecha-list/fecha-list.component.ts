@@ -24,7 +24,7 @@ export class FechaListComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.idAgenda =+ this.route.snapshot.paramMap.get('id');
+    this.idAgenda = +this.route.snapshot.paramMap.get('id');
     this.obtenerFechas();
   }
 

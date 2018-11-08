@@ -1,21 +1,14 @@
-<p>
-  fecha-create works!
-</p>
 
+<h2 class="text-center card-title">Registro de una fecha</h2>
 <form name="fecha" (ngSubmit)="f.form.valid && crearFecha()" #f="ngForm" novalidate>
- 
-
-  <div class="form-group">
-      <label for="jornada"><b>Jornada</b></label>
-      <input type="text"  name="jornada" class="form-control" id="jornada" [(ngModel)]="fecha.jornada" 
-          #jornada="ngModel" [ngClass]="{ 'is-invalid': f.submitted && jornada.invalid }" required>
-      <div class="invalid-feedback">
-          <div>Jornada inválida</div>
-      </div>
-  </div>
-
-  
-  
+<div class="form-group">
+<label for="jornada"><b>Jornada</b></label>
+  <select title="Selecciona la jornada"   class="custom-select" id="jornada" [(ngModel)]="fecha.jornada" [ngModelOptions]="{standalone: true}"  >
+    <option value="Manana" [ngValue]="Manana">&#9728; Manana</option >
+    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+  </select>
+</div>
 
 <div class="form-group">
   <label for="dia"><b>Fecha</b></label>
