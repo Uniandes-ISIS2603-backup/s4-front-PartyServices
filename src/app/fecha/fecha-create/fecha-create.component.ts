@@ -41,6 +41,7 @@ export class FechaCreateComponent implements OnInit {
   ngOnInit() {
     this.idAgenda =+ this.route.snapshot.paramMap.get('id');
     this.fecha=new Fecha();
+    this.fecha.jornada="Manana";
   }
 
 
