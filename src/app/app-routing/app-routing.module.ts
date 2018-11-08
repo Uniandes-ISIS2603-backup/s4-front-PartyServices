@@ -15,6 +15,7 @@ import { FechaDetailComponent } from '../fecha/fecha-detail/fecha-detail.compone
 
 import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
 import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
+import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
 
 const routes: Routes = [
 
@@ -44,11 +45,15 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'proveedor' ,
+        path: 'proveedores' ,
         children: [
             {
                 path: 'list',
                 component: ProveedorListComponent,
+            },
+            {
+                path: ':id',
+                component: ProveedorDetailComponent
             }
         ]
         },
