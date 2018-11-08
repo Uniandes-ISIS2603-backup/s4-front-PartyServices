@@ -7,7 +7,8 @@ import { TematicaDetail } from './tematica-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
-const tematicas = '/tematicas';
+const NOAPI_URL = "../../assets/";
+const tematicas = 'tematicas.json';
 
 
 /**
@@ -27,7 +28,7 @@ export class TematicaService {
     * @returns The list of servicios in real time
     */
     getTematicas(): Observable<Tematica[]> {
-        return this.http.get<Tematica[]>(API_URL + tematicas);
+        return this.http.get<Tematica[]>(NOAPI_URL + tematicas);
     }
 
     /**

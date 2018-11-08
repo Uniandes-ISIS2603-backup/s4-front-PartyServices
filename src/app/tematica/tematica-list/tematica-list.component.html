@@ -4,7 +4,7 @@
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Create an tematica</button>
+                    (click)="showHideCreate()">Crear una Temática</button>
             </div>
             <br>
             <br>
@@ -16,9 +16,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor = "let tematica of tematicas">
-                        <td style="cursor: pointer;">
-                <dd class="figure-caption" routerLink="/tematicas/{{tematica.id}}">{{tematica.name}}</dd>
-                </td>
+                         <td><span>{{tematica.id}}</span></td>
+                           <td>{{tematica.nombre}}</td>
                 <td>
                     <button [ngClass]="{ 'btn-primary': (!showEdit || tematica_edit_id != tematica.id), 'btn-danger': (showEdit && tematica_edit_id == tematica.id) }"
                         type="button" class="btn" (click)="showHideEdit(tematica.id)">Edit</button>
@@ -38,3 +37,13 @@
 
     </div>
 </div>
+
+<!-- <td style="cursor: pointer;">
+                <dd class="figure-caption" routerLink="/tematicas/{{tematica.id}}">{{tematica.name}}</dd> -->
+
+<!-- Esa es la forma legal de hacerlo  -->
+<!-- ksdakjkjd -->
+<!-- ksdakjkjd -->
+<!-- ksdakjkjd -->
+<!-- ksdakjkjd -->
+<!-- ksdakjkjd -->

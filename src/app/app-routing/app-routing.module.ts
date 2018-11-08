@@ -19,7 +19,7 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 
 import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
 import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
-//import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
+import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
 
 const routes: Routes = [
 
@@ -101,21 +101,18 @@ const routes: Routes = [
             }
         ]
     },
-    
-//    {
- //       path: 'servicios',
- //       children: [
- //           {
-  //              path: 'list',
-   //             component: ServicioListComponent 
-           // }
-        //    {
-          //      path: 'add',
-            //    component: ServicioCreateComponent,
-              //  runGuardsAndResolvers: 'always'
-            //}
-     //   ]
-   // },
+    {
+        path: 'servicio' ,
+        children: [
+            {
+                path: 'list',
+                component: ServicioListComponent,
+
+                pathMatch: 'full'
+
+            }
+        ]
+    },
     {
         path: 'tematica',
         children: [
