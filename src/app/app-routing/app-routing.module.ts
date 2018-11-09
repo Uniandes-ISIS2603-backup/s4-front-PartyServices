@@ -61,8 +61,31 @@ const routes: Routes = [
                 component: ProveedorListComponent,
             },
             {
-                path: ':id',
-                component: ProveedorDetailComponent
+                path: 'agenda' ,
+                children: [
+                    {
+                        path: ':id',
+                        component: AgendaDetailComponent,
+                        pathMatch: 'full',
+                    },
+                    {
+                        path: ':id/fecha',
+                        children:[
+                            {
+                                path: 'list',
+                                component: FechaListComponent,
+                                 pathMatch: 'full'
+                            },
+                            {
+                                path: ':idFecha',
+                                component: FechaDetailComponent,
+                                pathMatch: 'full',
+                            }
+                        ],
+                        
+                    }
+                    
+                ]
             }
         ]
         },
