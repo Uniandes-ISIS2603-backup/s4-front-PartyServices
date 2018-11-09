@@ -1,27 +1,31 @@
+
 <div><div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
+    <div class="col-md-6">
+        <table class="table table-bordered">
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Crear un Proveedor</button>
             </div>
-            <thead class="thead-dark">
+            <thead class="bg-dange">
                 <tr>
                   <th>Id</th>
                   <th>Nombre</th> 
                   <th>Constraseña</th>
                   <th>calificacion</th>
+                  <th>Agenda</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let proveedor of proveedores">
                     <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
+                        <dd class="figure-caption" routerLink="/proveedor/{{proveedor.id}}">{{proveedor.nombre}}</dd>
                     </td>
                     
                     <td>{{proveedor.contrasenia}}</td>
                     <td>{{proveedor.calificacion}}</td>
+                    
+          <td><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
                 </tr>
             </tbody>
         </table>
@@ -32,4 +36,5 @@
         </div>   
     </div>
 </div>
+
 

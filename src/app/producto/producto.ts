@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- export interface Producto 
+ export class Producto 
  {
     /**
      * El id del producto
