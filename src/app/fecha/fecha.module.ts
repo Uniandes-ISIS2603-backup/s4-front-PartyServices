@@ -17,6 +17,6 @@ import { FechaDiaComponent } from './fecha-dia/fecha-dia.component';
     NgbModule
   ],
   declarations: [FechaListComponent, FechaDetailComponent, FechaCreateComponent, FechaDiaComponent],
-  exports: [FechaListComponent, FechaDetailComponent]
+  exports: [FechaListComponent, FechaDetailComponent, FechaDiaComponent]
 })
 export class FechaModule { }

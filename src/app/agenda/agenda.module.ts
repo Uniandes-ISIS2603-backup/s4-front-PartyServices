@@ -5,12 +5,14 @@ import { AgendaCreateComponent } from '../Agenda/agenda-create/agenda-create.com
 import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FechaModule } from '../fecha/fecha.module';
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FechaModule
   ],
   declarations: [AgendaDetailComponent, AgendaCreateComponent],
   exports: [AgendaDetailComponent]
