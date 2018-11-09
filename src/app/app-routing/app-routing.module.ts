@@ -18,8 +18,11 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 
 
 import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
+import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
 import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+
+
 
 const routes: Routes = [
 
@@ -102,28 +105,31 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'tematica' ,
-        children: [
-            {
-                path: 'list',
-                component: TematicaListComponent,
-                pathMatch: 'full'
-
-            },
-        ]
-    },
-    {
         path: 'servicio' ,
         children: [
             {
                 path: 'list',
                 component: ServicioListComponent,
+
                 pathMatch: 'full'
 
             }
         ]
     },
-    
+    {
+        path: 'tematica',
+        children: [
+            {
+                path: 'list',
+                component: TematicaListComponent
+            },
+            {
+                path: ':id',
+                component: TematicaDetailComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
+    }
 ];
 
 @NgModule({

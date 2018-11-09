@@ -19,7 +19,7 @@ export class Fecha
     /**
      * Dia de la fecha
      */
-    dia : string;
+    dia : any;
 
     /**
      * Jorndada de la fecha

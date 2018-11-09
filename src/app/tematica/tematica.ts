@@ -1,20 +1,20 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
- export interface Tematica 
- {
+/**
+* This class represents an tematica of the BookStore. 
+* It contains all the information relevant to the tematica.
+*/
+export class Tematica {
     /**
-     * El id de la tematica
-     */
-    id : number ;
+    * The tematica's id
+    */
+    id: number;
 
     /**
-     * El nombre de la tematica
+    * The tematica's name
+    */
+    name: string;
+
+    /**
+     * The tematica's books
      */
-    nombre: string ;
- }
 
-
+}

@@ -21,7 +21,7 @@ export class FechaDetailComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.idFecha =+ this.route.snapshot.paramMap.get('idFecha');
+    this.idFecha = +this.route.snapshot.paramMap.get('idFecha');
     this.getFecha();
     this.getEventosFecha();
   }
