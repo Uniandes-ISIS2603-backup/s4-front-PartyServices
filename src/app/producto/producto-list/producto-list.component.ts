@@ -16,7 +16,10 @@ export class ProductoListComponent implements OnInit {
     * The list of books to display
     */
   productos: Producto[] ;
-
+/**
+    * Shows or hides the producto-create-component
+    */
+   showCreate: boolean;
   /**
     * The component's constructor
     */
@@ -32,22 +35,20 @@ export class ProductoListComponent implements OnInit {
     .subscribe(productos =>{this.productos = productos}) ;
   }
 
-
+    /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+}
+/**
+     * Esto inicializará el componente recuperando la lista de productos del servicio
+     * Este método se llamará justo cuando el componente sea creado. 
+     */
   ngOnInit() {
+    this.showCreate = false;
     this.getProductos() ;
-  /*  this.route.queryParams
-    .filter(params => params.allproductos)
-    .subscribe(params => {
-      console.log(params);
-      this.allproductos = params.allproductos ;
-    console.log(this.allproductos) ;
-    }) ;
-
-    if(this.allproductos == 'yes'){
-      console.log('allproductos') ;
-      this.getProductos ;
-    }
-*/
+ 
   }
 
 }
