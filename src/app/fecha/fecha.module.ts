@@ -7,6 +7,7 @@ import { FechaCreateComponent } from './fecha-create/fecha-create.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import { FechaDiaComponent } from './fecha-dia/fecha-dia.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     NgbModule
   ],
-  declarations: [FechaListComponent, FechaDetailComponent, FechaCreateComponent],
+  declarations: [FechaListComponent, FechaDetailComponent, FechaCreateComponent, FechaDiaComponent],
   exports: [FechaListComponent, FechaDetailComponent]
 })
 export class FechaModule { }

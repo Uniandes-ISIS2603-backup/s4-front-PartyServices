@@ -1,0 +1,37 @@
+<p>
+  fecha-dia works!
+</p>
+fechaManna:{{fechaManana?.id}}
+fechaTarde:{{fechaTarde?.id}}
+fechaNoche:{{fechaNoche?.id}}
+Eventos
+<br>
+fechaManna:{{fechaManana?.eventos?.get(0)?.nombre}}
+fechaTarde:{{fechaTarde?.eventos?.get(0)?.nombre}}
+fechaNoche:{{fechaNoche?.eventos?.get(0)?.nombre}}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Manana</th>
+      <th scope="col">Tarde</th>
+      <th scope="col">Noche</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of eventosManana">
+      <th scope="col">{{evento.nombre}}</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let evento of eventosTarde">
+      <th></th>
+        <th scope="col">{{evento.nombre}}</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let evento of eventosNoche">
+        <th></th>
+        <th></th>
+          <th scope="col">{{evento.nombre}}</th>
+        </tr>
+  </tbody>
+</table>

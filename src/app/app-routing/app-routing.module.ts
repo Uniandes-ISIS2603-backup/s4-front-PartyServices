@@ -20,6 +20,7 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
 import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
 import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
+import { FechaDiaComponent } from '../fecha/fecha-dia/fecha-dia.component';
 
 const routes: Routes = [
 
@@ -79,6 +80,11 @@ const routes: Routes = [
                             {
                                 path: ':idFecha',
                                 component: FechaDetailComponent,
+                                pathMatch: 'full',
+                            },
+                            {
+                                path: 'dia/:dia',
+                                component: FechaDiaComponent,
                                 pathMatch: 'full',
                             }
                         ],

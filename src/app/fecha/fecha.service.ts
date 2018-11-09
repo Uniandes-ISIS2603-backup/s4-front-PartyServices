@@ -60,4 +60,10 @@ export class FechaService {
     console.log(idAgenda);
     return this.http.post<Fecha>(API_URL+fecha+'/'+idAgenda,fechaO);
   }
+
+  getFechaByAgendaDiaJornada(agenda:number,dia:string,jornada:string):Observable<Fecha>{
+    return this.http.get<Fecha>(API_URL+fecha+'/'+agenda+'/'+dia+'/'+jornada);
+  }
+
+
 }
