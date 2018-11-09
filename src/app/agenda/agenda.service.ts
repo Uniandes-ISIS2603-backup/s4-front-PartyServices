@@ -28,9 +28,11 @@ export class AgendaService {
     return this.http.get<Agenda>(API_URL+agenda+'/'+idAgenda);
   }
 
-  createAgenda(idProveedor : number, agenda: Agenda) : Observable<Agenda>
+  createAgenda(idProveedor : number, agendaC: Agenda) : Observable<Agenda>
   {
-    return this.http.post<Agenda>(API_URL+agenda+'/'+idProveedor, agenda);
+    console.log(API_URL+agenda+'/'+idProveedor);
+    console.log(agendaC);
+    return this.http.post<Agenda>(API_URL+agenda+'/'+idProveedor, agendaC);
   }
 
 }
