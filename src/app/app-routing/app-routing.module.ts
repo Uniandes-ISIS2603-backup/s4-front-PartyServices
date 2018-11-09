@@ -81,11 +81,6 @@ const routes: Routes = [
                                 path: ':idFecha',
                                 component: FechaDetailComponent,
                                 pathMatch: 'full',
-                            },
-                            {
-                                path: 'dia/:dia',
-                                component: FechaDiaComponent,
-                                pathMatch: 'full',
                             }
                         ],
                         
