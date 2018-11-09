@@ -1,4 +1,4 @@
-<h1>Agenda del proveedor <span class="badge badge-secondary" style="background-color:#dc3545">PAPAS</span></h1>
+<h1>Agenda del proveedor <span class="badge badge-secondary" style="background-color:#dc3545">{{agenda?.proveedorDTO?.nombre}}</span></h1>
 Id: {{agenda?.id}}
 <div class="row" style="padding:20px">
  
@@ -50,9 +50,14 @@ Id: {{agenda?.id}}
       <h2 routerLink="/proveedor/agenda/{{agenda?.id}}/fecha/list">Ver mis fechas</h2>
     </div>
     <div class="row">
-      <img style="width:420px; height: 420px" class="mw-100" alt="Responsive image" src="http://mondovinofilm.com/wp-content/uploads/2018/09/Calendario-Octubre-2018-Para-Imprimir-Pdf.jpg" alt="" class="src">
+        <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="clickCalendar()"></ngb-datepicker>
+        
+      </div>
+    <div class="row">
+        <app-fecha-dia [dia]="model.year+'-'+model.month+'-'+model.day"></app-fecha-dia>
     </div>
   </div>
 </div>
 
 
+<app-agenda-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>

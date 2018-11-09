@@ -15,6 +15,9 @@ export class AgendaCreateComponent implements OnInit {
    */
   public agenda : Agenda;
 
+
+  public proveedorId: number;
+
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
@@ -25,10 +28,19 @@ export class AgendaCreateComponent implements OnInit {
      ) { }
 
   ngOnInit() {
+    this.agenda=new Agenda();
+    this.agenda.jornadaLunesND="Ninguna";
+    this.agenda.jornadaMartesND="Ninguna";
+    this.agenda.jornadaMiercolesND="Ninguna";
+    this.agenda.jornadaJuevesND="Ninguna";
+    this.agenda.jornadaViernesND="Ninguna";
+    this.agenda.jornadaSabadoND="Ninguna";
+    this.agenda.jornadaDomingoND="Ninguna";
   }
 
   crearAgenda() : Agenda{
-    this.agendaService.createAgenda( this.agenda.proveedorDTO,this.agenda )
+    console.log(this.agenda);
+    this.agendaService.createAgenda( this.proveedorId,this.agenda )
       .subscribe(
         agenda=>{
           this.agenda=agenda;
