@@ -61,7 +61,11 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: ProveedorListComponent,
+                component: ProveedorListComponent
+            },
+            {
+                path: ':id',
+                component: ProveedorDetailComponent
             },
             {
                 path: 'agenda' ,
