@@ -50,8 +50,8 @@ Id: {{agenda?.id}}
       <h2 routerLink="/proveedor/agenda/{{agenda?.id}}/fecha/list">Ver mis fechas</h2>
     </div>
     <div class="row">
-        <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
-        <pre>Model: {{ model | json }}</pre>
+        <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="clickCalendar()"></ngb-datepicker>
+        
       </div>
     <div class="row">
         <app-fecha-dia [dia]="model.year+'-'+model.month+'-'+model.day"></app-fecha-dia>

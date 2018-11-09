@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Agenda } from '../agenda';
 import { AgendaService } from '../agenda.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { FechaDiaComponent } from 'src/app/fecha/fecha-dia/fecha-dia.component';
 
 @Component({
   selector: 'app-agenda-detail',
@@ -12,6 +13,7 @@ import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 export class AgendaDetailComponent implements OnInit {
 
   @Input() agenda : Agenda;
+  @ViewChild(FechaDiaComponent) child:FechaDiaComponent;
   idAgenda : number;
   model: NgbDateStruct;
   date: {year: number, month: number};
@@ -34,6 +36,10 @@ export class AgendaDetailComponent implements OnInit {
       .subscribe( agenda =>{
         this.agenda=agenda;
       });
+  }
+
+  clickCalendar(){
+    this.child.ngOnInit();
   }
 
 }
