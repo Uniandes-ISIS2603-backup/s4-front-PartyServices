@@ -20,7 +20,9 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
 import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
 import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
-import { FechaDiaComponent } from '../fecha/fecha-dia/fecha-dia.component';
+import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+
+
 
 const routes: Routes = [
 
@@ -59,7 +61,11 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: ProveedorListComponent,
+                component: ProveedorListComponent
+            },
+            {
+                path: ':id',
+                component: ProveedorDetailComponent
             },
             {
                 path: 'agenda' ,
