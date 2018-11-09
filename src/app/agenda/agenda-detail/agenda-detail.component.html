@@ -50,8 +50,7 @@ Id: {{agenda?.id}}
       <h2 routerLink="/proveedor/agenda/{{agenda?.id}}/fecha/list">Ver mis fechas</h2>
     </div>
     <div class="row">
-      <img style="width:420px; height: 420px" class="mw-100" alt="Responsive image" src="http://mondovinofilm.com/wp-content/uploads/2018/09/Calendario-Octubre-2018-Para-Imprimir-Pdf.jpg" alt="" class="src">
-    </div>
+        <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker></div>
   </div>
 </div>
 

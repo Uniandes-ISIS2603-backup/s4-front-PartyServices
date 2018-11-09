@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Agenda } from '../agenda';
 import { AgendaService } from '../agenda.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-agenda-detail',
@@ -12,6 +13,9 @@ export class AgendaDetailComponent implements OnInit {
 
   @Input() agenda : Agenda;
   idAgenda : number;
+
+  model: NgbDateStruct;
+  date: {year: number, month: number};
 
   constructor(
       private agendaService : AgendaService,

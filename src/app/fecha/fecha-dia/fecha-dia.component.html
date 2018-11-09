@@ -19,19 +19,19 @@ fechaNoche:{{fechaNoche?.eventos?.get(0)?.nombre}}
   </thead>
   <tbody>
     <tr *ngFor="let evento of eventosManana">
-      <th scope="col">{{evento.nombre}}</th>
-      <th></th>
-      <th></th>
+      <td scope="col" >{{evento.nombre}}</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr *ngFor="let evento of eventosTarde">
-      <th></th>
-        <th scope="col">{{evento.nombre}}</th>
-        <th></th>
+      <td></td>
+        <td scope="col">{{evento.nombre}}</td>
+        <td></td>
       </tr>
       <tr *ngFor="let evento of eventosNoche">
-        <th></th>
-        <th></th>
-          <th scope="col">{{evento.nombre}}</th>
+        <td></td>
+        <td></td>
+          <td scope="col">{{evento.nombre}}</td>
         </tr>
   </tbody>
 </table>
