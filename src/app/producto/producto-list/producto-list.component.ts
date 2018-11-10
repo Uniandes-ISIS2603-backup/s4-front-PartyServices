@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-//import 'rxjs/add/operator/filter';
-
 import {Producto} from '../../producto/producto' ;
 import {ProductoService} from '../../producto/producto.service' ;
 @Component({
@@ -13,7 +10,7 @@ export class ProductoListComponent implements OnInit {
 
 
    /**
-    * The list of books to display
+    * The list of products to display
     */
   productos: Producto[] ;
 /**
@@ -22,13 +19,8 @@ export class ProductoListComponent implements OnInit {
    showCreate: boolean;
   /**
     * The component's constructor
-    */
-   /*, private route: ActivatedRoute
    */
   constructor(private productoService: ProductoService) { }
-
- // allproductos: string = 'no' ;
-
 
   getProductos(): void{
     this.productoService.getProductos()
