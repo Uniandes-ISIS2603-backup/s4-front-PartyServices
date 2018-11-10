@@ -14,6 +14,7 @@
                         <thead class="bg-danger">
                             <tr>
                                 <th class="h4 theadList">Nombre</th> 
+                                <th class="h4 theadList">Calificacion</th>
                                 <th class="h4 theadList">Agenda</th>
                             </tr>
                         </thead>
@@ -26,14 +27,14 @@
                     
                     <td>{{proveedor.calificacion}}</td>
                     
-          <td><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
+          <td style="cursor: pointer;"><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
                 </tr>
             </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-9">
             
             <div *ngIf="showCreate">
                 <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
