@@ -1,5 +1,5 @@
 
-<table class="table">
+<table class="table" *ngIf="eventosManana.length != 0 || eventosTarde.length != 0 || eventosNoche.length != 0">
   <thead>
     <tr>
       <th scope="col"><img src="../../../assets/img/Manana.png" class="iconoJornada" alt=""><br>Manana</th>
@@ -25,17 +25,5 @@
         </tr>
   </tbody>
 </table>
+<span *ngIf="eventosManana.length == 0 || eventosTarde.length == 0 || eventosNoche.length == 0">No tienes eventos en esta fecha</span>
 
-
-<br>
-<br>
-<br>
-Dia:{{dia}}
-fechaManna:{{fechaManana?.id}}
-fechaTarde:{{fechaTarde?.id}}
-fechaNoche:{{fechaNoche?.id}}
-Eventos
-<br>
-fechaManna:{{fechaManana?.eventos?.get(0)?.nombre}}
-fechaTarde:{{fechaTarde?.eventos?.get(0)?.nombre}}
-fechaNoche:{{fechaNoche?.eventos?.get(0)?.nombre}}
