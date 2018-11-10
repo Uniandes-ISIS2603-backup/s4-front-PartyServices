@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-//import 'rxjs/add/operator/filter';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import {Valoracion} from '../../valoracion/valoracion' ;
 import {ValoracionService} from '../../valoracion/valoracion.service' ;
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-valoracion-list',
   templateUrl: './valoracion-list.component.html',
@@ -12,27 +13,41 @@ import {ValoracionService} from '../../valoracion/valoracion.service' ;
 export class ValoracionListComponent implements OnInit {
 
 
+  @Input() valoracion : Valoracion;
+
+  //idValoracion : number;
+  public idProveedor : number;
+
+ 
    
-  valoraciones: Valoracion[] ;
+  @Input() valoraciones: Valoracion[] ;
 
   /**
     * The component's constructor
     */
    /*, private route: ActivatedRoute
    */
-  constructor(private valoracionService: ValoracionService) { }
+  constructor(
+  private valoracionService: ValoracionService,
+  private route: ActivatedRoute,
+  private router: Router
+      ) { }
+  
+  
 
 
 
   getValoraciones(): void{
-    this.valoracionService.getValoraciones()
+    this.valoracionService.getValoraciones(this.idProveedor)
     .subscribe(valoraciones =>{this.valoraciones = valoraciones}) ;
   }
 
 
   ngOnInit() {
+    this.idProveedor = +this.route.snapshot.paramMap.get('id');
+    //this.idProveedor = 4;
+    console.log(this.idProveedor);
     this.getValoraciones() ;
-  
   }
 
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- export interface Valoracion 
+ export class Valoracion 
  {
     /**
      * El id del producto
@@ -27,9 +27,15 @@
      calificacion: number ;
 
      /**
-      * Proveedor del producto
+      * Proveedor calificado
       */
-        proveedor: any ;
+     proveedor: any ;
+     
+     
+    /**
+     * Cliente dde la valoracion
+     */
+     cliente : any;
  }
 
 

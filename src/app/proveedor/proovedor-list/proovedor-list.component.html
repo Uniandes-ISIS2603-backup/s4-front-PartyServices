@@ -16,6 +16,8 @@
                                 <th class="h4 theadList">Nombre</th> 
                                 <th class="h4 theadList">Calificacion</th>
                                 <th class="h4 theadList">Agenda</th>
+                                <th class="h4 theadList">Calificacion</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -27,8 +29,11 @@
                           </td>
                     
                     <td>{{proveedor.calificacion}}</td>
-                    
+
           <td style="cursor: pointer;"><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
+
+                                    <td routerLink="/proveedor/{{proveedor.id}}/valoracion/list">Ver mis valoraciones</td>
+
                 </tr>
             </tbody>
                     </table>
