@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h2 class="text-center card-title">Registrarse como Proveedor</h2>
                 <br>
-                <form name="proveedor" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
+                <form *ngIf="!estaEnAgenda" name="proveedor" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
                     <div class="form-group">
                         <label for="proveedorNombre"><b>Nombre de Usuario</b></label>
                         <input type="text" name="proveedorNombre" class="form-control" id="proveedorLogin" [(ngModel)]="proveedor.nombre"
@@ -27,13 +27,16 @@
 
          
                             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="submit" class="btn btn-primary">Continuar</button>
                 <div class="divider"></div>
                 <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
             </div>
         </form>
+        <app-agenda-create *ngIf="estaEnAgenda" [proveedorId]="proveedor.id"(cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>
+
     </div>
             </div>
         </div>
     <div class="col-3"></div>
-</div>
+    {{proveedor.id}}
+   </div>

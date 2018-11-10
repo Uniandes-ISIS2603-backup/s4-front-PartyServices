@@ -32,6 +32,8 @@ export class ProveedorCreateComponent implements OnInit {
      */
      proveedor: Proveedor;
      
+    estaEnAgenda:boolean;
+
      /**
     * The output which tells the parent component
     * that the user no longer wants to create an proveedor
@@ -70,15 +72,23 @@ export class ProveedorCreateComponent implements OnInit {
         this.proveedorService.createProveedor(this.proveedor)
             .subscribe((proveedor) => {
                 this.proveedor = proveedor;
-                this.create.emit();
+                //this.create.emit();
                 this.toastrService.success("El proveedor ha sido creado satisfactoriamente.", "Crear proveedor");
                 
             });
+            this.pasarAAgenda();
             return this.proveedor;
     }
 
   ngOnInit() {
+      this.estaEnAgenda=false;
       this.proveedor = new Proveedor();
+  }
+  pasarAAgenda(){
+      this.estaEnAgenda=true;
+  }
+  finalizacion(){
+      this.create.emit();
   }
 
 }
