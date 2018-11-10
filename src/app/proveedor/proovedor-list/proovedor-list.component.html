@@ -12,7 +12,7 @@
                 <div class="card-body">       
                     <table class="table table-striped">
                         <thead class="bg-danger">
-                            <tr>
+                            <tr><th class="h4 theadList">ID</th> 
                                 <th class="h4 theadList">Nombre</th> 
                                 <th class="h4 theadList">Calificacion</th>
                                 <th class="h4 theadList">Agenda</th>
@@ -21,6 +21,7 @@
                         <tbody>
                             <tr *ngFor = "let proveedor of proveedores"
                                 (click)="onSelected(author.id)">
+                            <td>{{proveedor.id}}</td>
                             <td style="cursor: pointer;">
                                 <dd class="figure-caption nombreProveedor" routerLink="/proveedor/{{proveedor.id}}">{{proveedor.nombre}}</dd>
                           </td>
@@ -38,6 +39,7 @@
             
             <div *ngIf="showCreate">
                 <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+                <app-agenda-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>
             </div>
         </div> 
     </div>
