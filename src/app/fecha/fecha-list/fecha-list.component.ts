@@ -31,7 +31,7 @@ export class FechaListComponent implements OnInit {
   obtenerFechas(){
     this.fechaService.getFechas(this.idAgenda)
       .subscribe(fechas => {
-        this.fechas=fechas;
+       this.fechas=fechas;
       }
       );
   }

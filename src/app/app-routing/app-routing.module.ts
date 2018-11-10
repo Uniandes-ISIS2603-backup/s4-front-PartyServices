@@ -66,7 +66,18 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ProveedorDetailComponent
-            },
+            },{
+           path: ':id/valoracion' ,
+           children: [
+            {
+                path: 'list',
+                component: ValoracionListComponent,
+
+                pathMatch: 'full'
+
+            }
+              ]
+             },
             {
                 path: 'agenda' ,
                 children: [
@@ -96,18 +107,7 @@ const routes: Routes = [
             }
         ]
         },
-        {
-        path: 'valoracion' ,
-        children: [
-            {
-                path: 'list',
-                component: ValoracionListComponent,
-
-                pathMatch: 'full'
-
-            }
-        ]
-    },
+        
     {
         path: 'servicio' ,
         children: [

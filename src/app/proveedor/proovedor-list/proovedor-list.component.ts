@@ -12,11 +12,6 @@ import {ProveedorService} from '../../proveedor/proveedor.service' ;
 export class ProveedorListComponent implements OnInit {
 
 
-   /**
-    * The list of books to display
-    */
-  proveedores: Proveedor[] ;
-
   /**
     * The component's constructor
     */
