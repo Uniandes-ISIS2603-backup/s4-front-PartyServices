@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 import { AgendaService } from '../agenda.service';
 import { Agenda } from '../agenda';
 import { ToastrService } from 'ngx-toastr';
@@ -16,7 +16,7 @@ export class AgendaCreateComponent implements OnInit {
   public agenda : Agenda;
 
 
-  public proveedorId: number;
+  @Input()public proveedorId: number;
 
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();

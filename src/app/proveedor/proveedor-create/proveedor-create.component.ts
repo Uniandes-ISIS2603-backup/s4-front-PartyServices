@@ -70,7 +70,7 @@ export class ProveedorCreateComponent implements OnInit {
         this.proveedorService.createProveedor(this.proveedor)
             .subscribe((proveedor) => {
                 this.proveedor = proveedor;
-                this.create.emit();
+                //this.create.emit();
                 this.toastrService.success("El proveedor ha sido creado satisfactoriamente.", "Crear proveedor");
                 
             });

@@ -36,4 +36,6 @@
             </div>
         </div>
     <div class="col-3"></div>
+    {{proveedor.id}}
+    <app-agenda-create [dia]="proveedor.id"(cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>
 </div>
