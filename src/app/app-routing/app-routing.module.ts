@@ -16,7 +16,8 @@ import { FechaDetailComponent } from '../fecha/fecha-detail/fecha-detail.compone
 import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 
-
+import {NotificacionListComponent} from '../notificacion/notificacion-list/notificacion-list.component';
+import {NotificacionDetailComponent} from '../notificacion/notificacion-detail/notificacion-detail.component';
 import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
 import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
 import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
@@ -131,6 +132,19 @@ const routes: Routes = [
                 path: ':id',
                 component: TematicaDetailComponent,
                 runGuardsAndResolvers: 'always'
+            }
+        ]
+    },
+    {
+        path: 'notificacion',
+        children: [
+            {
+                path: 'list',
+                component: NotificacionListComponent
+            },
+            {
+                path: ':id',
+                component: NotificacionDetailComponent
             }
         ]
     }
