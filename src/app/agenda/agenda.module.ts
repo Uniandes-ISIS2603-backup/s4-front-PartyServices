@@ -15,6 +15,6 @@ import { FechaModule } from '../fecha/fecha.module';
     FechaModule
   ],
   declarations: [AgendaDetailComponent, AgendaCreateComponent],
-  exports: [AgendaDetailComponent]
+  exports: [AgendaDetailComponent,AgendaCreateComponent]
 })
 export class AgendaModule { }
