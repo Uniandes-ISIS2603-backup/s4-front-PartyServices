@@ -29,4 +29,9 @@ export class ProductoService {
     getProductoDetail(nombre) :Observable<Producto>{
         return this.http.get<Producto>(API_URL + productos + '/' + nombre);
     }
+
+    createProducto(producto: Producto):Observable<Producto>
+    {
+        return this.http.post<Producto>(API_URL + productos, producto) ;
+    }
 }

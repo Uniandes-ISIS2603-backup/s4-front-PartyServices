@@ -1,33 +1,33 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
-import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
-import {ProveedorListComponent} from '../proveedor/proovedor-list/proovedor-list.component';
-import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component'
+import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
+import { ProveedorListComponent } from '../proveedor/proovedor-list/proovedor-list.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component'
 
-import {ValoracionListComponent} from '../valoracion/valoracion-list/valoracion-list.component';
+import { ValoracionListComponent } from '../valoracion/valoracion-list/valoracion-list.component';
 
 
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { FechaListComponent } from '../fecha/fecha-list/fecha-list.component';
 import { FechaDetailComponent } from '../fecha/fecha-detail/fecha-detail.component';
 
-import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
+import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 
 
-import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
-import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
-import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
-import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
-
-
+import { TematicaListComponent } from '../tematica/tematica-list/tematica-list.component';
+import { TematicaDetailComponent } from '../tematica/tematica-detail/tematica-detail.component';
+import { ServicioListComponent } from '../servicio/servicio-list/servicio-list.component';
+import { EventoListComponent } from '../evento/evento-list/evento-list.component';
+import { EventoDetailComponent } from '../evento/evento-detail/evento-detail.component';
+import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
 
 const routes: Routes = [
 
     {
-        path: 'clientes', 
+        path: 'clientes',
         children: [
             {
                 path: 'list',
@@ -38,10 +38,10 @@ const routes: Routes = [
                 component: ClienteDetailComponent
             }
         ]
-        
+
     },
     {
-        path: 'producto' ,
+        path: 'producto',
         children: [
             {
                 path: 'list',
@@ -50,14 +50,34 @@ const routes: Routes = [
 
             },
             {
-                path: ':nombre' ,
+                path: ':nombre',
                 component: ProductoDetailComponent,
-                
+
             }
         ]
     },
+
     {
-        path: 'proveedor' ,
+        path: 'evento',
+        children: [
+            {
+                path: 'list',
+                component: EventoListComponent,
+                pathMatch: 'full'
+
+            },
+            {
+                path: ':nombre',
+                component: EventoDetailComponent,
+    
+            }
+
+        ]
+
+    }
+    ,
+    {
+        path: 'proveedor',
         children: [
             {
                 path: 'list',
@@ -68,7 +88,7 @@ const routes: Routes = [
                 component: ProveedorDetailComponent
             },
             {
-                path: 'agenda' ,
+                path: 'agenda',
                 children: [
                     {
                         path: ':id',
@@ -77,11 +97,11 @@ const routes: Routes = [
                     },
                     {
                         path: ':id/fecha',
-                        children:[
+                        children: [
                             {
                                 path: 'list',
                                 component: FechaListComponent,
-                                 pathMatch: 'full'
+                                pathMatch: 'full'
                             },
                             {
                                 path: ':idFecha',
@@ -89,15 +109,15 @@ const routes: Routes = [
                                 pathMatch: 'full',
                             }
                         ],
-                        
+
                     }
-                    
+
                 ]
             }
         ]
-        },
-        {
-        path: 'valoracion' ,
+    },
+    {
+        path: 'valoracion',
         children: [
             {
                 path: 'list',
@@ -109,7 +129,7 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'servicio' ,
+        path: 'servicio',
         children: [
             {
                 path: 'list',
