@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let valoracion of valoraciones">
+        <tr *ngFor="let valoracion of valoraciones" routerLink="/proveedor/{{valoracion.proveedor.id}}/valoracion/{{valoracion.id}}">
           <td><span>{{valoracion.id}}</span></td>
           <td>{{valoracion.nombre}}</td>
           <td>{{valoracion.comentario}}</td>
