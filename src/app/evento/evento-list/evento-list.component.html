@@ -16,7 +16,11 @@
           </tbody>
         </table>
       </div>
-      
+      <div class="col-md-3 align-self-center">
+          <button [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }" 
+          type="button" class="btn" (click)="showHideCreate()">Agregar evento</button>
+          <div *ngIf="showCreate">
+              <app-evento-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-evento-create> 
+            </div>
     </div>
-  
   </div>

@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EventoService } from './evento.service';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
+import { EventoCreateComponent } from './evento-create/evento-create.component';
 
 @NgModule({
   imports: [
@@ -18,9 +19,9 @@ import { EventoDetailComponent } from './evento-detail/evento-detail.component';
     FormsModule,
     NgbModule
   ],
-  declarations: [EventoListComponent, EventoDetailComponent],
+  declarations: [EventoListComponent, EventoDetailComponent, EventoCreateComponent],
   providers: [EventoService],
-  exports: [EventoListComponent]
+  exports: [EventoListComponent, EventoDetailComponent, EventoCreateComponent]
 })
 export class EventoModule { }
 

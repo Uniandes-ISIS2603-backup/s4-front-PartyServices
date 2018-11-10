@@ -18,8 +18,9 @@ export class EventoListComponent implements OnInit {
       */
   showCreate: boolean;
 
-
-
+/**
+    * The component's constructor
+   */
   constructor(private eventoService: EventoService) { }
 
   getEventos(): void {
@@ -27,8 +28,15 @@ export class EventoListComponent implements OnInit {
       .subscribe(eventos => { this.eventos = eventos });
   }
 
+   /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+}
 
   ngOnInit() {
+    this.showCreate = false ;
     this.getEventos();
   }
 
