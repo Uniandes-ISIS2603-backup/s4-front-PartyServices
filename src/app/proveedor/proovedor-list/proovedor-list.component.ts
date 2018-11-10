@@ -12,18 +12,19 @@ import {ProveedorService} from '../../proveedor/proveedor.service' ;
 export class ProveedorListComponent implements OnInit {
 
 
-   /**
-    * The list of books to display
-    */
-  proveedores: Proveedor[] ;
-
   /**
     * The component's constructor
     */
    /*, private route: ActivatedRoute
    */
   constructor(private proveedorService: ProveedorService) { }
+   
+   showCreate: boolean;
 
+   /**
+    * The list of proveedores to display
+    */
+  proveedores: Proveedor[] ;
 
 
 
@@ -32,10 +33,19 @@ export class ProveedorListComponent implements OnInit {
     .subscribe(proveedores =>{this.proveedores = proveedores}) ;
   }
 
+    /**
+    * Shows or hides the create component
+    */
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+    }
 
   ngOnInit() {
+      
+    this.showCreate = false;
     this.getProveedores() ;
 
   }
+  
 
 }

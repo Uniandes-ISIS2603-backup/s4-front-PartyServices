@@ -9,4 +9,3 @@ export class ClienteDetail extends Cliente{
      valoraciones: Valoracion[];
 }
 
-
