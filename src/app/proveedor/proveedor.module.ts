@@ -9,6 +9,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgendaModule } from '../agenda/agenda.module';
+import { ValoracionModule } from '../valoracion/valoracion.module';
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        AgendaModule,
+        ValoracionModule
      
   ],
   declarations: [

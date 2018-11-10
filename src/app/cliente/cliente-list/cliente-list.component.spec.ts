@@ -17,7 +17,7 @@ describe('ClienteListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppRoutingModule, HttpClientModule, AppModule],
-      declarations: [ ClienteListComponent ]
+      declarations: [ ClienteListComponent ],
       providers: [{provide: APP_BASE_HREF, useValue: ''}, ClienteService]
     })
     .compileComponents();

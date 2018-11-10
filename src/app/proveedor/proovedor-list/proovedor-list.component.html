@@ -3,7 +3,7 @@
         <div class="col-4">
             <br>
             <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                <button [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Registrarse</button>
             </div>           
             <br>
@@ -12,31 +12,38 @@
                 <div class="card-body">       
                     <table class="table table-striped">
                         <thead class="bg-danger">
-                            <tr>
+                            <tr><th class="h4 theadList">ID</th> 
                                 <th class="h4 theadList">Nombre</th> 
+                                <th class="h4 theadList">Calificacion</th>
                                 <th class="h4 theadList">Agenda</th>
+                                <th class="h4 theadList">Calificacion</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor = "let proveedor of proveedores"
                                 (click)="onSelected(author.id)">
+                            <td>{{proveedor.id}}</td>
                             <td style="cursor: pointer;">
                                 <dd class="figure-caption nombreProveedor" routerLink="/proveedor/{{proveedor.id}}">{{proveedor.nombre}}</dd>
                           </td>
                     
                     <td>{{proveedor.calificacion}}</td>
-                    
-          <td><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
+
+          <td style="cursor: pointer;"><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></td>
+
+                                    <td routerLink="/proveedor/{{proveedor.id}}/valoracion/list">Ver mis valoraciones</td>
+
                 </tr>
             </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+                <app-proveedor-create (cancel)="showHideCreate()" (create)="finalizacion()"></app-proveedor-create>
             </div>
         </div> 
     </div>

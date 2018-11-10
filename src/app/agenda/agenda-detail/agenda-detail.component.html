@@ -1,42 +1,45 @@
 <h1>Agenda del proveedor <span class="badge badge-secondary" style="background-color:#dc3545">{{agenda?.proveedorDTO?.nombre}}</span></h1>
-Id: {{agenda?.id}}
+
 <div class="row" style="padding:20px">
  
-  <div class="col">
+  <div class="col-md-4">
     <table class="table">
       <tbody>
         <tr style="background-color: #dc3545;color:aliceblue">
          
-            <td> <b>Id agenda:</b> </td>
-            <td> <b>{{agenda?.id}} </b></td>
+          <td colspan="2">
+              <b>
+                  Jornadas no laborales
+              </b>
+          </td>
           
         </tr>
         <tr>
-            <td><b>Jornada lunes no trabaja:</b> </td> 
+            <td><b>Lunes:</b> </td> 
             <td>{{agenda?.jornadaLunesND}}</td>
         </tr>
         <tr>
-          <td><b>Jornada martes no trabaja:</b> </td>
+          <td><b>Martes:</b> </td>
           <td>{{agenda?.jornadaMartesND}}</td>
         </tr>
         <tr>
-            <td><b>Jornada miercoles no trabaja:</b> </td>
+            <td><b>Miercoles:</b> </td>
             <td>{{agenda?.jornadaMiercolesND}}</td>
         </tr>
         <tr>
-            <td><b>Jornada jueves no trabaja:</b> </td>
+            <td><b>Jueves:</b> </td>
             <td>{{agenda?.jornadaJuevesND}}</td>
         </tr>
         <tr>
-            <td><b>Jornada viernes no trabaja:</b> </td>
+            <td><b>Viernes:</b> </td>
             <td>{{agenda?.jornadaViernesND}}</td>
         </tr>
         <tr>
-            <td><b>Jornada sabado no trabaja:</b> </td>
+            <td><b>Sabado:</b> </td>
             <td>{{agenda?.jornadaSabadoND}}</td>
         </tr>
         <tr>
-            <td><b>Jornada domingo no trabaja:</b> </td>
+            <td><b>Domingo:</b> </td>
             <td>{{agenda?.jornadaDomingoND}}</td>
         </tr>
       </tbody>
@@ -60,4 +63,6 @@ Id: {{agenda?.id}}
 </div>
 
 
-<app-agenda-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>
+ <!--
+   <app-agenda-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-agenda-create>
+ -->
