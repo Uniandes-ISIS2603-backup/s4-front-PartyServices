@@ -18,6 +18,7 @@ import { ValoracionModule } from './valoracion/valoracion.module';
 import { TematicaModule } from './tematica/tematica.module';
 import { ServicioModule } from './servicio/servicio.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventoModule } from './evento/evento.module' ;
 @NgModule({
   declarations: [
     AppComponent
@@ -32,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ValoracionModule,
     TematicaModule,
     ServicioModule,
+    EventoModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

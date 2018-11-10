@@ -1,3 +1,41 @@
-<p>
-  producto-create works!
-</p>
+<form name="producto" (ngSubmit)="f.form.valid && createProducto()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="productoNombre"><b>Nombre del producto: </b></label>
+        <input type="text" name="productoNombre" class="form-control" id="productoNombre" [(ngModel)]="producto.nombre"
+            #productoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoNombre.invalid }" required>
+        <div class="invalid-feedback">
+            <div>No se ingresó un nombre de producto válido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productoTipoServicio"><b>Tipo de servicio:</b></label>
+        <input type="text" name="productoTipoServicio" class="form-control" id="productoTipoServicio" [(ngModel)]="producto.tipoServicio"
+            #productoTipoServicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoTipoServicio.invalid }" required>
+        <div class="invalid-feedback">
+            <div>No se ingresó un tipo de servicio válido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productoCosto"><b>Costo:</b></label>
+        <input type="number" name="productoCosto" class="form-control" id="productoCosto" [(ngModel)]="producto.costo"
+            #productoCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoCosto.invalid }" required>
+        <div class="invalid-feedback">
+            <div>No se ingresó un costo valido</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productoCantidad"><b>Cantidad:</b></label>
+        <input type="number" name="productoCantidad" class="form-control" id="productoCantidad" [(ngModel)]="producto.cantidad"
+            #productoCantidad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoCantidad.invalid }" required>
+        <div class="invalid-feedback">
+            <div>No se ingresó una cantidad valida</div>
+        </div>
+    </div>
+
+
+    <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-success">Agregar</button>
+        <div class="divider"></div>
+        <button type="button"  (click)="cancelCreation()" class="btn btn-danger" id="btnCancelarAgregarProd">Cancelar</button>
+    </div>
+</form>
