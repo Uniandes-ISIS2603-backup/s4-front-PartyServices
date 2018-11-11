@@ -1,37 +1,45 @@
 import { Injectable } from '@angular/core';
-import {Observable}from 'rxjs' ;
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import {Producto} from './producto';
+import { Producto } from './producto';
 
 
-import {environment} from '../../environments/environment' ;
+import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
-const productos = '/producto' ;
+const productos = '/producto';
 
 @Injectable()
 export class ProductoService {
 
-   /**
-    * Constructor of the service
-    * @param http The HttpClient - This is necessary in order to perform requests
-    */
-  constructor(private http: HttpClient) { }
+    /**
+     * Constructor of the service
+     * @param http The HttpClient - This is necessary in order to perform requests
+     */
+    constructor(private http: HttpClient) { }
 
 
-
-
-  getProductos() : Observable<Producto[]> {
+    /**
+     * Metodo que obtiene todos los eventos del back, en la base de datos
+     * @returns Una lista de productos 
+     */
+    getProductos(): Observable<Producto[]> {
         return this.http.get<Producto[]>(API_URL + productos);
     }
 
-
-    getProductoDetail(nombre) :Observable<Producto>{
+    /**
+     * Metodo que obtiene toda la información de un producto por su nombre
+     * @returns EL producto encontrado
+     */
+    getProductoDetail(nombre): Observable<Producto> {
         return this.http.get<Producto>(API_URL + productos + '/' + nombre);
     }
 
-    createProducto(producto: Producto):Observable<Producto>
-    {
-        return this.http.post<Producto>(API_URL + productos, producto) ;
+    /**
+     * Metodo que crea un nuevo producto en la base de datos.
+     * @param producto 
+     */
+    createProducto(producto: Producto): Observable<Producto> {
+        return this.http.post<Producto>(API_URL + productos, producto);
     }
 }

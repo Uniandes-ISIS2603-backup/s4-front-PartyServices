@@ -10,6 +10,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {TematicaDetailComponent} from './tematica-detail/tematica-detail.component';
 import {TematicaCreateComponent} from './tematica-create/tematica-create.component';
 import {TematicaEditComponent} from './tematica-edit/tematica-edit.component';
+import { SugerenciaModule } from '../sugerencia/sugerencia.module';
+
 //import {ServicioModule} from '../servicio/servicio.module';
 
 @NgModule({
@@ -18,7 +20,8 @@ import {TematicaEditComponent} from './tematica-edit/tematica-edit.component';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        SugerenciaModule
         //ServicioModule
     ],
     declarations: [TematicaListComponent, TematicaDetailComponent, TematicaCreateComponent, TematicaEditComponent],

@@ -5,6 +5,8 @@ import { ValoracionService} from './valoracion.service' ;
 import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ValoracionDetailComponent } from './valoracion-detail/valoracion-detail.component';
+import { ValoracionCreateComponent } from './valoracion-create/valoracion-create.component';
 
 
 @NgModule({
@@ -16,10 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   declarations: [
-   ValoracionListComponent
+   ValoracionListComponent, ValoracionDetailComponent, ValoracionCreateComponent
   ],providers: [ValoracionService] ,
   exports: [
-    ValoracionListComponent
+    ValoracionListComponent,ValoracionDetailComponent, ValoracionCreateComponent
   ] 
 })
 export class ValoracionModule { }
