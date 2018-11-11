@@ -8,7 +8,7 @@
                     <dd>{{clienteDetail.fechaNacimiento}}</dd>
                 </dl>
                 <div *ngIf="clienteDetail.tarjetaCredito.length > 0">
-                        <app-cliente-tarjetacredito [bookReviews]="bookDetail.reviews"></app-cliente-tarjetacredito>
+                        <app-cliente-tarjetacredito [clienteTarjetaCredito]="clienteDetail.tarjetaCredito"></app-cliente-tarjetacredito>
                     </div>
             </div>
             

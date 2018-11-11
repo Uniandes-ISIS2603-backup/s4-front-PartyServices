@@ -13,7 +13,7 @@ export class Cliente {
     /**
     * El nombre del cliente
     */
-    login: string;
+    nombreUsuario: string;
     
     /**
     * La contraseña del cliente
