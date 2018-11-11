@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 import {Notificacion} from './notificacion';
 
-import {NotificacionDetail} from './notificacion-detail'
 
 import {environment} from '../../environments/environment' ;
 const API_URL = environment.apiURL;
@@ -31,8 +30,8 @@ export class NotificacionService {
      * Retorna un objeto observable con el detalle de un cliente específico del API
      * @return El detalle del cliente.
      */
-     getNotificaciones() : Observable<Notificacion> {
-         return this.http.get<Notificacion>(API_URL + notificaciones);
+     getNotificaciones() : Observable<Notificacion[]> {
+         return this.http.get<Notificacion[]>(API_URL + notificaciones);
      }
      
      /**
@@ -42,6 +41,9 @@ export class NotificacionService {
     */
     createNotificacion(notificacion): Observable<Notificacion>{
         return this.http.post<Notificacion>(API_URL + notificaciones,notificacion)
+    }
+    getNotificacionDetail(num):Observable<Notificacion>{
+        return null;
     }
 }
 

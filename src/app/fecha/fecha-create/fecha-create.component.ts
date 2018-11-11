@@ -13,9 +13,14 @@ type DateString = {month: number, day: number, year: number};
 })
 export class FechaCreateComponent implements OnInit {
 
-
+  /**
+   * La fecha que se esta creando
+   */
   public fecha : Fecha;
 
+  /**
+   * El id de la agenda que se esta creando
+   */
   public idAgenda : number;
 
    /**
@@ -30,21 +35,30 @@ export class FechaCreateComponent implements OnInit {
    */
    @Output() create = new EventEmitter();
   
-   
+   /**
+    * Constructor del fechacreate
+    * @param fechaService el servicio de fecha
+    * @param route para manejar rutas
+    * @param toastrService para manejar errores
+    */
   constructor(
     private fechaService : FechaService,
     private route: ActivatedRoute,
-    //private dp: DatePipe,
     private toastrService: ToastrService
   ) { }
 
+  /**
+   * Inicializa el modulo
+   */
   ngOnInit() {
     this.idAgenda =+ this.route.snapshot.paramMap.get('id');
     this.fecha=new Fecha();
     this.fecha.jornada="Manana";
   }
 
-
+  /**
+   * Crea la fecha
+   */
   crearFecha():Fecha{
     let dateB: Date = new Date(this.fecha.dia.day, this.fecha.dia.month-1, this.fecha.dia.year);
     //this.fecha.dia = this.dp.transform(dateB, 'dd/MM/yyyy');
@@ -60,8 +74,7 @@ export class FechaCreateComponent implements OnInit {
   }
 
   /**
-    * Emits the signal to tell the parent component that the
-    * user no longer wants to create an cliente
+    * Emite la cancelacion al desistir de crear la fecha
     */
    cancelCreation(): void {
     this.toastrService.warning('No se pudo registrar la fecha', 'Registrar fecha');
