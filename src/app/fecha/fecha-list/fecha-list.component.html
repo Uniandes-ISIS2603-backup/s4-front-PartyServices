@@ -1,9 +1,10 @@
-<div class="row justify-content-center align-self-center">
-  <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-      (click)="showHideCreate()">Crear una fecha</button>
-</div>
+<div class="row" style="padding:10px;">
+  
+
+
+<div class="col-md-5">
 <table class="table">
-  <thead>
+  <thead style="background-color: #dc3545;color:aliceblue">
     <tr>
       <th scope="col">Id Fecha</th>
       <th scope="col">Jornada</th>
@@ -20,8 +21,16 @@
     </tr>
   </tbody>
 </table>
-<div class="col-md-2">
-  <div *ngIf="showCreate">
-      <app-fecha-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-fecha-create>
-  </div>
-</div> 
+</div>
+
+
+<div class="col-md-5 align-self-center">
+    <button *ngIf="!showCreate" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }" 
+    type="button" class="btn" (click)="showHideCreate()">Crear una fecha</button>
+    <div *ngIf="showCreate">
+        <app-fecha-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-fecha-create>
+      </div>
+</div>
+
+</div>
+
