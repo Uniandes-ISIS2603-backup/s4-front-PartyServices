@@ -31,7 +31,7 @@ export class ProveedorService {
      * Retorna un objeto observable con el detalle de un cliente específico del API
      * @return El detalle del cliente.
      */
-     getProveedorDetail(proveedorId) : Observable<ProveedorDetail> {
+    getProveedorDetail(proveedorId) : Observable<ProveedorDetail> {
          return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorId);
      }
      
