@@ -14,8 +14,14 @@ type DateString = {month: number, day: number, year: number};
 export class ValoracionCreateComponent implements OnInit {
 
 
+/**
+ * valoracion que se piensa crear
+ */
   public valoracion : Valoracion;
 
+/**
+ * Identificacion del proveedor al que le pertenece la valoracion
+ */
   public idProveedor : number;
 
    /**
@@ -32,7 +38,7 @@ export class ValoracionCreateComponent implements OnInit {
   
    /**
     * Constructor for the component
-    * @param valoracionService The cliente services provider  
+    * @param valoracionService The valoracion services provider  
     * @param toastrService The toastr to show messages to the user
     * @param router The router
     */
@@ -41,9 +47,13 @@ export class ValoracionCreateComponent implements OnInit {
     private route: ActivatedRoute,
     private toastrService: ToastrService
   ) { }
-/**
- * 
- */
+
+
+  
+ /**
+    * The method which initializes the component.
+    * We need to create the valoracion so it is never considered as undefined
+    */
   ngOnInit() {
     this.idProveedor =+ this.route.snapshot.paramMap.get('id');
     this.valoracion=new Valoracion();

@@ -12,28 +12,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SugerenciaListComponent implements OnInit {
 
-
+/**
+ * Una sugerencia
+ */
   @Input() sugerencia : Sugerencia;
 
+/**
+   * El identificador de la tematica de la sugerencia
+   */
   public idTematica : number;
 
  
-   
+   /**
+     * La lista de sugerencias de la aplicación
+     */
   @Input() sugerencias: Sugerencia[] ;
   
   
   /**
-    * Shows or hides the cliente-create-component
+    * Shows or hides the sugerencia-create-component
     */
     showCreate: boolean;
 
 
   
+ 
   /**
-    * The component's constructor
-    */
-   /*, private route: ActivatedRoute
-   */
+     * Constructor del componente
+     * @param sugerenciaService, El proveedor del servicio de la sugerencia.
+     */
   constructor(
   private sugerenciaService: SugerenciaService,
   private route: ActivatedRoute,
@@ -49,12 +56,18 @@ export class SugerenciaListComponent implements OnInit {
         this.showCreate = !this.showCreate;
     }
 
+    /**
+     * Llama al servicio para actualizar la lista de sugerencias.
+     */
     getSugerencias(): void{
     this.sugerenciaService.getSugerencias(this.idTematica)
     .subscribe(sugerencias =>{this.sugerencias = sugerencias}) ;
     }
 
-
+   /**
+     * Esto inicializará el componente recuperando la lista de sugerencias del servicio
+     * Este método se llamará justo cuando el componente sea creado. 
+     */
   ngOnInit() {
     this.idTematica= +this.route.snapshot.paramMap.get('id');
     this.showCreate = false;

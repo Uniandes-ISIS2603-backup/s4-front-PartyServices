@@ -27,7 +27,7 @@ export class ValoracionDetailComponent implements OnInit {
 
 /**
 * Constructor for the component
-* @param route The route which helps to retrieves the id of the cliente to be shown
+* @param route The route which helps to retrieves the id of the valoracion to be shown
 * @param valoracionService The Valoracion's services provider
 * @param toastrService The toastr to show messages to the user
 */

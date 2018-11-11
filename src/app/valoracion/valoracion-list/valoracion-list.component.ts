@@ -31,7 +31,7 @@ export class ValoracionListComponent implements OnInit {
 
 
    /**
-    * Shows or hides the cliente-create-component
+    * Shows or hides the valoracion-create-component
     */
     showCreate: boolean;
   

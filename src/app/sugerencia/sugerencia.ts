@@ -21,12 +21,14 @@
      */
     comentario: string ;
    
-    
+    /**
+     * Tematica de la valoracion
+     */
     tematica: any ;
      
      
     /**
-     * Cliente dde la valoracion
+     * Cliente de la valoracion
      */
      cliente : any;
  }

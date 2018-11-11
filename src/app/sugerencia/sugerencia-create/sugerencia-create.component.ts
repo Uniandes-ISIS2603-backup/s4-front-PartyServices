@@ -13,9 +13,14 @@ type DateString = {month: number, day: number, year: number};
 })
 export class SugerenciaCreateComponent implements OnInit {
 
-
+/**
+ * sugerencia que se piensa crear
+ */
   public sugerencia : Sugerencia;
 
+/**
+ * Identificacion de la tematica al que le pertenece la sugerencia
+ */
   public idTematica : number;
 
    /**
@@ -30,14 +35,22 @@ export class SugerenciaCreateComponent implements OnInit {
    */
    @Output() create = new EventEmitter();
   
-   
+   /**
+    * Constructor for the component
+    * @param sugerenciaService The sugerencia services provider  
+    * @param toastrService The toastr to show messages to the user
+    * @param router The router
+    */
   constructor(
     private sugerenciaService : SugerenciaService,
     private route: ActivatedRoute,
-    //private dp: DatePipe,
     private toastrService: ToastrService
   ) { }
 
+/**
+    * The method which initializes the component.
+    * We need to create the sugerencia so it is never considered as undefined
+    */
   ngOnInit() {
     this.idTematica =+ this.route.snapshot.paramMap.get('id');
     this.sugerencia=new Sugerencia();
@@ -45,7 +58,9 @@ export class SugerenciaCreateComponent implements OnInit {
 
 
 
-
+/**
+ * Este metodo crea una nueva sugerencia en la apliacion
+ */
   createSugerencia():Sugerencia{
         console.log(this.sugerencia);
         
