@@ -30,17 +30,25 @@ export class ValoracionService {
    * @param idProveedor id del proveedor a buscar
    * @returns las valoraciones
    */
-   //http://{{ip}}:{{puerto}}/s4_PartyServices-api/api/proveedor/{{new_id_proveedorValoracion}}/valoraciones
     getValoraciones(idProveedor: number) : Observable<Valoracion[]> {
         return this.http.get<Valoracion[]>(API_URL + proveedor+'/'+idProveedor + valoraciones);
     }
     
+    
+    /**
+     * Retorna un objeto observable que contiene una valoracion de un proveedor
+     * @return  valoracion
+     */
     getValoracion(idProveedor:number , idValoracion : number) : Observable<Valoracion>
   {
     return this.http.get<Valoracion>(API_URL+ proveedor+'/'+idProveedor + valoraciones+'/'+idValoracion);
   }
   
-  
+  /**
+    * Crea una nueva valoracion
+    * @param valoracionO. La nueva valoracion a crear en la base de datos.
+    * @returns The valoracion with its new id if it was created, false if it wasn't
+    */
   createValoracion(valoracionO : Valoracion, idProveedor: number):Observable<Valoracion>{
     
     

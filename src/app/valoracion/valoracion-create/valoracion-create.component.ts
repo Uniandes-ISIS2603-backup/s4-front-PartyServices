@@ -30,14 +30,20 @@ export class ValoracionCreateComponent implements OnInit {
    */
    @Output() create = new EventEmitter();
   
-   
+   /**
+    * Constructor for the component
+    * @param valoracionService The cliente services provider  
+    * @param toastrService The toastr to show messages to the user
+    * @param router The router
+    */
   constructor(
     private valoracionService : ValoracionService,
     private route: ActivatedRoute,
-    //private dp: DatePipe,
     private toastrService: ToastrService
   ) { }
-
+/**
+ * 
+ */
   ngOnInit() {
     this.idProveedor =+ this.route.snapshot.paramMap.get('id');
     this.valoracion=new Valoracion();
@@ -45,7 +51,9 @@ export class ValoracionCreateComponent implements OnInit {
 
 
 
-
+/**
+ * Este metodo crea una nueva valoracion en la apliacion
+ */
   createValoracion():Valoracion{
         console.log(this.valoracion);
         
