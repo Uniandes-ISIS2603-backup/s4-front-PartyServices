@@ -1,0 +1,20 @@
+
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Tarjeta de Crédito
+    </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="let tarjetaCredito of clienteTarjetaCredito">
+            <td><span>{{tarjetaCredito.nombreTitular}}</span></td>
+            <td><span>{{tarjetaCredito.numero}}</span></td>
+            <td><span>{{tarjetaCredito.fechaExpiracion}}</span></td>
+            <td><span>{{tarjetaCredito.banco}}</span></td>
+            <td><span>{{tarjetaCredito.franquicia}}</span></td>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,18 @@
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Pagos
+    </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="let pago of clientePagos">
+            <td><span>{{pago.fecha}}</span></td>
+            <td><span>{{pago.valor}}</span></td>
+            <td><dd class="caption" routerLink="/eventos/{{pago.evento.id}}">Evento:evento</dd>
+
+        </tr>
+    </tbody>
+</table>
+</div>

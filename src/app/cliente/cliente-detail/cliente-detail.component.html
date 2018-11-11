@@ -7,6 +7,9 @@
                     <dt>Fecha de Nacimiento</dt>
                     <dd>{{clienteDetail.fechaNacimiento}}</dd>
                 </dl>
+                <div *ngIf="clienteDetail.tarjetaCredito.length > 0">
+                        <app-cliente-tarjetacredito [bookReviews]="bookDetail.reviews"></app-cliente-tarjetacredito>
+                    </div>
             </div>
             
         </div>

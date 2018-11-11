@@ -7,5 +7,6 @@ export class ClienteDetail extends Cliente{
      * Las valoraciones del cliente
      */
      valoraciones: Valoracion[];
+     
 }
 

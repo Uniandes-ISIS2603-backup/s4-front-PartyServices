@@ -2,6 +2,8 @@
 * Esta clase representa un cliente de la aplicación.
 * Contiene toda la información relevante de un cliente.
 */
+import {TarjetaCredito} from './tarjetaCredito';
+
 export class Cliente {
     /**
     * El ID del cliente
@@ -27,6 +29,8 @@ export class Cliente {
     * La fecha de nacimiento del cliente
     */
     fechaNacimiento: any;
+    
+    tarjetaCredito: TarjetaCredito[];
     
 }
 

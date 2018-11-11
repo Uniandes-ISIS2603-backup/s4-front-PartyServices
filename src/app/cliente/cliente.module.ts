@@ -11,6 +11,8 @@ import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteService } from './cliente.service';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
+import { ClienteTarjetacreditoComponent } from './cliente-tarjetacredito/cliente-tarjetacredito.component';
+import { ClientePagosComponent } from './cliente-pagos/cliente-pagos.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,7 @@ import { ClienteCreateComponent } from './cliente-create/cliente-create.componen
         FormsModule,
         NgbModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteTarjetacreditoComponent, ClientePagosComponent],
   providers: [ClienteService],
   exports:[ClienteListComponent],
 })
