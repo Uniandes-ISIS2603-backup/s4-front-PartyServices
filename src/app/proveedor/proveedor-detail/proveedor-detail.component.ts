@@ -44,12 +44,18 @@ export class ProveedorDetailComponent implements OnInit {
                 this.proveedorDetail = proveedorDetail;
         });
     }
+    
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+    }
+
 
     /**
     * The method which initializes the component.
     * We need to create the cliente so it is never considered as undefined
     */
   ngOnInit() {
+      this.showCreate = false;
       this.proveedor_Id = +this.route.snapshot.paramMap.get('id');
       this.proveedorDetail = new ProveedorDetail();
       this.getProveedorDetail();
