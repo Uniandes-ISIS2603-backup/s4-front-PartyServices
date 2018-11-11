@@ -28,6 +28,11 @@ export class AgendaService {
     return this.http.get<Agenda>(API_URL+agenda+'/'+idAgenda);
   }
 
+  /**
+   * Crear una agenda
+   * @param idProveedor proveedor de la agenda
+   * @param agendaC agenda a crear
+   */
   createAgenda(idProveedor : number, agendaC: Agenda) : Observable<Agenda>
   {
     console.log(API_URL+agenda+'/'+idProveedor);
