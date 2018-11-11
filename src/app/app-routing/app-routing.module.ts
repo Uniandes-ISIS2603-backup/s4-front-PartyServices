@@ -7,7 +7,10 @@ import { ProveedorListComponent } from '../proveedor/proovedor-list/proovedor-li
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component'
 
 import { ValoracionListComponent } from '../valoracion/valoracion-list/valoracion-list.component';
+import { ValoracionDetailComponent } from '../valoracion/valoracion-detail/valoracion-detail.component'
 
+import { SugerenciaListComponent } from '../sugerencia/sugerencia-list/sugerencia-list.component';
+import { SugerenciaDetailComponent } from '../sugerencia/sugerencia-detail/sugerencia-detail.component'
 
 import { AgendaDetailComponent } from '../agenda/agenda-detail/agenda-detail.component';
 import { FechaListComponent } from '../fecha/fecha-list/fecha-list.component';
@@ -93,8 +96,15 @@ const routes: Routes = [
                 path: 'list',
                 component: ValoracionListComponent,
 
-                pathMatch: 'full'
+               
 
+            },
+            {
+                
+                                path: ':idValoracion',
+                                component: ValoracionDetailComponent,
+                                pathMatch: 'full',
+                            
             }
               ]
              },
@@ -151,7 +161,25 @@ const routes: Routes = [
                 path: ':id',
                 component: TematicaDetailComponent,
                 runGuardsAndResolvers: 'always'
+            },{
+           path: ':id/sugerencia' ,
+           children: [
+            {
+                path: 'list',
+                component: SugerenciaListComponent,
+
+               
+
+            },
+            {
+                
+                                path: ':idSugerencia',
+                                component: SugerenciaDetailComponent,
+                                pathMatch: 'full',
+                            
             }
+              ]
+             }
         ]
     }
 ];

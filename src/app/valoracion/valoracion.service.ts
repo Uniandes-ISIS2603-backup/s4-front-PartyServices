@@ -34,4 +34,18 @@ export class ValoracionService {
     getValoraciones(idProveedor: number) : Observable<Valoracion[]> {
         return this.http.get<Valoracion[]>(API_URL + proveedor+'/'+idProveedor + valoraciones);
     }
+    
+    getValoracion(idProveedor:number , idValoracion : number) : Observable<Valoracion>
+  {
+    return this.http.get<Valoracion>(API_URL+ proveedor+'/'+idProveedor + valoraciones+'/'+idValoracion);
+  }
+  
+  
+  createValoracion(valoracionO : Valoracion, idProveedor: number):Observable<Valoracion>{
+    
+    
+    return this.http.post<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones,valoracionO);
+  }
+  
+  
 }

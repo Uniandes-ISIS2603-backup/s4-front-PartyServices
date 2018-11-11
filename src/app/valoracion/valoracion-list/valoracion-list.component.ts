@@ -22,6 +22,13 @@ export class ValoracionListComponent implements OnInit {
    
   @Input() valoraciones: Valoracion[] ;
 
+
+   /**
+    * Shows or hides the cliente-create-component
+    */
+    showCreate: boolean;
+  
+  
   /**
     * The component's constructor
     */
@@ -42,11 +49,17 @@ export class ValoracionListComponent implements OnInit {
     .subscribe(valoraciones =>{this.valoraciones = valoraciones}) ;
   }
 
+    /**
+    * Shows or hides the create component
+    */
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+    }
 
   ngOnInit() {
     this.idProveedor = +this.route.snapshot.paramMap.get('id');
-    //this.idProveedor = 4;
-    console.log(this.idProveedor);
+    this.showCreate = false;
+
     this.getValoraciones() ;
   }
 

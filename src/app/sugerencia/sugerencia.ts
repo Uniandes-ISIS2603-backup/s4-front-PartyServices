@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- export class Valoracion 
+ export class Sugerencia 
  {
     /**
      * El id del producto
@@ -14,22 +14,15 @@
     /**
      * El nombre del cliente
      */
-    nombreUsuario: string ;
+    nombre: string ;
 
     /**
      * El comentario del cliente
      */
     comentario: string ;
    
-    /**
-     * Calificaion dispobible del proveedor
-     */
-     puntaje: number ;
-
-     /**
-      * Proveedor calificado
-      */
-     proveedor: any ;
+    
+    tematica: any ;
      
      
     /**
