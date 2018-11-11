@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear Mensaje</button>
+            </div>           
+            <br>
+            <br>
+             <!--<div class="card">
+                <div class="card-body">-->
+                    <table class="table table-striped">
+                        <thead class="bg-danger">
+                            <tr>
+                                <th class="h4 theadList">Mensaje</th> 
+                                <th class="h4 theadList">Tipo de Aviso</th> 
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let notificacion of notificaciones"
+                                (click)="onSelected(author.id)">
+                            <td style="cursor: pointer;">
+                                <dd class="figure-caption mensajeNotificacion" routerLink="/notificacion/{{notificacion.id}}">{{notificacion.mensaje}}</dd>
+                          </td>
+                    
+                    <td>{{notificacion.tipoDeAviso}}</td>
+              
+                </tr>
+            </tbody>
+                    </table>
+               <!-- </div>
+            </div>-->
+        </div>
+        <div class="col-8">
+            
+            <div *ngIf="showCreate">
+                <app-notificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-notificacion-create>
+            </div>
+        </div> 
+    </div>
+</div>
+

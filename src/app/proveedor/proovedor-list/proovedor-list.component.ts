@@ -11,7 +11,6 @@ import {ProveedorService} from '../../proveedor/proveedor.service' ;
 })
 export class ProveedorListComponent implements OnInit {
 
-
   /**
     * The component's constructor
     */
