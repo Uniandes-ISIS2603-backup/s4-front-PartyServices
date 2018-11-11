@@ -4,18 +4,7 @@
     <img src="../assets/img/logo.png" alt="">
   </h1>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-        <li class="nav nav-item">
-            <a id="tematicaTag" class="nav-link" routerLink="/tematica/list">Tematicas</a>
-        </li>
-        <li class="nav nav-item">
-            <a id="servicioTag" class="nav-link" routerLink="/servicio/list">Servicios</a>
-        </li>
-                <li class="nav nav-item">
-            <a id="notificacionTag" class="nav-link" routerLink="/notificacion/list">Notificaciones</a>
-        </li>
-    </ul>
-
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,8 +23,16 @@
                 </li>
                 <li  class="nav nav-item">
                         <a id="proveedoresTag" class="nav-link" routerLink="/proveedor/list">Proveedores</a>
-                </li>      
-
+                </li>
+                <li  class="nav nav-item">
+                        <a id="notificacionesTag" class="nav-link" routerLink="/notificacion/list">Notificaciones</a>
+                </li> 
+                <li class="nav nav-item">
+                    <a id="tematicaTag" class="nav-link" routerLink="/tematica/list">Tematicas</a>
+                </li>
+                <li class="nav nav-item">
+                    <a id="servicioTag" class="nav-link" routerLink="/servicio/list">Servicios</a>
+                </li>
             </ul>
             <span class="navbar-text">
             Iniciar sesion
@@ -44,13 +41,9 @@
     </nav>
 
 
-
     
 
     <div class="list">
         <router-outlet></router-outlet>
     </div>
 </div>
-
-
-
