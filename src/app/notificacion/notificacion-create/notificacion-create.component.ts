@@ -2,18 +2,18 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
-import {ProveedorService} from '../proveedor.service';
-import {Proveedor} from '../proveedor'
+import {NotificacionService} from '../notificacion.service';
+import {Notificacion} from '../notificacion'
 
 type DateString = {month: number, day: number, year: number};
 
 @Component({
-  selector: 'app-proveedor-create',
-  templateUrl: './proveedor-create.component.html',
-  styleUrls: ['./proveedor-create.component.css'],
+  selector: 'app-notificacion-create',
+  templateUrl: './notificacion-create.component.html',
+  styleUrls: ['./notificacion-create.component.css'],
   providers: [DatePipe]
 })
-export class ProveedorCreateComponent implements OnInit {
+export class NotificacionCreateComponent implements OnInit {
 
   /**
     * Constructor for the component
@@ -23,17 +23,15 @@ export class ProveedorCreateComponent implements OnInit {
     */
     constructor(
         private dp: DatePipe,
-        private proveedorService:ProveedorService,
+        private notificacionService:NotificacionService,
         private toastrService: ToastrService
     ) {}
     
     /**
      * The new proveedor
      */
-     proveedor: Proveedor;
+     notificacion: Notificacion;
      
-    estaEnAgenda:boolean;
-
      /**
     * The output which tells the parent component
     * that the user no longer wants to create an proveedor
@@ -67,28 +65,20 @@ export class ProveedorCreateComponent implements OnInit {
     /**
     * Creates a new proveedor
     */
-    createProveedor(): Proveedor {
-        console.log(this.proveedor);
-        this.proveedorService.createProveedor(this.proveedor)
-            .subscribe((proveedor) => {
-                this.proveedor = proveedor;
-                //this.create.emit();
-                this.toastrService.success("El proveedor ha sido creado satisfactoriamente.", "Crear proveedor");
+    createNotificacion(): Notificacion {
+        console.log(this.notificacion);
+        this.notificacionService.createNotificacion(this.notificacion)
+            .subscribe((notificacion) => {
+                this.notificacion = notificacion;
+                this.create.emit();
+                this.toastrService.success("El notificacion ha sido creado satisfactoriamente.", "Crear notificacion");
                 
             });
-            this.pasarAAgenda();
-            return this.proveedor;
+            return this.notificacion;
     }
 
   ngOnInit() {
-      this.estaEnAgenda=false;
-      this.proveedor = new Proveedor();
-  }
-  pasarAAgenda(){
-      this.estaEnAgenda=true;
-  }
-  finalizacion(){
-      this.create.emit();
+      this.notificacion = new Notificacion();
   }
 
 }

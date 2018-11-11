@@ -17,6 +17,7 @@ import { ProductoModule } from './producto/producto.module';
 import { ValoracionModule } from './valoracion/valoracion.module';
 import { TematicaModule } from './tematica/tematica.module';
 import { ServicioModule } from './servicio/servicio.module';
+import { NotificacionModule } from './notificacion/notificacion.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventoModule } from './evento/evento.module' ;
 @NgModule({
@@ -27,6 +28,7 @@ import { EventoModule } from './evento/evento.module' ;
     ProductoModule,
     ClienteModule,
     ProveedorModule,
+    NotificacionModule,
     HttpClientModule,
     AgendaModule,
     FechaModule,
