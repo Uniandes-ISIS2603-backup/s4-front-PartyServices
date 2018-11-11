@@ -12,9 +12,17 @@ import { EventoService } from '../../evento/evento.service';
 })
 export class EventoCreateComponent implements OnInit {
 
+  /**
+   * Objeto que representa a un evento
+   */
   evento: Evento;
 
-
+  /**
+   * Constructor del componente 
+   * @param dp 
+   * @param eventoService 
+   * @param toastrService 
+   */
   constructor(
     private dp: DatePipe,
     private eventoService: EventoService,
@@ -25,7 +33,9 @@ export class EventoCreateComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
-
+  /**
+  * Llama al servicio para crear el evento solicitado
+  */
   createEvento(): Evento {
     this.eventoService.createEvento(this.evento).subscribe((evento) => {
       this.evento = evento;
@@ -36,10 +46,16 @@ export class EventoCreateComponent implements OnInit {
     return this.evento;
   }
 
+  /**
+   * Cancela la creación del evento
+   */
   cancelCreation(): void {
     this.cancel.emit();
   }
-
+  /**
+  * Esto inicializará el componente creando un evento vacio
+  * Este método se llamará justo cuando el componente sea creado. 
+  */
   ngOnInit() {
     this.evento = new Evento();
   }
