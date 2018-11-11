@@ -10,22 +10,45 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FechaDetailComponent implements OnInit {
 
+  /**
+   * La fecha
+   */
   @Input() fecha : Fecha;
+
+  /**
+   * Los eventos de la fecha
+   */
   @Input() eventos : any[];
 
+  /**
+   * El id de la fecha
+   */
   public idFecha : number;
+
+  /**
+   * Constructor de  fechaDetail
+   * @param fechaService servicio de fecha
+   * @param route ruta 
+   * @param router manejador de rutas
+   */
   constructor(
     private fechaService : FechaService,
     private route: ActivatedRoute,
     private router: Router
     ) { }
 
+  /**
+   * Inicia fechaDetail
+   */
   ngOnInit() {
     this.idFecha = +this.route.snapshot.paramMap.get('idFecha');
     this.getFecha();
     this.getEventosFecha();
   }
 
+  /**
+   * Obtiene la fecha
+   */
   getFecha(){
     this.fechaService.getFecha(this.idFecha)
     .subscribe( fecha =>{
@@ -34,6 +57,9 @@ export class FechaDetailComponent implements OnInit {
     );
   }
 
+  /**
+   * Obtiene los eventos de la fecha
+   */
   getEventosFecha(){
     this.fechaService.getEventosDeFecha(this.idFecha)
     .subscribe( eventos =>{
@@ -41,7 +67,9 @@ export class FechaDetailComponent implements OnInit {
     } )
   }
 
-
+  /**
+   * Encuentra la fecha
+   */
   findFecha(){
     this.fechaService.findFecha(51,"2018-11-10T00:00:00-05:00","Tarde")
       .subscribe( fecha=>{
