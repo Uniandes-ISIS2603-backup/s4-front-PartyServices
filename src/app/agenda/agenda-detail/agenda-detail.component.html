@@ -2,12 +2,12 @@
 
 <div class="row" style="padding:20px">
  
-  <div class="col-md-4">
+  <div class="col-md-5">
     <table class="table">
       <tbody>
         <tr style="background-color: #dc3545;color:aliceblue">
          
-          <td colspan="2">
+          <td colspan="4">
               <b>
                   Jornadas no laborales
               </b>
@@ -17,49 +17,55 @@
         <tr>
             <td><b>Lunes:</b> </td> 
             <td>{{agenda?.jornadaLunesND}}</td>
-        </tr>
-        <tr>
-          <td><b>Martes:</b> </td>
-          <td>{{agenda?.jornadaMartesND}}</td>
-        </tr>
-        <tr>
-            <td><b>Miercoles:</b> </td>
-            <td>{{agenda?.jornadaMiercolesND}}</td>
-        </tr>
-        <tr>
-            <td><b>Jueves:</b> </td>
-            <td>{{agenda?.jornadaJuevesND}}</td>
-        </tr>
-        <tr>
             <td><b>Viernes:</b> </td>
             <td>{{agenda?.jornadaViernesND}}</td>
         </tr>
         <tr>
-            <td><b>Sabado:</b> </td>
+          <td><b>Martes:</b> </td>
+          <td>{{agenda?.jornadaMartesND}}</td>
+          <td><b>Sabado:</b> </td>
             <td>{{agenda?.jornadaSabadoND}}</td>
         </tr>
         <tr>
+            <td><b>Miercoles:</b> </td>
+            <td>{{agenda?.jornadaMiercolesND}}</td>
             <td><b>Domingo:</b> </td>
             <td>{{agenda?.jornadaDomingoND}}</td>
         </tr>
+        <tr>
+            <td><b>Jueves:</b> </td>
+            <td>{{agenda?.jornadaJuevesND}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+      
       </tbody>
     </table>
   </div>
-  <div class="col">
-    <div class="row">
-      <b>Fecha penitencia: </b>{{agenda?.fechaPenitencia}}<br>
-    </div>
-    <div class="row">
-      <h2 routerLink="/proveedor/agenda/{{agenda?.id}}/fecha/list">Ver mis fechas</h2>
-    </div>
-    <div class="row">
+  <div class="col-md-5">
+      <div class="row  align-items-center" >
+          <img style="display: block;" src="../../../assets/img/agenda.png" class="img-fluid" style="max-width: 10em;max-height: 10em;" alt="">
+        </div>
+        <div class="row">
+          <b *ngIf="agenda?.fechaPenitencia!=null">Fecha penitencia: </b>{{agenda?.fechaPenitencia}}
+          <b *ngIf="agenda?.fechaPenitencia==null">No estas penitenciado</b><br>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary" routerLink="/proveedor/agenda/{{agenda?.id}}/fecha/list">Ver listado de mis fechas</button>
+        </div>
+  </div>
+</div>
+<div class="row" style="padding:20px">
+  
+    
+    <div class="col-md-5">
         <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="clickCalendar()"></ngb-datepicker>
         
-      </div>
-    <div class="row">
+    </div>
+    <div class="col-md-5">
         <app-fecha-dia [dia]="model.year+'-'+model.month+'-'+model.day"></app-fecha-dia>
     </div>
-  </div>
+ 
 </div>
 
 
