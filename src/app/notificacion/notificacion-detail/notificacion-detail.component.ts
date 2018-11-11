@@ -36,7 +36,7 @@ export class NotificacionDetailComponent implements OnInit {
   ngOnInit() 
   {
 
-    this.notificacion_Id = this.route.snapshot.paramMap.get('nombre') ;
+    this.notificacion_Id = +this.route.snapshot.paramMap.get('nombre') ;
     this.notificacion = new Notificacion() ;
     this.getNotificacionDetail() ;
   }
@@ -57,15 +57,6 @@ export class NotificacionDetailComponent implements OnInit {
     }
 
     
-    /**
-    * The method which initializes the component.
-    * We need to create the cliente so it is never considered as undefined
-    */
-  ngOnInit() {
-      this.showCreate = false;
-      this.notificacion_Id = +this.route.snapshot.paramMap.get('id');
-      this.notificacion = new Notificacion();
-      this.getNotificacionDetail();
-  }
+
 
 }

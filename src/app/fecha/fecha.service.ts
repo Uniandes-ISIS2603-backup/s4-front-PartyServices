@@ -44,16 +44,29 @@ export class FechaService {
     return this.http.get<Fecha>(API_URL+fecha+'/'+idAgenda+'/'+dia+'/'+jornada);
   }
 
+  /**
+   * Busca una fecha
+   * @param idFecha el id de la fecha a buscar
+   */
   getFecha(idFecha : number) : Observable<Fecha>
   {
     return this.http.get<Fecha>(API_URL+fecha+'/'+idFecha);
   }
 
+  /**
+   * Busca los eventos de una fecha
+   * @param idFecha el id de la fecha a buscar sus eventos
+   */
   getEventosDeFecha(idFecha:number):Observable<any []>
   {
     return this.http.get<any>(API_URL+fecha+'/'+idFecha+'/'+'eventos');
   }
 
+  /**
+   * Crea una fecha
+   * @param fechaO objeto tipo fecha
+   * @param idAgenda agenda de la fecha
+   */
   crearFecha(fechaO : Fecha, idAgenda: number):Observable<Fecha>{
     
     console.log(API_URL+fecha+'/'+idAgenda);
@@ -61,6 +74,12 @@ export class FechaService {
     return this.http.post<Fecha>(API_URL+fecha+'/'+idAgenda,fechaO);
   }
 
+  /**
+   * Busca una fecha por su agenda,id y jornada
+   * @param agenda agenda de la consulta
+   * @param dia dia de consulta
+   * @param jornada jornada de consulta
+   */
   getFechaByAgendaDiaJornada(agenda:number,dia:string,jornada:string):Observable<Fecha>{
     return this.http.get<Fecha>(API_URL+fecha+'/'+agenda+'/'+dia+'/'+jornada);
   }
