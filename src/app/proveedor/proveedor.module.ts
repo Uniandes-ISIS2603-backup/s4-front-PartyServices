@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgendaModule } from '../agenda/agenda.module';
+import { ProductoModule } from '../producto/producto.module';
 import { ValoracionModule } from '../valoracion/valoracion.module';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ValoracionModule } from '../valoracion/valoracion.module';
         FormsModule,
         NgbModule,
         AgendaModule,
-        ValoracionModule
+        ValoracionModule,
+        ProductoModule
      
   ],
   declarations: [

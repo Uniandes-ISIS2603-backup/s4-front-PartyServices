@@ -45,7 +45,9 @@ export class ProveedorDetailComponent implements OnInit {
         });
     }
     
-    
+         showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+    }
 
 
     /**
