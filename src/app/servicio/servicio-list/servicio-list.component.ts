@@ -35,19 +35,6 @@ export class ServicioListComponent implements OnInit {
 
   ngOnInit() {
     this.getServicios() ;
-  /*  this.route.queryParams
-    .filter(params => params.allservicios)
-    .subscribe(params => {
-      console.log(params);
-      this.allservicios = params.allservicios ;
-    console.log(this.allservicios) ;
-    }) ;
-
-    if(this.allservicios == 'yes'){
-      console.log('allservicios') ;
-      this.getServicios ;
-    }
-*/
   }
 
 }

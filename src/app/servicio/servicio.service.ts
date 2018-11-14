@@ -5,8 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import {Servicio} from './servicio';
 
 import {environment} from '../../environments/environment' ;
-const API_URL = "../../assets/";
-const servicios = 'servicios.json' ;
+
+const API_URL = environment.apiURL;
+const servicios = '/servicio';
 
 @Injectable()
 export class ServicioService {

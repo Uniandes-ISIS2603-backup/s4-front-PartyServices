@@ -12,9 +12,9 @@
     id : number ;
 
     /**
-     * El nombre del servicio
+     * El tipo del servicio
      */
-    nombre: string ;
+    tipo: string ;
  }
 
 
