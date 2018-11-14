@@ -15,7 +15,9 @@ export class ServicioListComponent implements OnInit {
    /**
     * The list of servicios to display
     */
-  servicios: Servicio[] ;
+  servicios : Servicio[] ;
+
+  showCreate : boolean;
 
   /**
     * The component's constructor
@@ -34,7 +36,12 @@ export class ServicioListComponent implements OnInit {
 
 
   ngOnInit() {
+    this.showCreate = false;
     this.getServicios() ;
+  }
+
+  showHideCreate(){
+    this.showCreate=!this.showCreate;
   }
 
 }

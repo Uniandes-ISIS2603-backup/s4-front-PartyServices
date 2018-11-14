@@ -27,6 +27,7 @@ import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.com
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
 import { EventoListComponent } from '../evento/evento-list/evento-list.component';
 import { EventoDetailComponent } from '../evento/evento-detail/evento-detail.component';
+import { ServicioDetailComponent } from '../servicio/servicio-detail/servicio-detail.component';
 
 
 const routes: Routes = [
@@ -149,6 +150,11 @@ const routes: Routes = [
 
                 pathMatch: 'full'
 
+            },
+            {
+                path: ':idServicio',
+                component: ServicioDetailComponent,
+                pathMatch:'full'
             }
         ]
     },

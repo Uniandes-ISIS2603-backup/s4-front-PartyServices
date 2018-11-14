@@ -1,18 +1,27 @@
 <div class="container-fluid">
-  <div class="col-md-6">
-    <table class="table table-bordered">
-      <thead class="bg-danger">
-        <tr>
-          <th>Id</th>
-          <th>Tipo</th> 
-        </tr>
-      </thead>
-      <tbody >
-        <tr *ngFor="let servicio of servicios">
-          <td><span>{{servicio.id}}</span></td>
-          <td>{{servicio.tipo}}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <thead class="bg-danger">
+          <tr>
+            <th>Id</th>
+            <th>Tipo</th> 
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let servicio of servicios" routerLink="/servicio/{{servicio?.id}}">
+            <td ><span>{{servicio.id}}</span></td>
+            <td>{{servicio.tipo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3 align-self-center">
+      <button *ngIf="!showCreate" (click)="showHideCreate()" type="button" class="btn" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }">Crear un servicio</button>
+
+      <div *ngIf="showCreate">
+          <app-servicio-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-servicio-create> 
+        </div>
+    </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- export interface Servicio 
+ export class Servicio 
  {
     /**
      * El id del servicio

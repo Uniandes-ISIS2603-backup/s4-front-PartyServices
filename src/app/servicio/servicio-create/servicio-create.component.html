@@ -1,0 +1,17 @@
+<form action="" name="Servicio" (ngSubmit)="f.form.valid && crearServicio()" #f="ngForm" novalidate>
+  <div class="form-group">
+    <label for="tipoServicio"><b>Tipo de servicio:</b></label>
+    <input type="text" name="tipoServico" id="tipoServico" class="form-control" [(ngModel)]="servicio.tipo" #tipoServicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tipoServicio.invalid }" required>
+    <div class="invalid-feedback">
+      No ingreso un tipo valido
+    </div>
+  
+  </div>
+
+  <div class="row form-inline justify-content-center align-self-center">
+      <button type="submit" class="btn btn-success">Crear</button>
+      <div class="divider"></div>
+      <button type="button"  (click)="cancelCreation()" class="btn btn-danger" id="btnCancelarCrearServicio">Cancelar</button>
+  </div>
+
+</form>
