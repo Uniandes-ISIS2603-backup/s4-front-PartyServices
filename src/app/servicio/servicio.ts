@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
- export interface Servicio 
+ export class Servicio 
  {
     /**
      * El id del servicio
@@ -12,9 +12,9 @@
     id : number ;
 
     /**
-     * El nombre del servicio
+     * El tipo del servicio
      */
-    nombre: string ;
+    tipo: string ;
  }
 
 
