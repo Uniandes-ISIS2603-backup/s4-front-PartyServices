@@ -1,49 +1,31 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <br>
-            <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear una Temática</button>
-            </div>
-            <br>
-            <br>
-            <table class="table table-striped">
-                <thead>
+    <div class="row justify-content-center align-self-center">
+        <div class="col-md-3">
+            <table class="table table-bordered">
+                <thead style="background-color: #dc3545;color:aliceblue">
                     <tr>
-                        <th>Name</th>    
+                        <th>Id</th>
+                        <th>Nombre de la Tematica</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let tematica of tematicas">
-                         <td><span>{{tematica.id}}</span></td>
-                           <td>{{tematica.nombre}}</td>
-                <td>
-                    <button [ngClass]="{ 'btn-primary': (!showEdit || tematica_edit_id != tematica.id), 'btn-danger': (showEdit && tematica_edit_id == tematica.id) }"
-                        type="button" class="btn" (click)="showHideEdit(tematica.id)">Edit</button>
-                </td>
-                </tr>
+                    <tr *ngFor="let tematica of tematicas">
+                        <td>
+                            <dd class="figure-caption">{{tematica.id}}</dd>
+                        </td>
+                        <td>
+                            <dd class="figure-caption" routerLink="/tematica/{{tematica.id}}">{{tematica.nombre}}</dd>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-5 align-self-center">
+            <button *ngIf="!showCreate" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }" type="button"
+                class="btn" (click)="showHideCreate()">Agregar tematica</button>
             <div *ngIf="showCreate">
-                <app-tematica-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-tematica-create>
-            </div>
-            <div *ngIf="showEdit">
-                <app-tematica-edit [tematica_id]="tematica_edit_id" (cancel)="showHideEdit(tematica_edit_id)" (update)="updateTematica()"></app-tematica-edit>
+                <app-tematica-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-tematica-create>
             </div>
         </div>
-
     </div>
 </div>
-
-<!-- <td style="cursor: pointer;">
-                <dd class="figure-caption" routerLink="/tematicas/{{tematica.id}}">{{tematica.name}}</dd> -->
-
-<!-- Esa es la forma legal de hacerlo  -->
-<!-- ksdakjkjd -->
-<!-- ksdakjkjd -->
-<!-- ksdakjkjd -->
-<!-- ksdakjkjd -->
-<!-- ksdakjkjd -->
