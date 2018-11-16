@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
 import { Tematica } from './tematica';
 import { TematicaDetail } from './tematica-detail';
-
 import { environment } from '../../environments/environment';
+
+
 const API_URL = environment.apiURL;
-const NOAPI_URL = "../../assets/";
-const tematicas = 'tematicas.json';
+const tematicas = '/tematicas';
 
 
 /**
@@ -28,7 +27,7 @@ export class TematicaService {
     * @returns The list of servicios in real time
     */
     getTematicas(): Observable<Tematica[]> {
-        return this.http.get<Tematica[]>(NOAPI_URL + tematicas);
+        return this.http.get<Tematica[]>(API_URL + tematicas);
     }
 
     /**
