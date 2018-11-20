@@ -1,110 +1,103 @@
-
-<h3 class="text-center card-title">Actualizacion de la agenda</h3>
 <form name="agenda" (ngSubmit)="f.form.valid && editAgenda()" #f="ngForm" novalidate>
-        
-
-
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaLunesND"><b>Lunes:</b></label>
-        </div>
-        <div class="col">
-            <select title="jornadaLunesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaLunesND" [ngModelOptions]="{standalone: true}"  >
-                <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
-                <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
-                <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
-                <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaMartesND"><b>Martes:</b></label>
-        </div>
-        <div class="col">
+    <table class="table">
+      <tbody>
+        <tr style="background-color: #dc3545;color:aliceblue">
+         
+          <td colspan="4">
+              <b>
+                  Editar jornadas no laborales
+              </b>
+          </td>
+          
+        </tr>
+        <tr>
+            <td><b>Lunes:</b> </td> 
+            <td>
+                <select title="jornadaLunesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaLunesND" [ngModelOptions]="{standalone: true}"  >
+                    <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+                    <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+                    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+                    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+                </select>
+            </td>
+            <td><b>Viernes:</b> </td>
+            <td>
+                <select title="jornadaViernesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaViernesND" [ngModelOptions]="{standalone: true}"  >
+                    <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+                    <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+                    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+                    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+          <td><b>Martes:</b> </td>
+          <td>
             <select title="jornadaMartesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaMartesND" [ngModelOptions]="{standalone: true}"  >
                 <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
                 <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
                 <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
                 <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
             </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaMiercolesND"><b>Miercoles:</b></label>
-        </div>
-        <div class="col">
-            <select title="jornadaMiercolesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaMiercolesND" [ngModelOptions]="{standalone: true}"  >
-                <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
-                <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
-                <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
-                <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaJuevesND"><b>Jueves:</b></label>
-        </div>
-        <div class="col">
-            <select title="jornadaJuevesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaJuevesND" [ngModelOptions]="{standalone: true}"  >
-                <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
-                <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
-                <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
-                <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaViernesND"><b>Viernes:</b></label>
-        </div>
-        <div class="col">
-            <select title="jornadaViernesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaViernesND" [ngModelOptions]="{standalone: true}"  >
-                <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
-                <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
-                <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
-                <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaSabadoND"><b>Sabado:</b></label>
-        </div>
-        <div class="col">
-            <select title="jornadaSabadoND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaSabadoND" [ngModelOptions]="{standalone: true}"  >
-                <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
-                <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
-                <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
-                <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <label for="jornadaDomingoND"><b>Domingo:</b></label>
-        </div>
-        <div class="col">
-            <select title="jornadaDomingoND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaDomingoND" [ngModelOptions]="{standalone: true}"  >
-                <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
-                <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
-                <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
-                <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
-            </select>
-        </div>
-    </div>
-
-
-
-
-
-
+          </td>
+          <td><b>Sabado:</b> </td>
+            <td>
+                <select title="jornadaSabadoND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaSabadoND" [ngModelOptions]="{standalone: true}"  >
+                    <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+                    <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+                    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+                    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Miercoles:</b> </td>
+            <td>
+                <select title="jornadaMiercolesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaMiercolesND" [ngModelOptions]="{standalone: true}"  >
+                    <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+                    <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+                    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+                    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+                </select>
+            </td>
+            <td><b>Domingo:</b> </td>
+            <td>
+                <select title="jornadaDomingoND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaDomingoND" [ngModelOptions]="{standalone: true}"  >
+                    <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+                    <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+                    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+                    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Jueves:</b> </td>
+            <td>
+                <select title="jornadaJuevesND"   class="custom-select" id="jornada" [(ngModel)]="agenda.jornadaJuevesND" [ngModelOptions]="{standalone: true}"  >
+                    <option value="Ninguna" [ngValue]="Ninguna">Ninguna</option >
+                    <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+                    <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+                    <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+                </select>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+      
+      </tbody>
+    </table>
     <div class="row form-inline justify-content-center align-self-center">
-    <button type="submit" class="btn btn-success" (click)="editarAgenda()">Actualizar</button>
-    <button type="button" class="btn btn-danger" (click)="cancelarEdicion()">Cancelar</button>
-    <div class="divider"></div>
-
+        <button type="submit" class="btn btn-success" (click)="editarAgenda()">Actualizar</button>
+        <button type="button" class="btn btn-danger" (click)="cancelarEdicion()">Cancelar</button>
+        <div class="divider">
+        </div>
     </div>
 </form>
+
+
+
+
+        
+
+
+    
