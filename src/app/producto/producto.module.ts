@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductoEditComponent } from './producto-edit/producto-edit.component';
 
 /**
  * Clase typeScript del modulo Producto
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     ProductoListComponent,
     ProductoDetailComponent,
-    ProductoCreateComponent
+    ProductoCreateComponent,
+    ProductoEditComponent
   ],
   providers: [ProductoService],
   exports: [
