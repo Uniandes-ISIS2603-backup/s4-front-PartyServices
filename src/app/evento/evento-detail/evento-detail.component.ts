@@ -55,8 +55,7 @@ export class EventoDetailComponent implements OnInit {
     if (!this.showEdit || (this.showEdit && evento_nombre != this.evento.nombre)) {
 
       this.showEdit = true;
-      this.evento = new Evento();
-
+      
       
     }
     else {
@@ -64,44 +63,26 @@ export class EventoDetailComponent implements OnInit {
     }
   }
 
+  
+  /**
+  * Esto inicializará el componente recuperando el detail del evento del servicio
+  * Este método se llamará justo cuando el componente sea creado. 
+  */
+ ngOnInit() {
+  this.showEdit = false;
+  this.evento_nombre = this.route.snapshot.paramMap.get('nombre');
+  this.evento = new Evento();
+  this.getEventoDetail();
+}
+
 
   /**
     * Elimina un evento
     */
   deleteEvento(evento_nombre): void {
-    this.modalDialogService.openDialog(this.viewRef, {
-      title: 'Borrar un evento',
-      childComponent: SimpleModalComponent,
-      data: { text: '¿Estás seguro de que quieres borrar este evento?' },
-      actionButtons: [
-        {
-          text: 'Yes',
-          buttonClass: 'btn btn-danger',
-          onAction: () => {
-            this.eventoService.deleteEvento(evento_nombre).subscribe(() => {
-              this.toastrService.error("El evento fue borrado satisfactoriamente", "Evento borrado");
-              this.ngOnInit();
-            }, err => {
-              this.toastrService.error(err, "Error");
-            });
-            return true;
-          }
-        },
-        { text: 'No', onAction: () => true }
-      ]
-    });
+    this.eventoService.deleteEvento(evento_nombre).subscribe(() => {this.toastrService.error("El evento fue borrado satisfactoriamente", "Evento borrado")};
+      this.ngOnInit();
   }
 
-
-  /**
-  * Esto inicializará el componente recuperando el detail del evento del servicio
-  * Este método se llamará justo cuando el componente sea creado. 
-  */
-  ngOnInit() {
-    this.showEdit = false;
-    this.evento_nombre = this.route.snapshot.paramMap.get('nombre');
-    this.evento = new Evento();
-    this.getEventoDetail();
-  }
 
 }

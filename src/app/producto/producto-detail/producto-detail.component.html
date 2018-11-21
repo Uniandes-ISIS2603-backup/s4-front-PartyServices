@@ -22,7 +22,7 @@
                     <app-producto-edit [producto]="producto" (cancel)="showHideEdit(producto.nombre)" (update)="updateProducto()"></app-producto-edit>
                 </div>
                 <td>
-                        <button class="btn btn-danger" (click)="deleteProducto(producto.nombre)"><span class="fa fa-trash"></span></button>
+                        <button class="btn btn-danger" (click)="deleteProducto(producto.nombre)" routerLink="/producto/list"><span class="fa fa-trash"></span>Eliminar</button>
                 </td>
             </div>
         </div>

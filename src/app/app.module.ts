@@ -20,6 +20,8 @@ import { ServicioModule } from './servicio/servicio.module';
 import { NotificacionModule } from './notificacion/notificacion.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventoModule } from './evento/evento.module' ;
+import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-instance.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -49,8 +51,9 @@ import { EventoModule } from './evento/evento.module' ;
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,
+            
             multi: true
-        }
+        },ModalDialogInstanceService,ModalDialogService
     ]
 })
 export class AppModule { }

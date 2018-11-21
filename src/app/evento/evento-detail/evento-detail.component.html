@@ -20,7 +20,7 @@
                     <app-evento-edit [evento]="evento" (cancel)="showHideEdit(evento.nombre)" (update)="updateEvento()"></app-evento-edit>
                 </div>
                 <td>
-                    <button class="btn btn-danger" (click)="deleteEvento(evento.nombre)"><span class="fa fa-trash"></span></button>
+                    <button class="btn btn-danger" (click)="deleteEvento(evento.nombre)" routerLink="/evento/list"><span class="fa fa-trash"></span>Eliminar</button>
                 </td>
             </div>
         </div>

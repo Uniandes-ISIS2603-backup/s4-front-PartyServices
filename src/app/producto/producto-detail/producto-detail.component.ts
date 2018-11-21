@@ -82,30 +82,12 @@ export class ProductoDetailComponent implements OnInit {
   /**
     * Elimina un producto
     */
-  deleteProducto(producto_nombre): void {
-    this.modalDialogService.openDialog(this.viewRef, {
-      title: 'Borrar un producto',
-      childComponent: SimpleModalComponent,
-      data: { text: '¿Estás seguro de que quieres borrar este producto?' },
-      actionButtons: [
-        {
-          text: 'Yes',
-          buttonClass: 'btn btn-danger',
-          onAction: () => {
-            this.productoService.deleteProducto(producto_nombre).subscribe(() => {
-              this.toastrService.error("El producto fue borrado satisfactoriamente", "Producto borrado");
-              this.ngOnInit();
-            }, err => {
-              this.toastrService.error(err, "Error");
-            });
-            return true;
-          }
-        },
-        { text: 'No', onAction: () => true }
-      ]
-    });
+  deleteProducto(nombre): void {
+    
+      this.productoService.deleteProducto(nombre).subscribe(() => {this.toastrService.error("El producto fue borrado satisfactoriamente", "Producto borrado")} ;
+        this.ngOnInit();
   }
 
-
+  
 
 }
