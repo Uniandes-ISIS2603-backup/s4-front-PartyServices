@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FechaModule } from '../fecha/fecha.module';
+import { AgendaEditComponent } from './agenda-edit/agenda-edit.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +15,7 @@ import { FechaModule } from '../fecha/fecha.module';
     NgbModule,
     FechaModule
   ],
-  declarations: [AgendaDetailComponent, AgendaCreateComponent],
+  declarations: [AgendaDetailComponent, AgendaCreateComponent, AgendaEditComponent],
   exports: [AgendaDetailComponent,AgendaCreateComponent]
 })
 export class AgendaModule { }

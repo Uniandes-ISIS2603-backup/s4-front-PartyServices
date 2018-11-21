@@ -2,7 +2,8 @@
 
 <div class="row" style="padding:20px">
  
-  <div class="col-md-5">
+  <div class="col-md-7">
+    <div *ngIf="!showEdit">
     <table class="table">
       <tbody>
         <tr style="background-color: #dc3545;color:aliceblue">
@@ -41,6 +42,13 @@
       
       </tbody>
     </table>
+    <button class="btn btn-primary" (click)="showHideEdit()">Editar</button>
+    
+  </div>
+  <app-agenda-edit *ngIf="showEdit" [agenda]="agenda" (cancel)="cancelarEdicion()" (update)="actualizarAgenda()"></app-agenda-edit> 
+
+    
+
   </div>
   <div class="col-md-5">
       <div class="row  align-items-center" >
