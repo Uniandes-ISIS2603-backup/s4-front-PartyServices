@@ -13,21 +13,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ValoracionListComponent implements OnInit {
 
 
-/**
- * Una valoracion
- */
-  @Input() valoracion : Valoracion;
+    /**
+     * Una valoracion
+     */
+     @Input() valoracion : Valoracion;
 
-  /**
-   * El identificador del proveedor de la valoracion
-   */
-  public idProveedor : number;
+    /**
+     * El identificador del proveedor de la valoracion
+     */
+     public idProveedor : number;
 
  
-   /**
+    /**
      * La lista de valoraciones de la aplicación
      */
-  @Input() valoraciones: Valoracion[] ;
+    valoraciones: Valoracion[] ;
 
 
    /**
@@ -36,27 +36,27 @@ export class ValoracionListComponent implements OnInit {
     showCreate: boolean;
   
   
-  /**
+    /**
      * Constructor del componente
      * @param valoracionService, El proveedor del servicio de la valoracion.
      */
-  constructor(
-  private valoracionService: ValoracionService,
-  private route: ActivatedRoute,
-  private router: Router
+     constructor(
+     private valoracionService: ValoracionService,
+     private route: ActivatedRoute,
+     private router: Router
       ) { }
   
   
 
 
 
-   /**
+    /**
      * Llama al servicio para actualizar la lista de valoraciones.
      */
-  getValoraciones(): void{
+    getValoraciones(): void{
     this.valoracionService.getValoraciones(this.idProveedor)
     .subscribe(valoraciones =>{this.valoraciones = valoraciones}) ;
-  }
+    }
 
     /**
     * Shows or hides the create component
@@ -69,11 +69,11 @@ export class ValoracionListComponent implements OnInit {
      * Esto inicializará el componente recuperando la lista de valoraciones del servicio
      * Este método se llamará justo cuando el componente sea creado. 
      */
-  ngOnInit() {
+    ngOnInit() {
     this.idProveedor = +this.route.snapshot.paramMap.get('id');
     this.showCreate = false;
 
     this.getValoraciones() ;
-  }
+    }
 
 }
