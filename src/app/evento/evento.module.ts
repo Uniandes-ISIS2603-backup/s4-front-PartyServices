@@ -9,6 +9,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EventoService } from './evento.service';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { EventoCreateComponent } from './evento-create/evento-create.component';
+import { EventoEditComponent } from './evento-edit/evento-edit.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { EventoCreateComponent } from './evento-create/evento-create.component';
     FormsModule,
     NgbModule
   ],
-  declarations: [EventoListComponent, EventoDetailComponent, EventoCreateComponent],
+  declarations: [EventoListComponent, EventoDetailComponent, EventoCreateComponent, EventoEditComponent],
   providers: [EventoService],
   exports: [EventoListComponent, EventoDetailComponent, EventoCreateComponent]
 })
