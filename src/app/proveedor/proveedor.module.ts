@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgendaModule } from '../agenda/agenda.module';
 import { ProductoModule } from '../producto/producto.module';
 import { ValoracionModule } from '../valoracion/valoracion.module';
+import { ProveedorEditComponent} from './proveedor-edit/proveedor-edit.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { ValoracionModule } from '../valoracion/valoracion.module';
      
   ],
   declarations: [
-    ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent
+    ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, ProveedorEditComponent
   ],
   providers: [ProveedorService] ,
   exports: [

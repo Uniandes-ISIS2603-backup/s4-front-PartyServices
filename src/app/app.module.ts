@@ -20,6 +20,9 @@ import { ServicioModule } from './servicio/servicio.module';
 import { NotificacionModule } from './notificacion/notificacion.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventoModule } from './evento/evento.module' ;
+import {NgxPermissionsModule} from 'ngx-permissions';
+import {AuthModule} from './auth/auth.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -32,6 +35,7 @@ import { EventoModule } from './evento/evento.module' ;
     HttpClientModule,
     AgendaModule,
     FechaModule,
+    AuthModule,
     ValoracionModule,
     TematicaModule,
     ServicioModule,
@@ -42,6 +46,7 @@ import { EventoModule } from './evento/evento.module' ;
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    NgxPermissionsModule.forRoot(),
     NgbModule
   ],
   bootstrap: [AppComponent],

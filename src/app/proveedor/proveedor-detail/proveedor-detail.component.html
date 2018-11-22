@@ -27,5 +27,7 @@
                 <app-producto-create (cancel)="showHideCreate()" (create)="finalizacion()"></app-producto-create>-->
             </div>
         </div> 
+                <button class="btn btn-primary" (click)="showHideEdit()">Editar</button>
+                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedor" (cancel)="cancelarEdicion()" (update)="actualizarProveedor()"></app-proveedor-edit> 
             <br>
 </div>

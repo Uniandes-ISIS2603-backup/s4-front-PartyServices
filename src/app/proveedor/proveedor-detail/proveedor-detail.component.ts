@@ -35,6 +35,8 @@ export class ProveedorDetailComponent implements OnInit {
     */
     proveedor_Id: number;
     
+      showEdit : boolean;
+    
     /**
     * The method which obtains the proveedor whose details we want to show
     */
@@ -48,6 +50,8 @@ export class ProveedorDetailComponent implements OnInit {
          showHideCreate(): void {
         this.showCreate = !this.showCreate;
     }
+    
+
 
 
     /**
@@ -56,9 +60,24 @@ export class ProveedorDetailComponent implements OnInit {
     */
   ngOnInit() {
       
+      this.showEdit=false;
       this.proveedor_Id = +this.route.snapshot.paramMap.get('id');
       this.proveedorDetail = new ProveedorDetail();
       this.getProveedorDetail();
+  }
+  
+   showHideEdit():void{
+    this.showEdit=!this.showEdit;
+  }
+
+  actualizarProveedor(): void {
+    this.showEdit=!this.showEdit;
+  }
+
+  cancelarEdicion():void {
+    this.showHideEdit();
+    this.proveedor=new Proveedor();
+    this.getProveedor();
   }
 
 }

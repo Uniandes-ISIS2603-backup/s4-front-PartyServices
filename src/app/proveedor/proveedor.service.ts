@@ -43,6 +43,10 @@ export class ProveedorService {
     createProveedor(proveedor): Observable<ProveedorDetail>{
         return this.http.post<ProveedorDetail>(API_URL + proveedores,proveedor)
     }
+    
+    updateProveedor(proveedorU:Proveedor) : Observable<Proveedor>{
+    return this.http.put<Proveedor>(API_URL+proveedores+'/',proveedorU);
+  }
 }
 
 
