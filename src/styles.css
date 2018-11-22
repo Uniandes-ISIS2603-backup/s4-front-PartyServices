@@ -108,7 +108,7 @@ html, body {
 }
 
 .fa-instagram {
-    color: #517a4;
+    color: #00aced;
 }
 
 .fa-youtube {
@@ -241,7 +241,7 @@ figure {
   height: 100%;
 }
 #fixed {
-  background-image: url("C:\Users\estudiante\Documents\NetBeans\s4-front-PartyServices\src\assets\img2\mac.png");
+  background-image: url("./assets/img2/mac.png");
   position: fixed;
   display: block;
   top: 0;

@@ -84,7 +84,8 @@ export class ProductoDetailComponent implements OnInit {
     */
   deleteProducto(nombre): void {
     
-      this.productoService.deleteProducto(nombre).subscribe(() => {this.toastrService.error("El producto fue borrado satisfactoriamente", "Producto borrado")} ;
+      this.productoService.deleteProducto(nombre).subscribe(() =>
+       {this.toastrService.error("El producto fue borrado satisfactoriamente", "Producto borrado")}) ;
         this.ngOnInit();
   }
 
