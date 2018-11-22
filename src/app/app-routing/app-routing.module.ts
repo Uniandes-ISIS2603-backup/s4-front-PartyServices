@@ -205,7 +205,7 @@ const routes: Routes = [
                 component: NotificacionDetailComponent
             }
         ]
-    }
+    },
     {
         path: 'auth',
         children: [

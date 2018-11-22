@@ -36,6 +36,9 @@ export class ProveedorDetailComponent implements OnInit {
     proveedor_Id: number;
     
       showEdit : boolean;
+      
+      showCreate : boolean;
+      proveedor: Proveedor;
     
     /**
     * The method which obtains the proveedor whose details we want to show
@@ -76,8 +79,8 @@ export class ProveedorDetailComponent implements OnInit {
 
   cancelarEdicion():void {
     this.showHideEdit();
-    this.proveedor=new Proveedor();
-    this.getProveedor();
+    this.proveedor= new Proveedor();
+    this.getProveedorDetail();
   }
 
 }

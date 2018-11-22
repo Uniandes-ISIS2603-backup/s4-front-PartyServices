@@ -80,18 +80,6 @@ export class ProveedorCreateComponent implements OnInit {
             return this.proveedor;
     }
     
-        editProveedor(): Proveedor {
-        console.log(this.proveedor);
-        this.proveedorService.editProveedor(this.proveedor)
-            .subscribe((proveedor) => {
-                this.proveedor = proveedor;
-                //this.create.emit();
-                this.toastrService.success("El proveedor ha sido creado satisfactoriamente.", "Crear proveedor");
-                
-            });
-            this.pasarAAgenda();
-            return this.proveedor;
-    }
 
   ngOnInit() {
       this.estaEnAgenda=false;

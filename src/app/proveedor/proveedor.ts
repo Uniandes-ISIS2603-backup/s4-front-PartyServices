@@ -1,5 +1,5 @@
 import { Agenda } from "../agenda/agenda";
-import { Productoo } from "../producto/producto";
+import { Producto } from "../producto/producto";
 
 /* 
  * To change this license header, choose License Headers in Project Properties.

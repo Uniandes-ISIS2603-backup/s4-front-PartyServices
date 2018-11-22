@@ -43,7 +43,7 @@ export class ProveedorListComponent implements OnInit {
       
     this.showCreate = false;
     this.getProveedores() ;
-    this.showEdit = false;
+    this.edit = false;
 
   }
   
