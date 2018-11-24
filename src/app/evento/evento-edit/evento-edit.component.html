@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-12">
+      <br>
+      <h2 class="text-center">Editar evento</h2>
+      <br>
+      <form name="evento" (ngSubmit)="f.form.valid && editEvento()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="eventoNombre"><b>Nombre</b></label>
+          <input type="text" name="eventoNombre" class="form-control" id="eventoNombre" [(ngModel)]="evento.nombre"
+            #eventoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoNombre.invalid }" required>
+          <div class="invalid-feedback">
+            <div>The evento's name is missing</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="eventoFecha"><b>Fecha</b></label>
+            <input type="number" name="eventoFecha" class="form-control" id="eventoFecha" [(ngModel)]="evento.fecha"
+              #eventoFecha="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eventoFecha.invalid }" required>
+            <div class="invalid-feedback">
+              <div>The evento's date is missing</div>
+            </div>
+          </div>
+            
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary" (click)="editEvento()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+      </div>
+    </div>
+  </div>

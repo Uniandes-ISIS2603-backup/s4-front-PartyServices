@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { ProveedorListComponent } from '../proveedor/proovedor-list/proovedor-list.component';
@@ -29,6 +30,8 @@ import { EventoListComponent } from '../evento/evento-list/evento-list.component
 import { EventoDetailComponent } from '../evento/evento-detail/evento-detail.component';
 import { ServicioDetailComponent } from '../servicio/servicio-detail/servicio-detail.component';
 
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 const routes: Routes = [
 
@@ -200,6 +203,31 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: NotificacionDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path: ':sign-up',
+                component: AuthSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             }
         ]
     }

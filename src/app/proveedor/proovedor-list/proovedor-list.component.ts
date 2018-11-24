@@ -19,7 +19,7 @@ export class ProveedorListComponent implements OnInit {
   constructor(private proveedorService: ProveedorService) { }
    
    showCreate: boolean;
-
+   edit: boolean;
    /**
     * The list of proveedores to display
     */
@@ -43,7 +43,12 @@ export class ProveedorListComponent implements OnInit {
       
     this.showCreate = false;
     this.getProveedores() ;
+    this.edit = false;
 
+  }
+  
+  showEdit():void{
+      this.edit = !this.edit;
   }
   
 
