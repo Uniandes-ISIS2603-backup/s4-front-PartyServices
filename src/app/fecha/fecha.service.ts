@@ -5,6 +5,10 @@ import { environment } from '../../environments/environment';
 
 import { Fecha } from '../fecha/fecha';
 import { Observable } from 'rxjs';
+import { Evento } from '../evento/evento';
+import { Producto } from '../producto/producto';
+import { Proveedor } from '../proveedor/proveedor';
+import { Agenda } from '../agenda/agenda';
 const API_URL = environment.apiURL;
 const fecha = '/fecha';
 
@@ -82,6 +86,39 @@ export class FechaService {
    */
   getFechaByAgendaDiaJornada(agenda:number,dia:string,jornada:string):Observable<Fecha>{
     return this.http.get<Fecha>(API_URL+fecha+'/'+agenda+'/'+dia+'/'+jornada);
+  }
+
+  confirmarEvento(evento:Evento, dia:string, jornada:string){
+    evento.productos.forEach(producto => {
+      this.http.get<Producto>(API_URL+'/producto'+'/'+producto.nombre)
+        .subscribe(
+          (producto)=>{
+
+            
+           // this.anadirEventoAFecha(producto.proveedor.id,dia,jornada,evento.id);
+          }
+        );
+    });
+  }
+
+  
+  anadirEventoAFecha(idProveedor:number, dia:string, jornada:string, idEvento:number){
+    //Obtiene el proveedor
+    this.http.get<Proveedor>(API_URL+'/proveedor'+'/'+idProveedor)
+      .subscribe(
+        (proveedor)=>{
+          //Ya con el proveedor se procede a buscar la fecha y jornada en la que se agregara el evento
+          this.getFechaByAgendaDiaJornada(proveedor.agenda.id,dia,jornada)
+            .subscribe(
+              (fechaObtenida)=>{
+                //A continuacion se anade a la fecha el evento respectivo
+                this.http.get<Fecha>(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento);
+              }
+            );
+           
+
+        }
+      )
   }
 
 
