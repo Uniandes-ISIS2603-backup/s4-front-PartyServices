@@ -80,7 +80,8 @@ export class EventoDetailComponent implements OnInit {
     * Elimina un evento
     */
   deleteEvento(evento_nombre): void {
-    this.eventoService.deleteEvento(evento_nombre).subscribe(() => {this.toastrService.error("El evento fue borrado satisfactoriamente", "Evento borrado")};
+    this.eventoService.deleteEvento(evento_nombre).subscribe(() => 
+    {this.toastrService.error("El evento fue borrado satisfactoriamente", "Evento borrado")});
       this.ngOnInit();
   }
 
