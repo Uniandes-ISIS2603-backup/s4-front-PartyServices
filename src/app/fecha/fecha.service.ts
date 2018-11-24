@@ -107,12 +107,18 @@ export class FechaService {
     this.http.get<Proveedor>(API_URL+'/proveedor'+'/'+idProveedor)
       .subscribe(
         (proveedor)=>{
+          console.log(proveedor)
           //Ya con el proveedor se procede a buscar la fecha y jornada en la que se agregara el evento
           this.getFechaByAgendaDiaJornada(proveedor.agenda.id,dia,jornada)
             .subscribe(
               (fechaObtenida)=>{
+                console.log(fechaObtenida)
                 //A continuacion se anade a la fecha el evento respectivo
-                this.http.get<Fecha>(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento);
+                console.log(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento);
+                this.http.post<Fecha>(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento,null)
+                .subscribe((e)=>{
+                  console.log(e)
+                });
               }
             );
            
