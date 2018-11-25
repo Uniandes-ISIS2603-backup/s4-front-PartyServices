@@ -88,6 +88,13 @@ export class FechaService {
     return this.http.get<Fecha>(API_URL+fecha+'/'+agenda+'/'+dia+'/'+jornada);
   }
 
+  /**
+   * Confirma un evento
+   * Busca los productos de un evento, por cada producto mira su proveedor y le anade el evento.
+   * @param evento evento que se va a confirmar
+   * @param dia dia que se realiza el evento
+   * @param jornada jornada en que se realiza el evento
+   */
   confirmarEvento(evento:Evento, dia:string, jornada:string){
     evento.productos.forEach(producto => {
       this.http.get<Producto>(API_URL+'/producto'+'/'+producto.nombre)
@@ -106,7 +113,13 @@ export class FechaService {
     });
   }
 
-  
+  /**
+   * Anade un evento a la agenda de un proveedor
+   * @param idAgenda la agenda del proveedor
+   * @param dia el dia en el que se agregara el evento
+   * @param jornada la jornada en la que se anadira el evento
+   * @param idEvento el evento a anadir
+   */
   anadirEventoAFecha(idAgenda:number, dia:string, jornada:string, idEvento:number){
   
     //Obtiene la fecha  

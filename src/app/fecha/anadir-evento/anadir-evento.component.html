@@ -1,12 +1,4 @@
 <h3>Anadir evento a una fecha</h3>
-Agenda:
-<input type="text" name="" id="" [(ngModel)]="idAgenda">
-Dia:
-<input type="text" name="" id="" [(ngModel)]="dia">
-Jornada:
-<input type="text" name="" id="" [(ngModel)]="jornada">
-Evento:
-<input type="text" name="" id="" [(ngModel)]="idEvento">
 <form name="fecha" (ngSubmit)="f.form.valid && anadirEventoAFecha()" #f="ngForm" novalidate>
     <div class="form-group">
         <label for="jornada"><b>Jornada</b></label>
@@ -40,6 +32,5 @@ Evento:
             <div>No se seleccionó una fecha</div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Crear</button>
+    <button type="submit" class="btn btn-primary">Anadir evento</button>
   </form>
-<button btn (click)="anadirEventoAFecha()">Anadir</button>
