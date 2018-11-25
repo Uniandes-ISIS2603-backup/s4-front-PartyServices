@@ -120,6 +120,23 @@ export class FechaService {
           .subscribe((e)=>{
             console.log(e)
           });
+        },
+        (error)=>{
+          //Si no exixiste la fecha debe crearla
+          var nuevaFecha= new Fecha();
+          nuevaFecha.dia=dia;
+          nuevaFecha.jornada=jornada;
+          console.log(nuevaFecha);
+          this.crearFecha(nuevaFecha,idAgenda)
+            .subscribe(
+              (fechaCreada)=>{
+                if(fechaCreada!=null)
+                  this.anadirEventoAFecha(idAgenda,dia,jornada,idEvento);
+                else
+                  console.log('Error');              }
+            )
+          console.log(error);
+          console.log('Hello');
         }
       );
       
