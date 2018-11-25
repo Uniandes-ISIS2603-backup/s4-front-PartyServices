@@ -113,7 +113,7 @@ export class FechaService {
     this.getFechaByAgendaDiaJornada(idAgenda,dia,jornada)
       .subscribe(
         (fechaObtenida)=>{
-          console.log(fechaObtenida)
+          console.log(fechaObtenida);
           //A continuacion se anade a la fecha el evento respectivo
           console.log(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento);
           this.http.post<Fecha>(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento,null)

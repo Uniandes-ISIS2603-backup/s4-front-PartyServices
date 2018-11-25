@@ -19,8 +19,15 @@ Evento:
 
     <div class="form-group">
         <label for="agenda"><b>Proveedor</b></label>
-        <select  title="Selecciona la agenda"   class="custom-select" id="agenda" [(ngModel)]="idAgenda" [ngModelOptions]="{standalone: true}"  >
+        <select  title="Selecciona proveedor"   class="custom-select" id="proveedor" [(ngModel)]="idAgenda" [ngModelOptions]="{standalone: true}"  >
             <option *ngFor="let prov of proveedores" value="{{prov?.agenda?.id}}" [ngValue]="prov?.agenda?.id">{{prov?.nombre}}</option >
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="agenda"><b>Evento</b></label>
+        <select  title="Selecciona evento"   class="custom-select" id="agenda" [(ngModel)]="idEvento" [ngModelOptions]="{standalone: true}"  >
+            <option *ngFor="let evento of eventos" value="{{evento?.id}}" [ngValue]="evento?.id">{{evento?.nombre}}</option >
         </select>
     </div>
 
