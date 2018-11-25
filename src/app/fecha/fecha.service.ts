@@ -93,38 +93,38 @@ export class FechaService {
       this.http.get<Producto>(API_URL+'/producto'+'/'+producto.nombre)
         .subscribe(
           (producto)=>{
-
+            this.http.get<Proveedor>(API_URL+'/proveedor'+'/'+producto.proveedor.id)
+              .subscribe(
+                (proveedor)=>{
+                   //this.anadirEventoAFecha(proveedor.agenda.id,dia,jornada,evento.id);
+                }
+              )
             
-           // this.anadirEventoAFecha(producto.proveedor.id,dia,jornada,evento.id);
+           
           }
         );
     });
   }
 
   
-  anadirEventoAFecha(idProveedor:number, dia:string, jornada:string, idEvento:number){
-    //Obtiene el proveedor
-    this.http.get<Proveedor>(API_URL+'/proveedor'+'/'+idProveedor)
+  anadirEventoAFecha(idAgenda:number, dia:string, jornada:string, idEvento:number){
+  
+    //Obtiene la fecha  
+    this.getFechaByAgendaDiaJornada(idAgenda,dia,jornada)
       .subscribe(
-        (proveedor)=>{
-          console.log(proveedor)
-          //Ya con el proveedor se procede a buscar la fecha y jornada en la que se agregara el evento
-          this.getFechaByAgendaDiaJornada(proveedor.agenda.id,dia,jornada)
-            .subscribe(
-              (fechaObtenida)=>{
-                console.log(fechaObtenida)
-                //A continuacion se anade a la fecha el evento respectivo
-                console.log(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento);
-                this.http.post<Fecha>(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento,null)
-                .subscribe((e)=>{
-                  console.log(e)
-                });
-              }
-            );
-           
-
+        (fechaObtenida)=>{
+          console.log(fechaObtenida)
+          //A continuacion se anade a la fecha el evento respectivo
+          console.log(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento);
+          this.http.post<Fecha>(API_URL+fecha+'/'+fechaObtenida.id+'/'+'eventos'+'/'+idEvento,null)
+          .subscribe((e)=>{
+            console.log(e)
+          });
         }
-      )
+      );
+      
+
+        
   }
 
 
