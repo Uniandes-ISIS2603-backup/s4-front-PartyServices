@@ -4,7 +4,7 @@
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Registar valoracion</button>
+                    (click)="showHideCreate()">Registrar una valoracion</button>
             </div>
             <br>
             <br>
@@ -28,7 +28,10 @@
         <div class="col-8">
             <div *ngIf="showView">
                 <app-valoracion-detail [valoracion]="selectedValoracion"></app-valoracion-detail>
-           
+            </div>
+            <div *ngIf="showCreate">
+                <app-valoracion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-valoracion-create>
+            </div>
         </div>   
     </div>
 </div>

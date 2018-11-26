@@ -3,31 +3,19 @@
     <div class="col-3"></div>
     <div class="col-6">
         <br>
-        <div class="card">
-            <div class="card-body">
-                <h2 class="text-center card-title">Registrar Valoracion</h2>
-                <br>
-                <form name="valoracion" (ngSubmit)="f.form.valid && createValoracion()" #f="ngForm" novalidate>
-                      <div class="form-group">
-                        <label for="nombreUsuario"><b>Nombre de Usuario</b></label>
-                        <input type="text" name="nombreUsuario" class="form-control" id="nombreUsuario" [(ngModel)]="valoracion.nombreUsuario"
-                               #nombreUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreUsuario.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>No se ingresó un nombre de usuario válido</div>
-                        </div>
-                    </div>
-
-
-
+        <h2 class="text-center">Registrar una valoracion</h2>
+        <br>
+       <form name="valoracion" (ngSubmit)="f.form.valid && createValoracion()" #f="ngForm" novalidate>
+                
                     <div class="form-group">
-                        <label for="comentario"><b>Comentario</b></label>
-                        <input type="text" name="comentario" class="form-control" id="comentario" [(ngModel)]="valoracion.comentario"
-                               #comentario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentario.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>No se ingresó un comentario válido</div>
+                        <label for="valoracionDescription"><b>Comentario</b></label>
+                        <textarea name="valoracionDescription" class="form-control" id="valoracionDescription" [(ngModel)]="valoracion.comentario"
+                            #valoracionDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valoracionDescription.invalid }"
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            <div>The valoracion's comment is missing</div>
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <label for="puntaje"><b>Puntaje</b></label>
@@ -35,19 +23,40 @@
                                 <option value=10>10</option>
                               <option value=9>9</option>
                                <option value=8>8</option>
+                               <option value=7>7</option>
+                               <option value=6>6</option>
+                               <option value=5>5</option>
+                               <option value=4>4</option>
+                               <option value=3>3</option>
+                               <option value=2>2</option>
+                               <option value=1>1</option>
+                               <option value=0>0</option>
+
+
                         </select>
                     </div>
-
-
-                    <div class="row form-inline justify-content-center align-self-center">
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <div class="divider"></div>
-                        <button type="button"  (click)="cancelCreation()" class="btn btn-danger" id="btnCancelarCreacionCliente">Cancelar</button>
+             
+                    <div class="form-group">
+                        <label for="valoracionCliente"><b>Cliente</b></label>
+                        <select class="custom-select" name="valoracionCliente" id="valoracionCliente" [(ngModel)]="valoracion.cliente.id"
+                            #valoracionCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valoracionCliente.invalid }"
+                            required>
+                            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombreUsuario}}</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <div>The valoracion's Cliente is missing</div>
+                        </div>
                     </div>
-
-                </form>
+                <br>
+           
+           
+           
+               <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
             </div>
-        </div>
+            </form>
     </div>
     <div class="col-3"></div>
 </div>
