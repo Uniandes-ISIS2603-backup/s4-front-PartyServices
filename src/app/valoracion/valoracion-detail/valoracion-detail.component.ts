@@ -13,18 +13,19 @@ export class ValoracionDetailComponent implements OnInit {
 /**
  * Una valoracion buscada
  */
-  @Input() valoracion : Valoracion;
+ @Input() valoracion : Valoracion;
 
 /**
  * Identificador del proveedor de la valoracion
  */
-    public idProveedor : number;
-
- /**
-  * identificador de la valoracion
-  */
-    public idValoracion : number;
-
+ public idProveedor : number;
+ 
+ 
+/**
+ * El id de la valoracion que viene en el path get .../valoraciones/valoracion_id
+ */
+ public valoracion_id: number;
+ 
 /**
 * Constructor for the component
 * @param route The route which helps to retrieves the id of the valoracion to be shown
@@ -37,24 +38,26 @@ export class ValoracionDetailComponent implements OnInit {
     private router: Router
     ) { }
 
-    /**
-    * The method which initializes the component.
-    * We need to create the valoracion so it is never considered as undefined
-    */
+/**
+ * The method which initializes the component.
+ * We need to create the valoracion so it is never considered as undefined
+ */
   ngOnInit() {
-        this.idValoracion = +this.route.snapshot.paramMap.get('idValoracion');
-        this.idProveedor = +this.route.snapshot.paramMap.get('id');
-        
+    this.valoracion_id = +this.route.snapshot.paramMap.get('idValoracion');
+    this.idProveedor = +this.route.snapshot.paramMap.get('id');
+    if (this.valoracion_id){
+        this.valoracion = new Valoracion();
         this.getValoracion();
-  }
+        }   
+    }
 
 /**
-    * The method which obtains the valoracion whose details we want to show
-    */
+ * The method which obtains the valoracion whose details we want to show
+ */
   getValoracion(){
-    this.valoracionService.getValoracion(this.idProveedor,this.idValoracion)
+    this.valoracionService.getValoracion(this.idProveedor,this.valoracion_id)
     .subscribe( valoracion =>{
-        this.valoracion=valoracion;
+    this.valoracion=valoracion;
       }
     );
   }

@@ -1,8 +1,7 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import { Proveedor } from '../proveedor/proveedor';
+
+import { Cliente } from '../cliente/cliente';
+
 
  export class Valoracion 
  {
@@ -29,13 +28,13 @@
      /**
       * Proveedor calificado
       */
-     proveedor: any ;
+     proveedor: Proveedor ;
      
      
     /**
-     * Cliente dde la valoracion
+     * Cliente de la valoracion
      */
-     cliente : any;
+     cliente : Cliente;
  }
 
 
