@@ -93,7 +93,10 @@ export class FechaDiaComponent implements OnInit {
               .subscribe( eventos =>{
               this.eventosManana=eventos
              } )
-            }
+            },
+        (error)=>{
+          console.log('NO hay eventos por la manana')
+        }
       );
       this.fechaS.getFechaByAgendaDiaJornada(this.idAgenda,this.dia,"Tarde")
       .subscribe(
@@ -103,6 +106,9 @@ export class FechaDiaComponent implements OnInit {
               .subscribe( eventos =>{
               this.eventosTarde=eventos
              } )
+        },
+        (error)=>{
+          console.log('NO hay eventos por la tarde')
         }
       );
       this.fechaS.getFechaByAgendaDiaJornada(this.idAgenda,this.dia,"Noche")
@@ -113,6 +119,9 @@ export class FechaDiaComponent implements OnInit {
               .subscribe( eventos =>{
               this.eventosNoche=eventos
              } )
+        },
+        (error)=>{
+          console.log('NO hay eventos por la noche')
         }
       );
   }

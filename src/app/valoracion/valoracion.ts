@@ -2,6 +2,7 @@ import { Proveedor } from '../proveedor/proveedor';
 
 import { Cliente } from '../cliente/cliente';
 
+
  export class Valoracion 
  {
     /**
@@ -28,7 +29,8 @@ import { Cliente } from '../cliente/cliente';
      /**
       * Proveedor calificado
       */
-      proveedor: Proveedor 
+     proveedor: Proveedor ;
+     
      
     /**
      * Cliente de la valoracion

@@ -1,0 +1,36 @@
+<h3>Anadir evento a una fecha</h3>
+<form name="fecha" (ngSubmit)="f.form.valid && anadirEventoAFecha()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="jornada"><b>Jornada</b></label>
+        <select title="Selecciona la jornada"   class="custom-select" id="jornada" [(ngModel)]="jornada" [ngModelOptions]="{standalone: true}"  >
+            <option value="Manana" [ngValue]="Manana">&#9728; Ma&ntilde;ana</option >
+            <option value="Tarde"  [ngValue]="Tarde">&#9925; Tarde</option>
+            <option value="Noche"  [ngValue]="Noche">&#9733; Noche</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="agenda"><b>Proveedor</b></label>
+        <select  title="Selecciona proveedor"   class="custom-select" id="proveedor" [(ngModel)]="idAgenda" [ngModelOptions]="{standalone: true}"  >
+            <option *ngFor="let prov of proveedores" value="{{prov?.agenda?.id}}" [ngValue]="prov?.agenda?.id">{{prov?.nombre}}</option >
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="agenda"><b>Evento</b></label>
+        <select  title="Selecciona evento"   class="custom-select" id="agenda" [(ngModel)]="idEvento" [ngModelOptions]="{standalone: true}"  >
+            <option *ngFor="let evento of eventos" value="{{evento?.id}}" [ngValue]="evento?.id">{{evento?.nombre}}</option >
+        </select>
+    </div>
+
+    <label for="dia"><b>Fecha</b></label>
+    <div [ngClass]="{ 'is-invalid': f.submitted && dia.invalid }">
+      <input class="form-control" id="dia" name="dia" [(ngModel)]="dia" 
+      ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"  [ngClass]="{'is-invalid': f.submitted && (dia.untouched || dia.invalid) }"
+      required>
+        <div class="invalid-feedback">
+            <div>No se seleccionó una fecha</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Anadir evento</button>
+  </form>

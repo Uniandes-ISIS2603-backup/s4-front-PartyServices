@@ -40,4 +40,8 @@ export class AgendaService {
     return this.http.post<Agenda>(API_URL+agenda+'/'+idProveedor, agendaC);
   }
 
+  updateAgenda(agendaU:Agenda) : Observable<Agenda>{
+    return this.http.put<Agenda>(API_URL+agenda+'/',agendaU);
+  }
+
 }

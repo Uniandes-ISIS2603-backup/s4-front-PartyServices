@@ -35,6 +35,11 @@ export class AgendaDetailComponent implements OnInit {
   date: {year: number, month: number};
 
   /**
+   * Muestra o quita la edicion de una agenda
+   */
+  showEdit : boolean;
+
+  /**
    * Constructor de agendaDetail
    * @param agendaService servico de agenda
    * @param route ruta para agenda
@@ -52,6 +57,7 @@ export class AgendaDetailComponent implements OnInit {
      * Inicializador de agenda detail
      */
   ngOnInit() {
+    this.showEdit=false;
     this.idAgenda = +this.route.snapshot.paramMap.get('id');
     this.getAgenda();
     this.model = this.calendar.getToday();
@@ -72,6 +78,23 @@ export class AgendaDetailComponent implements OnInit {
    */
   clickCalendar(){
     this.child.ngOnInit();
+  }
+
+  /**
+   * Quita o muestra la edicion de la agenda
+   */
+  showHideEdit():void{
+    this.showEdit=!this.showEdit;
+  }
+
+  actualizarAgenda(): void {
+    this.showEdit=!this.showEdit;
+  }
+
+  cancelarEdicion():void {
+    this.showHideEdit();
+    this.agenda=new Agenda();
+    this.getAgenda();
   }
 
 }

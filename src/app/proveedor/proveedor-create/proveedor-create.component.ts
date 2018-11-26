@@ -79,6 +79,7 @@ export class ProveedorCreateComponent implements OnInit {
             this.pasarAAgenda();
             return this.proveedor;
     }
+    
 
   ngOnInit() {
       this.estaEnAgenda=false;
