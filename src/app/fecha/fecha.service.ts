@@ -151,10 +151,12 @@ export class FechaService {
           console.log(error);
           console.log('Hello');
         }
-      );
-      
+      );  
+  }
 
-        
+  eliminarEventoAFecha(idFecha,idEvento):Observable<any>{
+    return this.http.delete(API_URL+fecha+'/'+idFecha+'/'+'eventos'+'/'+idEvento);
+    
   }
 
 

@@ -78,4 +78,15 @@ export class FechaDetailComponent implements OnInit {
     );
   }
 
+
+  abandonarEvento(idEvento:string){
+    console.log(idEvento);
+    this.fechaService.eliminarEventoAFecha(this.fecha.id,idEvento).subscribe(
+      ()=>{
+        this.ngOnInit();
+      }
+    );
+    
+  }
+
 }
