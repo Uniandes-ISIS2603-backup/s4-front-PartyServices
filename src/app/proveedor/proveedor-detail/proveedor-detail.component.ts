@@ -28,7 +28,7 @@ export class ProveedorDetailComponent implements OnInit {
   /**
     * El proveedor
     */
-    proveedorDetail: ProveedorDetail;
+    proveedorDetail: Proveedor;
     
    /**
     * El id del proveedor que viene en el path get .../proveedor/proveedor_id
@@ -38,7 +38,7 @@ export class ProveedorDetailComponent implements OnInit {
       showEdit : boolean;
       
       showCreate : boolean;
-      proveedor: Proveedor;
+      
     
     /**
     * The method which obtains the proveedor whose details we want to show
@@ -79,7 +79,7 @@ export class ProveedorDetailComponent implements OnInit {
 
   cancelarEdicion():void {
     this.showHideEdit();
-    this.proveedor= new Proveedor();
+    this.proveedorDetail= new Proveedor();
     this.getProveedorDetail();
   }
 

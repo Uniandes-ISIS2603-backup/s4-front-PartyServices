@@ -40,8 +40,22 @@ export class AgendaService {
     return this.http.post<Agenda>(API_URL+agenda+'/'+idProveedor, agendaC);
   }
 
+  /**
+   * Actualiza la agenda
+   * @param agendaU la agenda a actualizar
+   */
   updateAgenda(agendaU:Agenda) : Observable<Agenda>{
     return this.http.put<Agenda>(API_URL+agenda+'/',agendaU);
   }
 
+  /**
+   * Penitencia a un proveedor
+   * @param agendaU asigna la fecha de penitencia a un mes despues de la fecha actul
+   */
+  penitenciarProveedor(agendaU:Agenda):Observable<Agenda>{
+    var fechaPenitencia = new Date();
+    var fechaPen=fechaPenitencia.getFullYear()+'-'+(fechaPenitencia.getMonth()+2)+'-'+fechaPenitencia.getDate()+'T00:00:00-00:00';
+    agendaU.fechaPenitencia=fechaPen;
+    return this.http.put<Agenda>(API_URL+agenda+'/',agendaU);
+  }
 }
