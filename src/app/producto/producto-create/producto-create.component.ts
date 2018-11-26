@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Producto } from '../../producto/producto';
@@ -38,7 +38,7 @@ export class ProductoCreateComponent implements OnInit {
 
   ) { }
 
-
+  @Input() proveedor;
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
@@ -46,6 +46,8 @@ export class ProductoCreateComponent implements OnInit {
    * Llama al servicio para crear el producto solicitado
    */
   createProducto(): Producto {
+    
+    this.producto.proveedor = this.proveedor ;
     this.productoService.createProducto(this.producto)
       .subscribe((producto) => {
         this.producto = producto;
@@ -73,7 +75,6 @@ export class ProductoCreateComponent implements OnInit {
     this.servicioService.getServicios().subscribe( (servicios) => {
       this.servicios = servicios ;     
     }) ;
-    
    
   }
 
