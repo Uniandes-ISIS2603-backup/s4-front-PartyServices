@@ -3,51 +3,37 @@
         <div class="col-4">
             <br>
             <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showHideCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Registrarse</button>
-            </div>           
-            <br>
-            <br>
-            <div class="card">
-                <div class="card-body">       
-                    <table class="table table-striped">
-                        <thead class="bg-danger">
-                            <tr>
-                              <th class="h5 theadList">Id de la valoracion</th>
-
-                                <th class="h5 theadList">Nombre de Usuario</th>
-                                <th class="h5 theadList">Puntaje</th>
-                                <th class="h5 theadList">Comentarios</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor = "let valoracion of valoraciones"
-                                (click)="onSelected(author.id)">
-                                <td style="cursor: pointer;">
-                        <dd class="figure-caption nombreValoracion" routerLink="/proveedor/{{valoracion.proveedor.id}}/valoracion/{{valoracion.id}}">{{valoracion.id}}</dd>
-                        </td>
-
-                        <td>{{valoracion.nombreUsuario}}</td>
-                        <td>{{valoracion.puntaje}}</td>
-                        <td>{{valoracion.comentario}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Registrar una valoracion</button>
             </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Nombre del cliente</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let valoracion of valoraciones" >
+                        <td style="cursor: pointer;" (click)="onSelected(valoracion.id)"> <dd>{{valoracion.cliente?.nombreUsuario}}</dd></td>
+                        <td>
+                            <i class="fa fa-pencil" 
+                                (click)="showHideEdit(valoracion.id)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-8">
-
+            <div *ngIf="showView">
+                <app-valoracion-detail [valoracion]="selectedValoracion"></app-valoracion-detail>
+            </div>
             <div *ngIf="showCreate">
                 <app-valoracion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-valoracion-create>
             </div>
-        </div> 
+        </div>   
     </div>
 </div>
-
-
-
-
 
 

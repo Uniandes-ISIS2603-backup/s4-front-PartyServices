@@ -11,6 +11,7 @@ import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteService } from './cliente.service';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
+import { ValoracionModule } from '../valoracion/valoracion.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,9 @@ import { ClienteCreateComponent } from './cliente-create/cliente-create.componen
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        ValoracionModule
+
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
   providers: [ClienteService],

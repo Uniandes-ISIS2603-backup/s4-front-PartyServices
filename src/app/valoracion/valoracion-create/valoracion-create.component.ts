@@ -4,7 +4,11 @@ import { Valoracion } from '../valoracion';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-type DateString = {month: number, day: number, year: number};
+import { ProveedorService } from '../../proveedor/proveedor.service';
+import { ClienteService } from '../../cliente/cliente.service';
+
+import { Cliente } from '../../cliente/cliente';
+import { Proveedor } from '../../proveedor/proveedor';
 
 @Component({
   selector: 'app-valoracion-create',
@@ -14,22 +18,28 @@ type DateString = {month: number, day: number, year: number};
 export class ValoracionCreateComponent implements OnInit {
 
 
-/**
- * valoracion que se piensa crear
- */
-  public valoracion : Valoracion;
+    /**
+     * valoracion que se piensa crear
+     */
+      public valoracion : Valoracion;
 
-/**
- * Identificacion del proveedor al que le pertenece la valoracion
- */
-  public idProveedor : number;
+    /**
+     * Identificacion del proveedor al que le pertenece la valoracion
+     */
+     public idProveedor : number;
 
-   /**
+    /**
     * The output which tells the parent component
     * that the user no longer wants to create an cliente
     */
    @Output() cancel = new EventEmitter();
+   
+   /**
+    * La lista de todos los clientes.
+    */
+    clientes: Cliente[];
 
+   
    /**
    * The output which tells the parent component
    * that the user created a new cliente
@@ -44,21 +54,33 @@ export class ValoracionCreateComponent implements OnInit {
     */
   constructor(
     private valoracionService : ValoracionService,
+    private clienteService : ClienteService,
+    private proveedorService : ProveedorService,
     private route: ActivatedRoute,
     private toastrService: ToastrService
   ) { }
 
 
   
- /**
+   /**
     * The method which initializes the component.
     * We need to create the valoracion so it is never considered as undefined
     */
-  ngOnInit() {
-    this.idProveedor =+ this.route.snapshot.paramMap.get('id');
-    this.valoracion=new Valoracion();
-  }
+    ngOnInit() {
+      this.idProveedor =+ this.route.snapshot.paramMap.get('id');
+      this.valoracion=new Valoracion();
+      this.valoracion.cliente = new Cliente();
+      this.getClientes();
+    }
 
+    getClientes(): void {
+          this.clienteService.getClientes()
+              .subscribe(clientes => {
+                  this.clientes = clientes;
+              }, err => {
+                  this.toastrService.error(err, 'Error');
+              });
+      }
 
 
 /**
@@ -66,8 +88,6 @@ export class ValoracionCreateComponent implements OnInit {
  */
   createValoracion():Valoracion{
         console.log(this.valoracion);
-        
-        
         this.valoracionService.createValoracion(this.valoracion,this.idProveedor)
             .subscribe((valoracion) => {
                 this.valoracion = valoracion;
@@ -76,11 +96,12 @@ export class ValoracionCreateComponent implements OnInit {
                 
             });
             return this.valoracion;
-    
-    
   }
+   
+       
+           
 
-  /**
+   /**
     * Emits the signal to tell the parent component that the
     * user no longer wants to create an cliente
     */

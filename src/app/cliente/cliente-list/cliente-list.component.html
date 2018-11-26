@@ -21,9 +21,8 @@
                             <tr *ngFor = "let cliente of clientes"
                                 (click)="onSelected(author.id)">
                             <td style="cursor: pointer;">
-                                <dd class="figure-caption nombreCliente" routerLink="/clientes/{{cliente.id}}">{{cliente.login}}</dd>
+                                <dd class="figure-caption nombreCliente" routerLink="/clientes/{{cliente.id}}">{{cliente.nombreUsuario}}</dd>
                             </td>
-
                             <td>{{cliente.email}}</td>
 
                         </tr>

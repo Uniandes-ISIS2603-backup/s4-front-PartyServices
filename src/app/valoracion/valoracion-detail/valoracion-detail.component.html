@@ -1,21 +1,17 @@
-
 <div class="panel-body">
     <div class="border margin">
-        <p class="h3 p-3">Nombre de Usuario: {{valoracion?.nombreUsuario}}<p> 
+        <p class="h3 p-3">{{valoracion.cliente?.nombreUsuario}}<p> 
         <div class="row">
-            <div class="col-md-3">
+            <div class="col">
                 <dl>     
-                    <dt>Nombre del proveedor</dt>
-                    <dd>{{valoracion?.proveedor?.nombre}}</dd>
-                    <dt>ID del proveedor</dt>
-                    <dd>{{valoracion?.proveedor?.id}}</dd>
-                    <dt>Puntaje</dt>
-                    <dd>{{valoracion?.puntaje}}</dd>
                     <dt>Comentario</dt>
-                    <dd>{{valoracion?.comentario}}</dd>
+                    <dd>{{valoracion.comentario}}</dd>
+                    <dt>Puntaje</dt>
+                    <dd>{{valoracion.puntaje}}</dd>
                 </dl>
             </div>
-            
+
         </div>
-    </div> 
+    </div>
+    
 </div>
