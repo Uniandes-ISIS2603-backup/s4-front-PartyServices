@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from '../../evento/evento';
@@ -30,6 +30,7 @@ export class EventoCreateComponent implements OnInit {
 
   ) { }
 
+  @Input() cliente ;
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
@@ -37,6 +38,9 @@ export class EventoCreateComponent implements OnInit {
   * Llama al servicio para crear el evento solicitado
   */
   createEvento(): Evento {
+
+    this.evento.dia=""+ this.evento.dia.year+"-"+(this.evento.dia.month)+"-"+this.evento.dia.day+"T00:00:00-00:00";   
+    console.log(this.evento);
     this.eventoService.createEvento(this.evento).subscribe((evento) => {
       this.evento = evento;
       this.create.emit();
@@ -58,6 +62,8 @@ export class EventoCreateComponent implements OnInit {
   */
   ngOnInit() {
     this.evento = new Evento();
+    this.evento.jornada = "Manana" ;
+    this.evento.estado = "En planeacion" ;
   }
 
 }
