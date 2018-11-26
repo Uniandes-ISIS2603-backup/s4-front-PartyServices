@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Fecha } from '../fecha';
 import { FechaService } from '../fecha.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AgendaService } from 'src/app/agenda/agenda.service';
 
 @Component({
   selector: 'app-fecha-detail',
@@ -33,6 +34,7 @@ export class FechaDetailComponent implements OnInit {
    */
   constructor(
     private fechaService : FechaService,
+    private agendaService : AgendaService,
     private route: ActivatedRoute,
     private router: Router
     ) { }
@@ -79,6 +81,10 @@ export class FechaDetailComponent implements OnInit {
   }
 
 
+  /**
+   * Abandona un evento
+   * @param idEvento el evento a abandonar
+   */
   abandonarEvento(idEvento:string){
     console.log(idEvento);
     this.fechaService.eliminarEventoAFecha(this.fecha.id,idEvento).subscribe(
@@ -87,6 +93,13 @@ export class FechaDetailComponent implements OnInit {
       }
     );
     
+  }
+
+  /**
+   * Penitencia a un proveedor
+   */
+  penitenciarProveedor(){
+    this.agendaService.updateAgenda(this.fecha.agenda);
   }
 
 }
