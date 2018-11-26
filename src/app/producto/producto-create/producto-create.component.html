@@ -7,14 +7,19 @@
             <div>No se ingresó un nombre de producto válido</div>
         </div>
     </div>
+
+
     <div class="form-group">
         <label for="productoTipoServicio"><b>Tipo de servicio:</b></label>
-        <input type="text" name="productoTipoServicio" class="form-control" id="productoTipoServicio" [(ngModel)]="producto.tipoServicio"
-            #productoTipoServicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoTipoServicio.invalid }" required>
-        <div class="invalid-feedback">
-            <div>No se ingresó un tipo de servicio válido</div>
-        </div>
+        <select  title="Selecciona Servicio"   class="custom-select" id="servicio" [(ngModel)]="producto.tipoServicio" [ngModelOptions]="{standalone: true}" 
+        #productoTipoServicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoTipoServicio.invalid }" required >
+                <option *ngFor="let serv of servicios" value="{{serv?.producto?.tipoServicio}}" [ngValue]="serv?.producto?.tipoServicio">{{serv?.tipo}}</option >
+            </select>
+            <div class="invalid-feedback">
+                    <div>No se ingresó un tipo de servicio valido</div>
+                </div>
     </div>
+
     <div class="form-group">
         <label for="productoCosto"><b>Costo:</b></label>
         <input type="number" name="productoCosto" class="form-control" id="productoCosto" [(ngModel)]="producto.costo"

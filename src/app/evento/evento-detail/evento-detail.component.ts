@@ -53,9 +53,7 @@ export class EventoDetailComponent implements OnInit {
     */
    showHideEdit(evento_nombre: String): void {
     if (!this.showEdit || (this.showEdit && evento_nombre != this.evento.nombre)) {
-
-      this.showEdit = true;
-      
+      this.showEdit = true;      
       
     }
     else {
@@ -76,6 +74,17 @@ export class EventoDetailComponent implements OnInit {
 }
 
 
+
+updateEvento(): void {
+  this.showEdit=!this.showEdit;
+}
+
+
+cancelEdition():void {
+  this.showEdit=!this.showEdit;
+  this.evento=new Evento();
+  this.getEventoDetail();
+}
   /**
     * Elimina un evento
     */

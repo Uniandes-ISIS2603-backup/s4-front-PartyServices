@@ -42,7 +42,8 @@ export class EventoEditComponent implements OnInit,OnChanges {
    * Updates the information of the author
    */
   editEvento(): void {
-
+    this.evento.dia=""+ this.evento.dia.year+"-"+(this.evento.dia.month)+"-"+this.evento.dia.day+"T00:00:00-00:00";   
+    console.log(this.evento);
     this.eventoService.updateEvento(this.evento)
       .subscribe(() => {
         this.toastrService.success("The evento's information was updated", "evento edition");
