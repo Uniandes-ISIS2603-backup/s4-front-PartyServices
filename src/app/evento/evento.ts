@@ -10,11 +10,17 @@ import { Producto } from "../producto/producto";
 export class Evento 
 {
 
-nombre: String ;
+id: number ;
 
-estado: String ;
+nombre: string ;
 
-fecha: String ;
+estado: string ;
+
+dia: any ;
+
+jornada: string ;
+
+fecha: string ;
 
 latitud: number ;
 
