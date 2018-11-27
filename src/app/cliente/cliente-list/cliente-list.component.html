@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!--<div class="container-fluid">
     <div class="row">
         <div class="col-4">
             <br>
@@ -38,5 +38,50 @@
             </div>
         </div> 
     </div>
+</div>-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un cliente</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Nombre de Usuario</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let cliente of clientes" >
+                        <td style="cursor: pointer;" (click)="onSelected(cliente.id)"> <dd>{{cliente.nombreUsuario}}</dd>
+                </td>
+                <td>
+                    <button class="btn btn-primary" (click)="showHideEdit(cliente.id)"><span class="fa fa-pencil"></span></button>
+                </td>
+                <!--<td *ngxPermissionsOnly="['ADMIN']">
+                    <button class="btn btn-danger" (click)="deleteAuthor(author.id)"><span class="fa fa-trash"></span></button>
+                </td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="showView">
+                <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-cliente-edit [cliente]="selectedCliente" (cancel)="showHideEdit(selectedCliente.id)" (update)="updateCliente()"></app-cliente-edit>
+            </div>
+        </div>   
+    </div>
 </div>
+
 

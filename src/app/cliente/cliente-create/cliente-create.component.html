@@ -8,9 +8,9 @@
                 <br>
                 <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
                     <div class="form-group">
-                        <label for="clienteLogin"><b>Nombre de Usuario</b></label>
-                        <input type="text" name="clienteLogin" class="form-control" id="clienteLogin" [(ngModel)]="cliente.login"
-                            #clienteLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteLogin.invalid }" required>
+                        <label for="clienteNombreUsuario"><b>Nombre de Usuario</b></label>
+                        <input type="text" name="clienteNombreUsuario" class="form-control" id="clienteNombreUsuario" [(ngModel)]="cliente.nombreUsuario"
+                            #clienteNombreUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombreUsuario.invalid }" required>
                         <div class="invalid-feedback">
                             <div>No se ingresó un nombre de usuario válido</div>
                         </div>

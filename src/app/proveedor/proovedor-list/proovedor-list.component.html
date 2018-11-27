@@ -22,7 +22,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor = "let proveedor of proveedores"
-                                (click)="onSelected(author.id)">
+                                (click)="onSelected(proveedor.id)">
                             <td>{{proveedor.id}}</td>
                             <td style="cursor: pointer;">
                                 <dd class="figure-caption nombreProveedor" routerLink="/proveedor/{{proveedor.id}}">{{proveedor.nombre}}</dd>
@@ -43,7 +43,7 @@
         <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-proveedor-create (cancel)="showHideCreate()" (create)="finalizacion()"></app-proveedor-create>
+                <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
             </div>
         </div> 
     </div>

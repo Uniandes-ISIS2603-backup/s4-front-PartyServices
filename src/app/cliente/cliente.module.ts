@@ -12,6 +12,7 @@ import { ClienteService } from './cliente.service';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
 import { ValoracionModule } from '../valoracion/valoracion.module';
+import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { ValoracionModule } from '../valoracion/valoracion.module';
         ValoracionModule
 
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent],
   providers: [ClienteService],
   exports:[ClienteListComponent],
 })
