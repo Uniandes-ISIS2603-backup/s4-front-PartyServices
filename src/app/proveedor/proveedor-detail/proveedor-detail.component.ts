@@ -103,6 +103,7 @@ showHideEdit(proveedor_Id): void {
 
   actualizarProveedor(): void {
     this.showEdit=!this.showEdit;
+    this.ngOnInit();
   }
 
   cancelarEdicion():void {
