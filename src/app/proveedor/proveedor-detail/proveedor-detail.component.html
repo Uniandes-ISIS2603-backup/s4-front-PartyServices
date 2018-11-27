@@ -5,7 +5,8 @@
             <div class="col-md-3">
                 <dl>     
                     <dt>Agenda</dt>
-                      <button class="btn btn-primary" routerLink="/proveedor/agenda/{{proveedorDetail.agenda.id}}"><span class="fa fa-calendar"></span> Ver mi agenda</button>
+                    <dd>{{proveedorDetail.agenda}}</dd>
+                       <dd><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></dd>
                 </dl>
             </div>
             
@@ -13,24 +14,7 @@
     </div>
    <p class="h3 p-3">Productos de este proveedor : </p>
 
-    <div class="col-md-3">
-      <table class="table table-bordered">
-        <thead style="background-color: #dc3545;color:aliceblue">
-          <tr>
-            <th>Productos</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let producto of productos">
-     
-              <div *ngIf="compare(producto.proveedor.nombre, proveedorDetail.nombre)">
-              <dd class="figure-caption" routerLink="/producto/{{producto.nombre}}">{{producto.nombre}}</dd>
-              </div>
-            <br>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+   
     <!--<app-producto-list [Productos]="productoDetail.productos"></app-productos-list>-->
                 <br>
             <div class="row justify-content-center align-self-center">
@@ -40,13 +24,11 @@
                 <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="ngOnInit()"></app-producto-create>
+                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="finalizacion()"></app-producto-create>-->
             </div>
         </div> 
-                <div class="col-9">
-                <button class="btn btn-primary" (click)="showHideEdit(proveedorDetail.id)" >Editar</button>
-                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion(proveedorDetail.id)" (update)="actualizarProveedor()"></app-proveedor-edit>
-                <button class="btn btn-primary" (click)="deleteProveedor(proveedorDetail.id)" routerLink="/proveedor/list"><span class="fa fa-trash"></span>Eliminar cuenta</button>
-                </div> 
-                <br>
+        
+                <button class="btn btn-primary" (click)="showHideEdit()">Editar</button>
+                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion(proveedorD)" (update)="actualizarProveedor()"></app-proveedor-edit> 
+            <br>
 </div>

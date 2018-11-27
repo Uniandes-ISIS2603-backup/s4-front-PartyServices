@@ -1,11 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
-import {Producto} '../producto';
+import {Producto} from  '../../producto/producto';
 
 @Component({
   selector: 'app-proveedor-detail',
@@ -22,7 +22,8 @@ export class ProveedorDetailComponent implements OnInit {
 */
   constructor(
     private route: ActivatedRoute,
-    private proveedorService:ProveedorService
+    private proveedorService:ProveedorService,
+    private toastrService: ToastrService
   ) { }
   
   /**
@@ -107,7 +108,6 @@ showHideEdit(proveedor_Id): void {
   }
 
   cancelarEdicion():void {
-    this.showHideEdit();
     this.proveedorDetail= new Proveedor();
     this.getProveedorDetail();
   }
