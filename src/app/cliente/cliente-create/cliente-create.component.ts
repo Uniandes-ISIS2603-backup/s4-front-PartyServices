@@ -54,15 +54,6 @@ export class ClienteCreateComponent implements OnInit {
     }
     
     /**
-    * Cancels the creation of the new cliente
-    * Redirects to the cliente list page
-    */
-    /*cancelCreation(): void {
-        this.toastrService.warning('No se pudo registrar el cliente', 'Registrar cliente');
-        this.router.navigate(['/clientes/list']);
-    }*/
-    
-    /**
     * Creates a new cliente
     */
     createCliente(): Cliente {

@@ -46,4 +46,13 @@ export class ClienteService {
     createCliente(cliente): Observable<ClienteDetail>{
         return this.http.post<ClienteDetail>(API_URL + clientes,cliente)
     }
+    
+    /**
+    * Actuliza el cliente
+    * @param cliente El cliente con la información actualizada.
+    * @returns La confirmación de que el cliente fue actualizado.
+    */
+    updateCliente(cliente): Observable<ClienteDetail> {
+        return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
+    }
 }

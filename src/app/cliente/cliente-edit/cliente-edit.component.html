@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Edición del cliente</h2>
+        <br>
+        <form name="cliente" (ngSubmit)="f.form.valid && editCliente()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <label for="clienteNombreUsuario"><b>Nombre de Usuario</b></label>
+                <input type="text" name="clienteNombreUsuario" class="form-control" id="clienteNombreUsuario" [(ngModel)]="cliente.nombreUsuario"
+                       #clienteNombreUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombreUsuario.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>Falta el nombre del usuario</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="clienteContrasenia"><b>Contraseña</b></label>
+                <input type="password" name="clienteContrasenia" class="form-control" id="clienteContrasenia" [(ngModel)]="cliente.contrasenia"
+                       #clienteContrasenia="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteContrasenia.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>No se ingresó una contraseña válida</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="clienteEmail"><b>Correo Electrónico</b></label>
+                <input type="text" name="clienteEmail" class="form-control" id="clienteEmail" [(ngModel)]="cliente.email"
+                       #clienteEmail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteEmail.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>No se ingresó un correo electrónico válido</div>
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <label for="clienteFechaNacimiento"><b>Fecha de Nacimiento</b></label>
+                <div [ngClass]="{ 'is-invalid': f.submitted && clienteFechaNacimiento.invalid }">
+                    <input class="form-control" id="clienteFechaNacimiento" name="clienteFechaNacimiento" dateFormat="dd/MM/yyyy"
+                       [(ngModel)]="cliente.fechaNacimiento" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+                       #clienteFechaNacimiento="ngModel" [ngClass]="{'is-invalid': f.submitted && clienteFechaNacimiento.invalid }"
+                       required>
+                       <div class="invalid-feedback">
+                        <div>No se selccionó una fecha de nacimiento</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <!--<i  style="padding-right: 1em;"class="fa fa-save " (click)="editCliente()"></i>
+
+            <i class="fa fa-ban" (click)="cancelEdition()"></i>-->
+            <button type="button" class="btn btn-primary" (click)="editCliente()" >Editar</button>
+            <div class="divider"></div>
+            <button type="button"  (click)="cancelEdition()" class="btn btn-danger" id="btnCancelarCreacionCliente">Cancelar</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
