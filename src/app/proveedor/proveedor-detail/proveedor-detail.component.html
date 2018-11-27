@@ -11,13 +11,13 @@
             
         </div>
     </div>
-   <p class="h3 p-3">Productos de este proveedor : </p>
+   <p class="h3 p-3">Productos de este proveedor: </p>
 
     <div class="col-md-3">
       <table class="table table-bordered">
         <thead style="background-color: #dc3545;color:aliceblue">
           <tr>
-            <th>Productos</th>
+            <th>Lista de Productos</th>
           </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
                 <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Agregar Producto</button>
+                    (click)="showHideCreate()">Agregar un Producto</button>
             </div>   
                 <div class="col-9">
             
@@ -45,7 +45,7 @@
         </div> 
                 <div class="col-9">
                 <button class="btn btn-primary" (click)="showHideEdit(proveedorDetail.id)" >Editar</button>
-                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion(proveedorDetail.id)" (update)="actualizarProveedor()"></app-proveedor-edit>
+                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion()" (update)="actualizarProveedor()"></app-proveedor-edit>
                 <button class="btn btn-primary" (click)="deleteProveedor(proveedorDetail.id)" routerLink="/proveedor/list"><span class="fa fa-trash"></span>Eliminar cuenta</button>
                 </div> 
                 <br>

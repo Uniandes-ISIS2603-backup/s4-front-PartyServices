@@ -1,11 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
-import {Producto} '../producto';
+import { Producto } from '../../producto/producto';
 
 @Component({
   selector: 'app-proveedor-detail',
@@ -22,7 +22,8 @@ export class ProveedorDetailComponent implements OnInit {
 */
   constructor(
     private route: ActivatedRoute,
-    private proveedorService:ProveedorService
+    private proveedorService:ProveedorService,
+    private toastrService: ToastrService
   ) { }
   
   /**
@@ -39,10 +40,12 @@ export class ProveedorDetailComponent implements OnInit {
       
       showCreate : boolean;
       
+      otroAtributo:boolean;
+      
       productos: Producto[];
       
     /**
-    * The method which obtains the proveedor whose details we want to show
+    * The method which obtains the provider whose details we want to show
     */
     getProveedorDetail():void{
         this.proveedorService.getProveedorDetail(this.proveedor_Id)
@@ -61,8 +64,6 @@ export class ProveedorDetailComponent implements OnInit {
     }
     
     compare(string1: string, string2:string): boolean{
-        console.log(string2);
-        console.log(string1);
         if(string1 === string2)
         {
             return true;
@@ -103,11 +104,9 @@ showHideEdit(proveedor_Id): void {
 
   actualizarProveedor(): void {
     this.showEdit=!this.showEdit;
-    this.ngOnInit();
   }
 
   cancelarEdicion():void {
-    this.showHideEdit();
     this.proveedorDetail= new Proveedor();
     this.getProveedorDetail();
   }
