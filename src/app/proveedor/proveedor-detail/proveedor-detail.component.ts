@@ -40,10 +40,12 @@ export class ProveedorDetailComponent implements OnInit {
       
       showCreate : boolean;
       
+      otroAtributo:boolean;
+      
       productos: Producto[];
       
     /**
-    * The method which obtains the proveedor whose details we want to show
+    * The method which obtains the provider whose details we want to show
     */
     getProveedorDetail():void{
         this.proveedorService.getProveedorDetail(this.proveedor_Id)
