@@ -25,6 +25,7 @@ export class ProductoDetailComponent implements OnInit {
     private toastrService: ToastrService
   ) { }
 
+
   /**
    * Objeto que representa a un producto
    */
@@ -67,17 +68,17 @@ export class ProductoDetailComponent implements OnInit {
     */
   showHideEdit(producto_nombre: String): void {
     if (!this.showEdit || (this.showEdit && producto_nombre != this.producto.nombre)) {
-
       this.showEdit = true;
-      this.producto = new Producto();
-
-
     }
     else {
       this.showEdit = false;
     }
   }
 
+  updateProducto(): void {
+    this.showEdit=!this.showEdit;
+  }
+  
 
   /**
     * Elimina un producto

@@ -42,9 +42,11 @@ export class NotificacionService {
     createNotificacion(notificacion): Observable<Notificacion>{
         return this.http.post<Notificacion>(API_URL + notificaciones,notificacion)
     }
-    getNotificacionDetail(num):Observable<Notificacion>{
-        return null;
-    }
+
+    getNotificacionDetail(notificacionID) : Observable<Notificacion> {
+         return this.http.get<Notificacion>(API_URL + notificaciones + '/' + notificacionID);
+     }
+     
 }
 
 

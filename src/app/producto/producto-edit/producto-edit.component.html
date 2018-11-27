@@ -5,14 +5,6 @@
     <br>
     <form name="producto" (ngSubmit)="f.form.valid && editProducto()" #f="ngForm" novalidate>
       <div class="form-group">
-        <label for="productoNombre"><b>Nombre</b></label>
-        <input type="text" name="productoNombre" class="form-control" id="productoNombre" [(ngModel)]="producto.nombre"
-          #productoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoNombre.invalid }" required>
-        <div class="invalid-feedback">
-          <div>The producto's name is missing</div>
-        </div>
-      </div>
-      <div class="form-group">
           <label for="productoCosto"><b>Costo</b></label>
           <input type="number" name="productoCosto" class="form-control" id="productoCosto" [(ngModel)]="producto.costo"
             #productoCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoCosto.invalid }" required>
