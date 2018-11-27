@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
+
+
 import { Observable } from 'rxjs';
 import { Valoracion } from '../../valoracion/valoracion' ;
 import { ValoracionService } from '../../valoracion/valoracion.service' ;
@@ -13,12 +17,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ValoracionListComponent implements OnInit {
 
 
-    /**
-     * Una valoracion
-     */
-     @Input() valoracion : Valoracion;
-     
-     
     /**
      * The id of the author that the user wants to view
      */
@@ -65,7 +63,10 @@ export class ValoracionListComponent implements OnInit {
      constructor(
      private valoracionService: ValoracionService,
      private route: ActivatedRoute,
-     private router: Router
+     private router: Router,
+     private modalDialogService: ModalDialogService,
+     private viewRef: ViewContainerRef,
+     private toastrService: ToastrService
       ) { }
   
    /**
@@ -88,7 +89,8 @@ export class ValoracionListComponent implements OnInit {
      */
     getValoraciones(): void{
     this.valoracionService.getValoraciones(this.idProveedor)
-    .subscribe(valoraciones =>{this.valoraciones = valoraciones}) ;
+    .subscribe(valoraciones =>{this.valoraciones = valoraciones; console.log(valoraciones)}) ;
+    
     }
     
     getValoracion(): void {
@@ -97,6 +99,7 @@ export class ValoracionListComponent implements OnInit {
             .subscribe(selectedValoracion => {
                 this.selectedValoracion = selectedValoracion
             });
+            
     }
     
     updateValoracion(): void{
@@ -130,6 +133,34 @@ export class ValoracionListComponent implements OnInit {
             this.showView = true;
         }
     }
+    
+    /**
+    * Borra una valoración
+    */
+    deleteValoracion(valoracionId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Borrar una valoracion',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this author from the BookStore?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.valoracionService.deleteValoracion(idProveedor,valoracionId).subscribe(() => {
+                            this.toastrService.error("The author was successfully deleted", "Author deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
+
 
 
     /**
@@ -142,7 +173,6 @@ export class ValoracionListComponent implements OnInit {
         this.showEdit = false;
         this.selectedValoracion = undefined;
         this.valoracion_id = undefined;
-        
         this.idProveedor = +this.route.snapshot.paramMap.get('id');
         this.showCreate = false;
         this.getValoraciones() ;

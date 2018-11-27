@@ -22,7 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EventoModule } from './evento/evento.module' ;
 import {NgxPermissionsModule} from 'ngx-permissions';
 import {AuthModule} from './auth/auth.module';
-import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-instance.service';
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-in
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     NgxPermissionsModule.forRoot(),
-    NgbModule
+    NgbModule,
+     ModalDialogModule.forRoot()
   ],
   bootstrap: [AppComponent],
     providers: [
@@ -57,7 +58,7 @@ import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-in
             useClass: HttpErrorInterceptor,
             
             multi: true
-        },ModalDialogInstanceService,ModalDialogService
+        },ModalDialogInstanceService
     ]
 })
 export class AppModule { }

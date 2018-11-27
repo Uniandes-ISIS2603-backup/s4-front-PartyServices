@@ -52,7 +52,7 @@ export class SugerenciaCreateComponent implements OnInit {
     * We need to create the sugerencia so it is never considered as undefined
     */
   ngOnInit() {
-    this.idTematica =+ this.route.snapshot.paramMap.get('id');
+    this.idTematica = +this.route.snapshot.paramMap.get('id');
     this.sugerencia=new Sugerencia();
   }
 

@@ -11,16 +11,22 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="h4">Nombre del cliente</th>    
+                        <th class="h4">Nombre del cliente:</th>    
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let valoracion of valoraciones" >
-                        <td style="cursor: pointer;" (click)="onSelected(valoracion.id)"> <dd>{{valoracion.cliente?.nombreUsuario}}</dd></td>
+                        <td style="cursor: pointer;" (click)="onSelected(valoracion.id)"> <dd>{{valoracion.cliente.nombreUsuario}}</dd></td>
+                        
+                        <th class="h4">Nombre:{{valoracion.nombreUsuario}}</th> 
                         <td>
-                            <i class="fa fa-pencil" 
-                                (click)="showHideEdit(valoracion.id)"></i>
+                            <button class="btn btn-primary" (click)="showHideEdit(valoracion.id)"><span class="far fa-edit"></span></button>
                         </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteValoracion(valoracion.id)"><span class="fas fa-trash"></span></button>
+                        </td>
+                                                 
+
                     </tr>
                 </tbody>
             </table>
@@ -32,8 +38,10 @@
             <div *ngIf="showCreate">
                 <app-valoracion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-valoracion-create>
             </div>
+            <div *ngIf="showEdit">
+                <app-valoracion-edit [valoracion]="selectedValoracion" (cancel)="showHideEdit(selectedValoracion.id)" (update)="updateValoracion()" ></app-valoracion-edit>
+            </div>
         </div>   
     </div>
 </div>
-
 
