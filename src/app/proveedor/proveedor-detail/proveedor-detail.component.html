@@ -5,7 +5,8 @@
             <div class="col-md-3">
                 <dl>     
                     <dt>Agenda</dt>
-                      <button class="btn btn-primary" routerLink="/proveedor/agenda/{{proveedorDetail.agenda.id}}"><span class="fa fa-calendar"></span> Ver mi agenda</button>
+                    <dd>{{proveedorDetail.agenda}}</dd>
+                       <dd><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></dd>
                 </dl>
             </div>
             
@@ -40,7 +41,7 @@
                 <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="ngOnInit()"></app-producto-create>
+                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="finalizacion()"></app-producto-create>-->
             </div>
         </div> 
                 <div class="col-9">
