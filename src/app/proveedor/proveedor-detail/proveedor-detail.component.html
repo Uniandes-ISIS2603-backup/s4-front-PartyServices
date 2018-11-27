@@ -5,8 +5,7 @@
             <div class="col-md-3">
                 <dl>     
                     <dt>Agenda</dt>
-                    <dd>{{proveedorDetail.agenda}}</dd>
-                       <dd><b routerLink="/proveedor/agenda/{{proveedor?.agenda?.id}}">{{proveedor?.agenda?.id}}</b ></dd>
+                      <button class="btn btn-primary" routerLink="/proveedor/agenda/{{proveedorDetail.agenda.id}}"><span class="fa fa-calendar"></span> Ver mi agenda</button>
                 </dl>
             </div>
             
@@ -23,11 +22,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let producto of productos">
-            <td>
+     
               <div *ngIf="compare(producto.proveedor.nombre, proveedorDetail.nombre)">
               <dd class="figure-caption" routerLink="/producto/{{producto.nombre}}">{{producto.nombre}}</dd>
               </div>
-            </td>
+            <br>
           </tr>
         </tbody>
       </table>
@@ -41,12 +40,13 @@
                 <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="finalizacion()"></app-producto-create>
+                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="ngOnInit()"></app-producto-create>
             </div>
         </div> 
                 <div class="col-9">
-                <button class="btn btn-primary" (click)="showHideEdit(proveedorDetail.id)">Editar</button>
-                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion(proveedorDetail.id)" (update)="actualizarProveedor()"></app-proveedor-edit> 
+                <button class="btn btn-primary" (click)="showHideEdit(proveedorDetail.id)" >Editar</button>
+                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion(proveedorDetail.id)" (update)="actualizarProveedor()"></app-proveedor-edit>
+                <button class="btn btn-primary" (click)="deleteProveedor(proveedorDetail.id)" routerLink="/proveedor/list"><span class="fa fa-trash"></span>Eliminar cuenta</button>
                 </div> 
                 <br>
 </div>

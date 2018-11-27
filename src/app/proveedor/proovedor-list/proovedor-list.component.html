@@ -43,7 +43,7 @@
         <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-proveedor-create (cancel)="showHideCreate()" (create)="finalizacion()"></app-proveedor-create>
+                <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
             </div>
         </div> 
     </div>
