@@ -78,6 +78,7 @@ export class ProveedorDetailComponent implements OnInit {
   ngOnInit() {
       
       this.showEdit=false;
+      this.showCreate=false;
       this.proveedor_Id = +this.route.snapshot.paramMap.get('id');
       this.proveedorDetail = new ProveedorDetail();
       this.getProveedorDetail();
@@ -98,6 +99,8 @@ showHideEdit(proveedor_Id): void {
             this.showView = true;
         }
     }
+    
+   
 
   actualizarProveedor(): void {
     this.showEdit=!this.showEdit;
@@ -108,5 +111,11 @@ showHideEdit(proveedor_Id): void {
     this.proveedorDetail= new Proveedor();
     this.getProveedorDetail();
   }
-
+  
+  deleteProveedor(proveedorId: number): void {
+      
+      this.proveedorService.deleteProveedor(proveedorId).subscribe(() =>
+       {this.toastrService.error("El proveedor fue borrado satisfactoriamente", "Proveedor borrado")}) ;
+        this.ngOnInit();
+  }
 }
