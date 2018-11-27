@@ -9,6 +9,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ValoracionDetailComponent } from './valoracion-detail/valoracion-detail.component';
 import { ValoracionCreateComponent } from './valoracion-create/valoracion-create.component';
+import { ValoracionEditComponent } from './valoracion-edit/valoracion-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 
 @NgModule({
@@ -16,16 +18,17 @@ import { ValoracionCreateComponent } from './valoracion-create/valoracion-create
     BrowserModule,
     HttpClientModule,
     CommonModule,
+    NgxPermissionsModule,
     AppRoutingModule,
     FormsModule,
     NgbModule
   ],
   declarations: [
-  ValoracionListComponent, ValoracionDetailComponent, ValoracionCreateComponent
+  ValoracionListComponent, ValoracionDetailComponent, ValoracionCreateComponent, ValoracionEditComponent
    ],
   providers: [ValoracionService],
   exports: [
-    ValoracionListComponent,ValoracionDetailComponent, ValoracionCreateComponent
+    ValoracionListComponent,ValoracionDetailComponent, ValoracionCreateComponent, ValoracionEditComponent
    ] 
 })
 export class ValoracionModule { }
