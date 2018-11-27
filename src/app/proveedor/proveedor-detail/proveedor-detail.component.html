@@ -40,12 +40,12 @@
                 <div class="col-9">
             
             <div *ngIf="showCreate">
-                <app-producto-create (cancel)="showHideCreate()" [proveedor]="proveedorDetail" (create)="ngOnInit()"></app-producto-create>
+                <app-producto-create (cancel)="showHideCreate()" [proveedor]="getProveedorDetail()" (create)="ngOnInit()"></app-producto-create>
             </div>
         </div> 
                 <div class="col-9">
                 <button class="btn btn-primary" (click)="showHideEdit(proveedorDetail.id)" >Editar</button>
-                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion(proveedorDetail.id)" (update)="actualizarProveedor()"></app-proveedor-edit>
+                <app-proveedor-edit *ngIf="showEdit" [proveedor]="proveedorDetail" (cancel)="cancelarEdicion()" (update)="actualizarProveedor()"></app-proveedor-edit>
                 <button class="btn btn-primary" (click)="deleteProveedor(proveedorDetail.id)" routerLink="/proveedor/list"><span class="fa fa-trash"></span>Eliminar cuenta</button>
                 </div> 
                 <br>
