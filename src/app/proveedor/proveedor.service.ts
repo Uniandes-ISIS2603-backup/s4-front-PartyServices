@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import {Proveedor} from './proveedor';
 
 import {ProveedorDetail} from './proveedor-detail'
-
+import { Producto } from '../producto/producto';
 import {environment} from '../../environments/environment' ;
 import { Producto } from '../producto/producto';
 const API_URL = environment.apiURL;
