@@ -67,7 +67,7 @@ export class ValoracionCreateComponent implements OnInit {
     * We need to create the valoracion so it is never considered as undefined
     */
     ngOnInit() {
-      this.idProveedor =+ this.route.snapshot.paramMap.get('id');
+      this.idProveedor = +this.route.snapshot.paramMap.get('id');
       this.valoracion=new Valoracion();
       this.valoracion.cliente = new Cliente();
       this.getClientes();
