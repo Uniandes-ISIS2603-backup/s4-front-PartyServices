@@ -11,9 +11,8 @@
 
     <div class="form-group">
         <label for="productoTipoServicio"><b>Tipo de servicio:</b></label>
-        <select  title="Selecciona Servicio"   class="custom-select" id="servicio" [(ngModel)]="producto.tipoServicio" [ngModelOptions]="{standalone: true}" 
-        #productoTipoServicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoTipoServicio.invalid }" required >
-                <option *ngFor="let serv of servicios" value="{{serv?.producto?.tipoServicio}}" [ngValue]="serv?.producto?.tipoServicio">{{serv?.tipo}}</option >
+        <select  title="Selecciona Servicio"   class="custom-select" id="servicio" [(ngModel)]="producto.tipoServicio" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let serv of servicios" value="{{serv?.tipo}}" [ngValue]="serv?.tipo">{{serv?.tipo}}</option >
             </select>
             <div class="invalid-feedback">
                     <div>No se ingresó un tipo de servicio valido</div>
