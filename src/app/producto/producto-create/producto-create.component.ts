@@ -48,7 +48,8 @@ export class ProductoCreateComponent implements OnInit {
   createProducto(): Producto {
     
     this.producto.proveedor = this.proveedor ;
-    console.log(this.producto.proveedor)
+    this.producto.duenio = this.proveedor.nombre  ;
+    console.log(this.producto.tipoServicio) 
     this.productoService.createProducto(this.producto)
       .subscribe((producto) => {
         this.producto = producto;
