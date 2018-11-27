@@ -9,6 +9,7 @@ import {ProveedorDetail} from './proveedor-detail'
 import {environment} from '../../environments/environment' ;
 const API_URL = environment.apiURL;
 const proveedores = '/proveedor';
+const productos = '/producto';
 
 @Injectable()
 export class ProveedorService {
@@ -26,7 +27,11 @@ export class ProveedorService {
         return this.http.get<Proveedor[]>(API_URL + proveedores);
     }
     
-    
+  getProductos(): Observable<Producto[]> {
+        return this.http.get<Producto[]>(API_URL + productos);
+        
+        
+    }
     /**
      * Retorna un objeto observable con el detalle de un cliente específico del API
      * @return El detalle del cliente.
@@ -45,7 +50,7 @@ export class ProveedorService {
     }
     
     updateProveedor(proveedorU:Proveedor) : Observable<Proveedor>{
-    return this.http.put<Proveedor>(API_URL+proveedores+'/',proveedorU);
+    return this.http.put<Proveedor>(API_URL+proveedores+'/'+proveedorU.id,proveedorU);
   }
 }
 
