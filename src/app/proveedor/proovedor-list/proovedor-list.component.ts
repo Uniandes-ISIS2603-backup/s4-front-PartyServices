@@ -51,12 +51,5 @@ export class ProveedorListComponent implements OnInit {
       this.edit = !this.edit;
   }
   
-    deleteProveedor(proveedor_Id): void {
-    
-      this.productoService.deleteProducto(proveedor_Id).subscribe(() =>
-       {this.toastrService.error("El proveedor fue borrado satisfactoriamente", "Proveedor borrado")}) ;
-        this.ngOnInit();
-  }
-  
 
 }
