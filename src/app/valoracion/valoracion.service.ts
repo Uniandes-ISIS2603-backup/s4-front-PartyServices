@@ -48,18 +48,10 @@ export class ValoracionService {
       return this.http.get<Valoracion>(API_URL+ proveedor+'/'+idProveedor + valoraciones+'/'+idValoracion);
     }
      
-    /**
-    * Deletes a valoracion from the BookStore
-    * @param authorId The id of the author
-    * @returns The confirmation that the author was deleted
-    */
-    
-    
-  
   
    /**
     * Crea una nueva valoracion
-    * @param valoracionO. La nueva valoracion a crear en la base de datos.
+    * @param valoracion. La nueva valoracion a crear en la base de datos.
     * @returns The valoracion with its new id if it was created, false if it wasn't
     */
     createValoracion(valoracion : Valoracion, idProveedor: number):Observable<Valoracion>
@@ -67,16 +59,21 @@ export class ValoracionService {
       return this.http.post<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones,valoracion);
     }
     
-    /**
-    * Updates an author
-    * @param author The author's information updated
-    * @returns The confirmation that the author was updated
+   /**
+    * Actualiza una valoracion
+    * @param valoracion. La nueva valoracion a actualizar en la base de datos.
+    * @returns The valoracion with its new id if it was created, false if it wasn't
     */
     updateValoracion(valoracion : Valoracion, idProveedor: number): Observable<Valoracion> {
       return this.http.put<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones+'/' +valoracion.id,valoracion);
     }
  
-    
+    /**
+    * Borra la valoracion 
+    * @param idValoracion The id of the valoracion
+    * @param idProveedor The id of the proveedor
+    * @returns The confirmation that the author was deleted
+    */
     deleteValoracion( idProveedor: number, idValoracion: number,): Observable<boolean> {
       return this.http.delete<boolean>(API_URL + proveedor+'/'+idProveedor + valoraciones+ '/'+ idValoracion);
     }

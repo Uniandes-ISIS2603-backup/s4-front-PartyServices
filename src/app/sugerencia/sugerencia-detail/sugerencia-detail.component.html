@@ -1,12 +1,17 @@
-<p class="h2 p-1" style="background-color: #dc3545;color:aliceblue">{{sugerencia.nombreUusuario}}<p> 
-    
-    <div class="col-md-3" >
-        <dl>     
-            <dt style="background-color: #dc3545;color:aliceblue">Comentario:</dt>
-            <dd>{{sugerencia.comentario}}</dd>
-            
-            
-        </dl>
-             
-</div>
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3">{{sugerencia.cliente?.nombreUsuario}}<p> 
+        <div class="row">
+            <div class="col">
+                <dl>
+                    <dt>Titulo</dt>
+                    <dd>{{sugerencia.titulo}}</dd>
+                    <dt>Comentario</dt>
+                    <dd>{{sugerencia.comentario}}</dd>
+                </dl>
+            </div>
 
+        </div>
+    </div>
+    
+</div>

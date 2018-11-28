@@ -1,8 +1,6 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import { Tematica } from '../tematica/tematica';
+
+import { Cliente } from '../cliente/cliente';
 
  export class Sugerencia 
  {
@@ -22,18 +20,29 @@
     comentario: string ;
    
     /**
-     * Tematica de la valoracion
+     * Tematica de la sugerencia
      */
-    tematica: any ;
+    tematica: Tematica ;
     
-    
+    /**
+     * titulo de la sugerencia
+     */
     titulo: string;
-     
+    
+    /**
+     * video de la sugerencia
+     */
+    video: string;
+    
+    /**
+     * imagen de la sugerencia
+     */
+    link: string;
      
     /**
-     * Cliente de la valoracion
+     * Cliente de la sugerencia
      */
-     cliente : any;
+     cliente : Cliente;
  }
 
 

@@ -9,33 +9,44 @@
                 <br>
                 <form name="sugerencia" (ngSubmit)="f.form.valid && createSugerencia()" #f="ngForm" novalidate>
                       <div class="form-group">
-                        <label for="nombreUsuario"><b>Nombre de Usuario</b></label>
-                        <input type="text" name="nombreUsuario" class="form-control" id="nombreUsuario" [(ngModel)]="sugerencia.nombreUsuario"
-                               #nombreUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreUsuario.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>No se ingresó un nombre de usuario válido</div>
+                        <label for="valoracionTitle"><b>Titulo</b></label>
+                        <textarea name="valoracionTitle" class="form-control" id="valoracionTitle" [(ngModel)]="sugerencia.titulo"
+                            #valoracionTitle="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valoracionTitle.invalid }"
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            <div>The valoracion's comment is missing</div>
                         </div>
                     </div>
-
-
-
                     <div class="form-group">
-                        <label for="comentario"><b>Comentario</b></label>
-                        <input type="text" name="comentario" class="form-control" id="comentario" [(ngModel)]="sugerencia.comentario"
-                               #comentario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentario.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>No se ingresó un comentario válido</div>
+                        <label for="valoracionDescription"><b>Comentario</b></label>
+                        <textarea name="valoracionDescription" class="form-control" id="valoracionDescription" [(ngModel)]="sugerencia.comentario"
+                            #valoracionDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valoracionDescription.invalid }"
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            <div>The valoracion's comment is missing</div>
                         </div>
                     </div>
 
 
-                    
+                        <div class="form-group">
+                        <label for="valoracionCliente"><b>Cliente</b></label>
+                        <select class="custom-select" name="valoracionCliente" id="valoracionCliente" [(ngModel)]="sugerencia.cliente.id"
+                            #valoracionCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valoracionCliente.invalid }"
+                            required>
+                            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombreUsuario}}</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <div>The valoracion's Cliente is missing</div>
+                        </div>
+                    </div>
+                <br>
 
 
-                    <div class="row form-inline justify-content-center align-self-center">
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <div class="divider"></div>
-                        <button type="button"  (click)="cancelCreation()" class="btn btn-danger" id="btnCancelarCreacionCliente">Cancelar</button>
+
+                     <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
                     </div>
 
                 </form>

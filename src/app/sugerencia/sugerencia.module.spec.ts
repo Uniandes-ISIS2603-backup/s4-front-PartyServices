@@ -1,4 +1,4 @@
-import { SugerenciaModule } from './valoracion.module';
+import { SugerenciaModule } from './sugerencia.module';
 
 describe('SugerenciaModule', () => {
   let sugerenciaModule: SugerenciaModule;
@@ -8,6 +8,6 @@ describe('SugerenciaModule', () => {
   });
 
   it('should create an instance', () => {
-    expect(SugerenciaModule).toBeTruthy();
+    expect(sugerenciaModule).toBeTruthy();
   });
 });
