@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
-
 import {TematicaService} from '../tematica.service';
 import {TematicaDetail} from '../tematica-detail';
 
@@ -43,17 +42,8 @@ export class TematicaEditComponent implements OnInit {
     /**
     * The tematica to edit
     */
-    tematica: TematicaDetail;
+    @Input() tematica: TematicaDetail;
 
-    /**
-    * Retrieves the information of the tematica
-    */
-    getTematica(): void {
-        this.tematicaService.getTematicaDetail(this.tematica_id)
-            .subscribe(tematica => {
-                this.tematica = tematica;
-            });
-    }
 
     /**
     * Updates the tematica's information
@@ -61,9 +51,10 @@ export class TematicaEditComponent implements OnInit {
     editTematica(): void {
         this.tematicaService.updateTematica(this.tematica)
             .subscribe(() => {
-                this.update.emit();
+                
                 this.toastrService.success("The tematica's information was updated", "Tematica edition");
             });
+            this.update.emit() ;
     }
 
     /**
@@ -77,8 +68,7 @@ export class TematicaEditComponent implements OnInit {
     * The function which initializes the component
     */
     ngOnInit() {
-        this.tematica = new TematicaDetail();
-        this.getTematica();
+        
     }
 
     /**
