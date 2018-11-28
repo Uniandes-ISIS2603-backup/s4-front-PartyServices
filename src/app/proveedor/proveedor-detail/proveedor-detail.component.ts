@@ -114,7 +114,7 @@ showHideEdit(proveedor_Id): void {
   deleteProveedor(proveedorId: number): void {
       
       this.proveedorService.deleteProveedor(proveedorId).subscribe(() =>
-       {this.toastrService.error("El proveedor fue borrado satisfactoriamente", "Proveedor borrado")}) ;
+       {this.toastrService.error("El proveedor fue eliminado satisfactoriamente", "Proveedor borrado")}) ;
         this.ngOnInit();
   }
 }

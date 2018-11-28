@@ -6,7 +6,7 @@
         <form name="tematica" (ngSubmit)="f.form.valid && editTematica()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="tematicaName"><b>Name</b></label>
-                <input type="text" name="tematicaName" class="form-control" id="tematicaName" [(ngModel)]="tematicaDetail.name"
+                <input type="text" name="tematicaName" class="form-control" id="tematicaName" [(ngModel)]="tematica.name"
                     #tematicaName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tematicaName.invalid }"
                     required>
                 <div class="invalid-feedback">
@@ -16,3 +16,12 @@
         </form>
     </div>
 </div>
+
+<div class="row">
+        <div class="col-12">
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary" (click)="editTematica()">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+          </div>
+        </div>
+      </div>
