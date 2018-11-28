@@ -21,7 +21,7 @@
   <tbody>
     <tr *ngFor="let evento of eventos">
       <td>{{evento?.nombre}}</td>
-      <td routerLink="/clientes/{{evento.cliente.id}}">{{evento?.cliente.login}}</td>
+      <td routerLink="/clientes/{{evento.cliente.id}}">{{evento?.cliente.nombreUsuario}}</td>
       <td><button class="btn btn-danger" (click)="abandonarEvento(evento?.id)">Abandonar evento</button></td>
     </tr>
   </tbody>
