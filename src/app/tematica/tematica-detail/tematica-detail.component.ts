@@ -28,12 +28,17 @@ export class TematicaDetailComponent implements OnInit {
     */
     tematicaDetail: TematicaDetail;
 
-
-
     /**
     * The tematica's id retrieved from the address
     */
     tematica_id: number;
+
+    /**
+    * Shows or hides the edition of an product
+    */
+    showEdit: boolean;
+
+
 
     /**
     * The method which retrieves the servicios of an tematica
@@ -44,6 +49,25 @@ export class TematicaDetailComponent implements OnInit {
                 this.tematicaDetail = tematicaDetail
             });
     }
+     /**
+    * Shows or hides the edit component
+    */
+   showHideEdit(tematica_id: number): void {
+    if (!this.showEdit || (this.showEdit && tematica_id != this.tematica_id)) {     
+        this.showEdit = true;
+        this.tematica_id = tematica_id;
+    }
+    else {
+        this.showEdit = false;
+    }
+}
+
+updateTematica(): void {
+    this.showEdit = false;
+}
+
+
+
 
     /**
     * The method which initializes the component

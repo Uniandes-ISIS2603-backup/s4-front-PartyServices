@@ -2,25 +2,31 @@
         <div class="row justify-content-center align-self-center">
             <div class="col-md-3">
                 <dl>
+                    <dt style="background-color: #dc3545;color:aliceblue">Dia:</dt>
+                    <dd>{{evento.dia}}</dd>
+                    <dt style="background-color: #dc3545;color:aliceblue">Jornada:</dt>
+                    <dd>{{evento.jornada}}</dd>
                     <dt style="background-color: #dc3545;color:aliceblue">Estado:</dt>
                     <dd>{{evento.estado}}</dd>
                     <dt style="background-color: #dc3545;color:aliceblue">Latitud:</dt>
                     <dd>{{evento.latitud}}</dd>
                     <dt style="background-color: #dc3545;color:aliceblue">Longitud:</dt>
                     <dd>{{evento.longitud}}</dd>
+
                 </dl>
 
             </div>
             <div class="col-md-3 align-self-center">
                 <td>
-                    <button *ngIf="!showEdit" class="btn btn-primary" (click)="showHideEdit(evento.nombre)"><span
-                            class="fa fa-pencil"></span>Editar Evento</button>
+                    <button *ngIf="!showEdit" class="btn btn-primary" (click)="showHideEdit(evento.nombre)"><span class="fa fa-pencil"></span>Editar
+                        Evento</button>
                 </td>
                 <div *ngIf="showEdit">
                     <app-evento-edit [evento]="evento" (cancel)="showHideEdit(evento.nombre)" (update)="updateEvento()"></app-evento-edit>
                 </div>
                 <td>
-                    <button class="btn btn-danger" (click)="deleteEvento(evento.nombre)" routerLink="/evento/list"><span class="fa fa-trash"></span>Eliminar</button>
+                    <button class="btn btn-danger" (click)="deleteEvento(evento.nombre)" routerLink="/evento/list"><span
+                            class="fa fa-trash"></span>Eliminar</button>
                 </td>
             </div>
         </div>

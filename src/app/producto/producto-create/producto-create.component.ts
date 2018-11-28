@@ -1,8 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Producto } from '../../producto/producto';
 import { ProductoService } from '../../producto/producto.service';
+import { Servicio } from '../../servicio/servicio';
+import { ServicioService } from '../../servicio/servicio.service';
 
 @Component({
   selector: 'app-producto-create',
@@ -18,6 +20,11 @@ export class ProductoCreateComponent implements OnInit {
   producto: Producto;
 
   /**
+   * Lista de servicios en los cuales se puede clasificar un producto
+   */
+  servicios: Servicio[] ;
+
+  /**
    * Constructor del componente
    * @param dp 
    * @param productoService 
@@ -26,11 +33,12 @@ export class ProductoCreateComponent implements OnInit {
   constructor(
     private dp: DatePipe,
     private productoService: ProductoService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private servicioService : ServicioService
 
   ) { }
 
-
+  @Input() proveedor;
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
@@ -38,7 +46,10 @@ export class ProductoCreateComponent implements OnInit {
    * Llama al servicio para crear el producto solicitado
    */
   createProducto(): Producto {
-
+    
+    this.producto.proveedor = this.proveedor ;
+    this.producto.duenio = this.proveedor.nombre  ;
+    console.log(this.producto.tipoServicio) 
     this.productoService.createProducto(this.producto)
       .subscribe((producto) => {
         this.producto = producto;
@@ -63,6 +74,10 @@ export class ProductoCreateComponent implements OnInit {
   ngOnInit() {
 
     this.producto = new Producto();
+    this.servicioService.getServicios().subscribe( (servicios) => {
+      this.servicios = servicios ;     
+    }) ;
+   
   }
 
 }

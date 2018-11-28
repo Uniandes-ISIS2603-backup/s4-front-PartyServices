@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProveedorEditComponent implements OnInit {
 
-  @Input() proveedor : Proveedor
+  @Input() proveedor : Proveedor;
 
   @Output() cancel = new EventEmitter();
   @Output() update = new EventEmitter();

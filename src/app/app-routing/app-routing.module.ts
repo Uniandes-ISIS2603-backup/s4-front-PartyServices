@@ -107,9 +107,9 @@ const routes: Routes = [
             },
             {
                 
-                                path: ':idValoracion',
-                                component: ValoracionDetailComponent,
-                                pathMatch: 'full',
+            path: ':idValoracion',
+            component: ValoracionDetailComponent,
+            pathMatch: 'full',
                             
             }
               ]

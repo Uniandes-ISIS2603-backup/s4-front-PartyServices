@@ -1,11 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
-
+import { Producto } from '../../producto/producto';
 
 @Component({
   selector: 'app-proveedor-detail',
@@ -22,13 +22,14 @@ export class ProveedorDetailComponent implements OnInit {
 */
   constructor(
     private route: ActivatedRoute,
-    private proveedorService:ProveedorService
+    private proveedorService:ProveedorService,
+    private toastrService: ToastrService
   ) { }
   
   /**
     * El proveedor
     */
-    proveedorDetail: ProveedorDetail;
+    proveedorDetail: Proveedor;
     
    /**
     * El id del proveedor que viene en el path get .../proveedor/proveedor_id
@@ -38,10 +39,13 @@ export class ProveedorDetailComponent implements OnInit {
       showEdit : boolean;
       
       showCreate : boolean;
-      proveedor: Proveedor;
-    
+      
+      otroAtributo:boolean;
+      
+      productos: Producto[];
+      
     /**
-    * The method which obtains the proveedor whose details we want to show
+    * The method which obtains the provider whose details we want to show
     */
     getProveedorDetail():void{
         this.proveedorService.getProveedorDetail(this.proveedor_Id)
@@ -50,11 +54,23 @@ export class ProveedorDetailComponent implements OnInit {
         });
     }
     
-         showHideCreate(): void {
+    getProductos(): void {
+    this.proveedorService.getProductos()
+      .subscribe(productos => { this.productos = productos });
+  }
+    
+    showHideCreate(): void {
         this.showCreate = !this.showCreate;
     }
     
-
+    compare(string1: string, string2:string): boolean{
+        if(string1 === string2)
+        {
+            return true;
+        }
+        else
+        return false;
+    }
 
 
     /**
@@ -64,23 +80,41 @@ export class ProveedorDetailComponent implements OnInit {
   ngOnInit() {
       
       this.showEdit=false;
+      this.showCreate=false;
       this.proveedor_Id = +this.route.snapshot.paramMap.get('id');
       this.proveedorDetail = new ProveedorDetail();
       this.getProveedorDetail();
+      this.getProductos();
   }
   
-   showHideEdit():void{
-    this.showEdit=!this.showEdit;
-  }
+showHideEdit(proveedor_Id): void {
+        if (!this.showEdit || (this.showEdit && proveedor_Id != this.proveedorDetail.id)) {
+            this.showCreate = false;
+            this.showEdit = true;
+            this.proveedor_Id = proveedor_Id;
+            this.proveedorDetail = new ProveedorDetail();
+            this.getProveedorDetail();
+        }
+        else {
+            this.showEdit = false;
+        }
+    }
+    
+   
 
   actualizarProveedor(): void {
     this.showEdit=!this.showEdit;
   }
 
   cancelarEdicion():void {
-    this.showHideEdit();
-    this.proveedor= new Proveedor();
+    this.proveedorDetail= new Proveedor();
     this.getProveedorDetail();
   }
-
+  
+  deleteProveedor(proveedorId: number): void {
+      
+      this.proveedorService.deleteProveedor(proveedorId).subscribe(() =>
+       {this.toastrService.error("El proveedor fue borrado satisfactoriamente", "Proveedor borrado")}) ;
+        this.ngOnInit();
+  }
 }

@@ -1,10 +1,25 @@
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <p class="h4 p-3">Tematica: {{tematicaDetail.name}}</p>
-        <br>
-        <div class="row border margin">
-            <p class="h4 p-3">Available servicios: </p>
-            
-        </div>
-    </div>
-</div>
+<p class="h2 p-1" style="background-color: #dc3545;color:aliceblue">{{tematicaDetail.name}}<p>
+
+        <div class="row justify-content-center align-self-center">
+                <div class="col-md-3">
+                    <dl>
+                        <dt style="background-color: #dc3545;color:aliceblue">Servicios asociados:</dt>                       
+                    </dl>
+                </div>
+            </div>
+            <div class="col-md-3 align-self-center">
+                    <td>
+                        <button *ngIf="!showEdit" class="btn btn-primary" (click)="showHideEdit(tematicaDetail.name)"><span
+                                class="fa fa-pencil"></span>Editar Tematica</button>
+                    </td>
+                    <div *ngIf="showEdit">
+                        <app-tematica-edit [producto]="producto" (cancel)="showHideEdit(tematicaDetail.name)" (update)="updateTematica()"></app-tematica-edit>
+                    </div>
+                    <td>
+                            <button class="btn btn-danger" (click)="deleteProducto(tematicaDetail.name)" routerLink="/tematica/list"><span class="fa fa-trash"></span>Eliminar</button>
+                    </td>
+                </div>
+            </div>
+
+
+

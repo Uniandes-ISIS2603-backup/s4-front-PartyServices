@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {ClienteService} from '../cliente.service';
@@ -25,10 +25,10 @@ export class ClienteDetailComponent implements OnInit {
     private clienteService:ClienteService
   ) { }
   
-  /**
+    /**
     * El cliente
     */
-    clienteDetail: ClienteDetail;
+    @Input() clienteDetail: ClienteDetail;
     
    /**
     * El id del cliente que viene en el path get .../clientes/cliente_id
@@ -51,8 +51,10 @@ export class ClienteDetailComponent implements OnInit {
     */
   ngOnInit() {
       this.cliente_Id = +this.route.snapshot.paramMap.get('id');
+      if (this.cliente_Id){
       this.clienteDetail = new ClienteDetail();
       this.getClienteDetail();
+      }
   }
 
 }

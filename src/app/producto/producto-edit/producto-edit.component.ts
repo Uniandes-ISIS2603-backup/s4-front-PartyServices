@@ -46,6 +46,7 @@ export class ProductoEditComponent implements OnInit, OnChanges {
 
     this.productoService.updateProducto(this.producto)
       .subscribe(() => {
+        
         this.toastrService.success("The producto's information was updated", "producto edition");
       });
     this.update.emit();
