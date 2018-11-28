@@ -68,7 +68,6 @@ updateTematica(): void {
 
 
 
-
     /**
     * The method which initializes the component
     * We need to initialize the tematica so it is never considered as undefined

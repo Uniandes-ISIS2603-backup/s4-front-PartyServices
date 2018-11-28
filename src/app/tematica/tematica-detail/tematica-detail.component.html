@@ -6,18 +6,13 @@
                         <dt style="background-color: #dc3545;color:aliceblue">Servicios asociados:</dt>                       
                     </dl>
                 </div>
-            </div>
+          
             <div class="col-md-3 align-self-center">
                     <td>
                         <button *ngIf="!showEdit" class="btn btn-primary" (click)="showHideEdit(tematicaDetail.name)"><span
                                 class="fa fa-pencil"></span>Editar Tematica</button>
                     </td>
-                    <div *ngIf="showEdit">
-                        <app-tematica-edit [producto]="producto" (cancel)="showHideEdit(tematicaDetail.name)" (update)="updateTematica()"></app-tematica-edit>
-                    </div>
-                    <td>
-                            <button class="btn btn-danger" (click)="deleteProducto(tematicaDetail.name)" routerLink="/tematica/list"><span class="fa fa-trash"></span>Eliminar</button>
-                    </td>
+                    
                 </div>
             </div>
 
