@@ -1,21 +1,38 @@
 <div class="panel-body">
   <div class="border margin">
-      <h1><span class="badge badge-secondary" style="background-color:#dc3545">{{servicio.tipo}}</span> </h1>
-      <div class="col-md-6">
-          <table class="table table-bordered">
-            <thead class="bg-danger">
-              <tr>
-                <th>Id</th>
-                <th>Nombre</th> 
-              </tr>
-            </thead>
-            <tbody >
-              <tr *ngFor="let prov of proveedoresServicio" routerLink="/proveedor/{{prov?.id}}">
-                <td ><span>{{prov.id}}</span></td>
-                <td>{{prov.nombre}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <h1><span class="badge badge-secondary" style="background-color:#dc3545">{{servicio?.tipo}}</span> </h1>
+      <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+              <thead class="bg-danger">
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th> 
+                </tr>
+              </thead>
+              <tbody >
+                <tr *ngFor="let prov of proveedoresServicio" routerLink="/proveedor/{{prov?.id}}">
+                  <td ><span>{{prov.id}}</span></td>
+                  <td>{{prov.nombre}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-3 align-self-center">
+              <button *ngIf="!showAdd" (click)="showHideAdd()" type="button" class="btn" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }">Anadir un proveedor</button>
+        
+              <div *ngIf="showAdd">
+                  <div class="form-group">
+                      <label for="proveedor"><b>Proveedor</b></label>
+                      <select  title="Selecciona proveedor"   class="custom-select" id="proveedor" [(ngModel)]="idProveedor" [ngModelOptions]="{standalone: true}"  >
+                          <option *ngFor="let prov of proveedores" value="{{prov?.id}}" [ngValue]="prov?.id">{{prov?.nombre}}</option >
+                      </select>
+                  </div>
+
+                  <button  (click)="anadirProveedor()" type="button" class="btn" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }">Anadir</button>
+        
+                </div>
+            </div>
+          </div>
   </div>
 </div>
