@@ -75,6 +75,9 @@ export class ProductoDetailComponent implements OnInit {
     }
   }
 
+  /**
+   * Muestra u oculta el edit
+   */
   updateProducto(): void {
     this.showEdit=!this.showEdit;
   }
