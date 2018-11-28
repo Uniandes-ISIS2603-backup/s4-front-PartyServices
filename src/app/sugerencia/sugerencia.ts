@@ -25,6 +25,9 @@
      * Tematica de la valoracion
      */
     tematica: any ;
+    
+    
+    titulo: string;
      
      
     /**

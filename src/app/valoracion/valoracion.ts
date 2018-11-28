@@ -6,14 +6,16 @@ import { Cliente } from '../cliente/cliente';
  export class Valoracion 
  {
     /**
-     * El id del producto
+     * El id de la valoracion
      */
     id : number ;
-
+    
     /**
-     * El nombre del cliente
+     * El titulo de la valoracion
      */
-    nombreUsuario: string;
+    titulo : string ;
+
+  
     
 
     /**
@@ -36,6 +38,16 @@ import { Cliente } from '../cliente/cliente';
      * Cliente de la valoracion
      */
      cliente : Cliente;
+     
+    
+   
+     /**
+     * El nombre del cliente
+     */
+   nombreUsuario: string;
+   
+   
+    
  }
 
 
