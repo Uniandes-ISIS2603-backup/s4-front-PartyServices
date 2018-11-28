@@ -5,7 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
-
+import {Producto} '../producto';
 
 @Component({
   selector: 'app-proveedor-detail',
@@ -39,7 +39,8 @@ export class ProveedorDetailComponent implements OnInit {
       
       showCreate : boolean;
       
-     productos: Producto[];
+      productos: Producto[];
+      
     /**
     * The method which obtains the proveedor whose details we want to show
     */
@@ -87,7 +88,6 @@ export class ProveedorDetailComponent implements OnInit {
   
 showHideEdit(proveedor_Id): void {
         if (!this.showEdit || (this.showEdit && proveedor_Id != this.proveedorDetail.id)) {
-            this.showView = false;
             this.showCreate = false;
             this.showEdit = true;
             this.proveedor_Id = proveedor_Id;
@@ -96,7 +96,6 @@ showHideEdit(proveedor_Id): void {
         }
         else {
             this.showEdit = false;
-            this.showView = true;
         }
     }
     
@@ -104,6 +103,7 @@ showHideEdit(proveedor_Id): void {
 
   actualizarProveedor(): void {
     this.showEdit=!this.showEdit;
+    this.ngOnInit();
   }
 
   cancelarEdicion():void {

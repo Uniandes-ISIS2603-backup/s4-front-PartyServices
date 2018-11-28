@@ -147,7 +147,7 @@ export class ValoracionListComponent implements OnInit {
                     text: 'Yes',
                     buttonClass: 'btn btn-danger',
                     onAction: () => {
-                        this.valoracionService.deleteValoracion(idProveedor,valoracionId).subscribe(() => {
+                        this.valoracionService.deleteValoracion(this.idProveedor,this.valoracion_id).subscribe(() => {
                             this.toastrService.error("The author was successfully deleted", "Author deleted");
                             this.ngOnInit();
                         }, err => {

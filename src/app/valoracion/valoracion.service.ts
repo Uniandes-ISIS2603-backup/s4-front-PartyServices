@@ -76,14 +76,9 @@ export class ValoracionService {
       return this.http.post<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones,valoracion);
     }
  
-    /**
-    * Deletes a valoracion from the BookStore
-    * @param authorId The id of the author
-    * @returns The confirmation that the author was deleted
-    */
-    deleteValoracion(idProveedor : number, valoracionid : number): Observable<boolean> {
-        return this.http.delete<boolean>API_URL + proveedor+'/'+idProveedor + valoraciones+ '/'+ valoracion.id);
-    }
     
+    deleteValoracion( idProveedor: number, idValoracion: number,): Observable<boolean> {
+      return this.http.delete<boolean>(API_URL + proveedor+'/'+idProveedor + valoraciones+ '/'+ idValoracion);
+    }
   
 }
