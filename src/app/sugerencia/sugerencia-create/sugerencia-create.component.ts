@@ -2,9 +2,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SugerenciaService } from '../sugerencia.service';
 import { Sugerencia } from '../sugerencia';
 import { ActivatedRoute } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-type DateString = {month: number, day: number, year: number};
+import { ProveedorService } from '../../proveedor/proveedor.service';
+import { ClienteService } from '../../cliente/cliente.service';
+
+import { Tematica } from '../../tematica/tematica';
+import { Cliente } from '../../cliente/cliente';
 
 @Component({
   selector: 'app-sugerencia-create',
@@ -18,6 +21,11 @@ export class SugerenciaCreateComponent implements OnInit {
  */
   public sugerencia : Sugerencia;
 
+    /**
+    * La lista de todos los clientes.
+    */
+    clientes: Cliente[];
+    
 /**
  * Identificacion de la tematica al que le pertenece la sugerencia
  */
@@ -43,6 +51,8 @@ export class SugerenciaCreateComponent implements OnInit {
     */
   constructor(
     private sugerenciaService : SugerenciaService,
+    private clienteService : ClienteService,
+    private proveedorService : ProveedorService,
     private route: ActivatedRoute,
     private toastrService: ToastrService
   ) { }
@@ -54,8 +64,18 @@ export class SugerenciaCreateComponent implements OnInit {
   ngOnInit() {
     this.idTematica = +this.route.snapshot.paramMap.get('id');
     this.sugerencia=new Sugerencia();
+      this.sugerencia.cliente = new Cliente();
+      this.getClientes();
   }
 
+    getClientes(): void {
+          this.clienteService.getClientes()
+              .subscribe(clientes => {
+                  this.clientes = clientes;
+              }, err => {
+                  this.toastrService.error(err, 'Error');
+              });
+      }
 
 
 /**
@@ -82,7 +102,7 @@ export class SugerenciaCreateComponent implements OnInit {
     * user no longer wants to create an cliente
     */
    cancelCreation(): void {
-    this.toastrService.warning('No se pudo registrar la valoracion', 'Registrar valoracion');
+    this.toastrService.warning('No se pudo registrar la sugerencia', 'Registrar sugerencia');
     this.cancel.emit("Cancelado");
   }
 

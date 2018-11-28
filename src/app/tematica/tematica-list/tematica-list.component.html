@@ -6,6 +6,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre de la Tematica</th>
+                        <th>Sugerencias</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -16,6 +18,7 @@
                         <td>
                             <dd class="figure-caption" routerLink="/tematica/{{tematica.id}}">{{tematica.name}}</dd>
                         </td>
+                         <td routerLink="/tematica/{{tematica.id}}/sugerencia/list">Ver mis sugerencias</td>
                     </tr>
                 </tbody>
             </table>

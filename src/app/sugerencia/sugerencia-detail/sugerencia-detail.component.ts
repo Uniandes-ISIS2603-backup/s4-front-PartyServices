@@ -16,14 +16,14 @@ export class SugerenciaDetailComponent implements OnInit {
   @Input() sugerencia : Sugerencia;
 
 /**
- * Identificador de la tematica de la valoracion
+ * Identificador de la tematica de la sugerencia
  */
     public idTematica : number;
 
  /**
   * identificador de la sugerencia
   */
-    public idSugerencia : number;
+    public sugerencia_id : number;
   
     /**
 * Constructor for the component
@@ -42,17 +42,20 @@ export class SugerenciaDetailComponent implements OnInit {
     * We need to create the sugerencia so it is never considered as undefined
     */
   ngOnInit() {
-        this.idSugerencia = +this.route.snapshot.paramMap.get('idSugerencia');
+        this.sugerencia_id = +this.route.snapshot.paramMap.get('idSugerencia');
         this.idTematica = +this.route.snapshot.paramMap.get('id');
         
+        if (this.sugerencia_id){
+        this.sugerencia = new Sugerencia();
         this.getSugerencia();
+        } 
   }
 
-/**
+   /**
     * The method which obtains the sugerencia whose details we want to show
     */
   getSugerencia(){
-    this.sugerenciaService.getSugerencia(this.idTematica,this.idSugerencia)
+    this.sugerenciaService.getSugerencia(this.idTematica,this.sugerencia_id)
     .subscribe( sugerencia =>{
         this.sugerencia=sugerencia;
       }

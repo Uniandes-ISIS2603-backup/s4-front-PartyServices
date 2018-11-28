@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ValoracionService } from '../valoracion.service';
 import { Valoracion } from '../valoracion';
 import { ActivatedRoute } from '@angular/router';
-import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { ProveedorService } from '../../proveedor/proveedor.service';
 import { ClienteService } from '../../cliente/cliente.service';

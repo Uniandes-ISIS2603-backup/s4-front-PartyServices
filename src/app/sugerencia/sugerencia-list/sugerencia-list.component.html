@@ -4,42 +4,45 @@
         <div class="col-4">
             <br>
             <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showHideCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Registrar sugerencia</button>
-            </div>           
-            <br>
-            <br>
-            <div class="card">
-                <div class="card-body">       
-                    <table class="table table-striped">
-                        <thead class="bg-danger">
-                            <tr>
-                                <th class="h5 theadList">Id de la sugerencia</th>
-                                <th class="h5 theadList">Nombre de Usuario</th>
-                                <th class="h5 theadList">Comentario</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr *ngFor = "let sugerencia of sugerencias"
-                                (click)="onSelected(author.id)">
-                            <td style="cursor: pointer;">
-                                <dd class="figure-caption nombreSugerencia" routerLink="/tematica/{{sugerencia.tematica.id}}/sugerencia/{{sugerencia.id}}">{{sugerencia.id}}</dd>
-                            </td>
-                            <td>{{sugerencia.nombreUsuario}}</td>
-                            <td>{{sugerencia.comentario}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Registrar una sugerencia</button>
             </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Nombre de la sugerencia:</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let sugerencia of sugerencias" >
+                        <td style="cursor: pointer;" (click)="onSelected(sugerencia.id)"> <dd>{{sugerencia.cliente?.nombreUsuario}}</dd></td>
+                        
+                        <td>
+                            <button class="btn btn-primary" (click)="showHideEdit(sugerencia.id)"><span class="far fa-edit"></span></button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteSugerencia(sugerencia.id)"><span class="fas fa-trash"></span></button>
+                        </td>
+                                                 
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-8">
-
+            <div *ngIf="showView">
+                <app-sugerencia-detail [sugerencia]="selectedSugerencia"></app-sugerencia-detail>
+            </div>
             <div *ngIf="showCreate">
                 <app-sugerencia-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-sugerencia-create>
             </div>
-        </div> 
+            <div *ngIf="showEdit">
+                <app-sugerencia-edit [sugerencia]="selectedSugerencia" (cancel)="showHideEdit(selectedSugerencia.id)" (update)="updateSugerencia()" ></app-sugerencia-edit>
+            </div>
+        </div>   
     </div>
 </div>
+
+
