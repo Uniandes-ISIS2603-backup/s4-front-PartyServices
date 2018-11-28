@@ -66,6 +66,7 @@ export class FechaDetailComponent implements OnInit {
     this.fechaService.getEventosDeFecha(this.idFecha)
     .subscribe( eventos =>{
       this.eventos=eventos;
+      console.log(this.eventos)
     } )
   }
 
