@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { TematicaService } from '../tematica.service';
-import { Tematica } from '../tematica';
 import { TematicaDetail } from '../tematica-detail';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-tematica-detail',
@@ -20,13 +19,14 @@ export class TematicaDetailComponent implements OnInit {
     */
     constructor(
         private tematicaService: TematicaService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private toastrService: ToastrService
     ) { }
 
     /**
     * The tematica whose details we want to show
     */
-    tematicaDetail: TematicaDetail;
+    tematica: TematicaDetail;
 
     /**
     * The tematica's id retrieved from the address
@@ -46,26 +46,40 @@ export class TematicaDetailComponent implements OnInit {
     getTematicaDetail(): void {
         this.tematicaService.getTematicaDetail(this.tematica_id)
             .subscribe(tematicaDetail => {
-                this.tematicaDetail = tematicaDetail
+                this.tematica = tematicaDetail
             });
     }
-     /**
-    * Shows or hides the edit component
-    */
-   showHideEdit(tematica_id: number): void {
-    if (!this.showEdit || (this.showEdit && tematica_id != this.tematica_id)) {     
-        this.showEdit = true;
-        this.tematica_id = tematica_id;
+    /**
+   * Shows or hides the edit component
+   */
+    showHideEdit(tematica_id: number): void {
+        if (!this.showEdit || (this.showEdit && tematica_id != this.tematica.id)) {
+            this.showEdit = true;
+            this.tematica_id = tematica_id;
+        }
+        else {
+            this.showEdit = false;
+        }
     }
-    else {
-        this.showEdit = false;
+
+    /**
+     * Metodo que actualiza una tematica
+     */
+    updateTematica(): void {
+        this.showEdit = !this.showEdit;
     }
-}
 
-updateTematica(): void {
-    this.showEdit = false;
-}
+    /**
+     * Metodo que elimina la tematica con el id enviado por parametro
+     * @param tematicaId 
+     */
+    deleteTematica(tematicaId): void{
+        
+      this.tematicaService.deleteTematica(tematicaId).subscribe(() =>
+      {this.toastrService.error("La tematica fue borrada satisfactoriamente", "Tematica borrada")}) ;
+       this.ngOnInit();
 
+    }
 
 
     /**
@@ -73,8 +87,10 @@ updateTematica(): void {
     * We need to initialize the tematica so it is never considered as undefined
     */
     ngOnInit() {
+
+        this.showEdit = false;
         this.tematica_id = +this.route.snapshot.paramMap.get('id');
-        this.tematicaDetail = new TematicaDetail();
+        this.tematica = new TematicaDetail();
         this.getTematicaDetail();
     }
 

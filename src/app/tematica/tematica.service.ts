@@ -37,7 +37,7 @@ export class TematicaService {
     getTematicaDetail(tematicaId): Observable<TematicaDetail> {
         return this.http.get<TematicaDetail>(API_URL + tematicas + '/' + tematicaId);
     }
-    
+
     /**
     * Creates an tematica
     * @param tematica The tematica which will be created
@@ -46,7 +46,7 @@ export class TematicaService {
     createTematica(tematica): Observable<Tematica> {
         return this.http.post<Tematica>(API_URL + tematicas, tematica);
     }
-    
+
     /**
     * Updates an tematica
     * @param tematica The tematica which will be update
@@ -55,4 +55,17 @@ export class TematicaService {
     updateTematica(tematica): Observable<TematicaDetail> {
         return this.http.put<TematicaDetail>(API_URL + tematicas + '/' + tematica.id, tematica);
     }
+
+
+
+    /**
+   * Elimina una tematica de la aplicacion 
+   * @param id El id de la tematica
+   * @returns The confirmation that the tematica was deleted
+   */
+    deleteTematica(tematicaId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + tematicas + '/' + tematicaId);
+    }
+
+
 }
