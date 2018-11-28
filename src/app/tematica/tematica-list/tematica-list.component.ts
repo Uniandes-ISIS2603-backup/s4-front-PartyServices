@@ -32,11 +32,6 @@ export class TematicaListComponent implements OnInit {
     showCreate: boolean;
 
     /**
-     * Shows or hides the edit component.
-     */
-    showEdit: boolean;
-
-    /**
      * The id of the tematica being edited.
      */
     tematica_edit_id: number;
@@ -55,27 +50,11 @@ export class TematicaListComponent implements OnInit {
     * Shows or hides the create component
     */
     showHideCreate(): void {
-        this.showEdit = false;
+
         this.showCreate = !this.showCreate!
     }
 
-    /**
-    * Shows or hides the create component
-    */
-    showHideEdit(tematica_id: number): void {
-        if (!this.showEdit || (this.showEdit && tematica_id != this.tematica_edit_id)) {
-            this.showCreate = false;
-            this.showEdit = true;
-            this.tematica_edit_id = tematica_id;
-        }
-        else {
-            this.showEdit = false;
-        }
-    }
-
-    updateTematica(): void {
-        this.showEdit = false;
-    }
+   
 
     /**
     * This will initialize the component by retrieving the list of tematicas from the service
@@ -83,7 +62,6 @@ export class TematicaListComponent implements OnInit {
     */
     ngOnInit() {
         this.showCreate = false;
-        this.showEdit = false;
         this.getTematicas();
     }
 }
