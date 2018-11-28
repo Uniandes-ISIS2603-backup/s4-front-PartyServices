@@ -47,6 +47,15 @@ export class ValoracionService {
     {
       return this.http.get<Valoracion>(API_URL+ proveedor+'/'+idProveedor + valoraciones+'/'+idValoracion);
     }
+     
+    /**
+    * Deletes a valoracion from the BookStore
+    * @param authorId The id of the author
+    * @returns The confirmation that the author was deleted
+    */
+    
+    
+  
   
    /**
     * Crea una nueva valoracion
@@ -59,14 +68,14 @@ export class ValoracionService {
     }
     
     /**
-    * Updates a valoracion
+    * Updates an author
     * @param author The author's information updated
     * @returns The confirmation that the author was updated
     */
     updateValoracion(valoracion : Valoracion, idProveedor: number): Observable<Valoracion> {
-      return this.http.put<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones+ '/'+ valoracion.id,valoracion);
+      return this.http.post<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones,valoracion);
     }
-    
+ 
     /**
     * Deletes a valoracion from the BookStore
     * @param authorId The id of the author
