@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioService } from '../servicio.service';
 import { ActivatedRoute } from '@angular/router';
 import { Servicio } from '../servicio';
+import { Proveedor } from 'src/app/proveedor/proveedor';
 
 @Component({
   selector: 'app-servicio-detail',
@@ -10,9 +11,17 @@ import { Servicio } from '../servicio';
 })
 export class ServicioDetailComponent implements OnInit {
 
+  /**
+   * Id del servicio
+   */
   public idServicio:number;
 
+  /**
+   * Servicio a mostrar
+   */
   public servicio:Servicio;
+
+  public proveedoresServicio:Proveedor[]
 
   constructor(
     private servicioS: ServicioService,
@@ -22,6 +31,7 @@ export class ServicioDetailComponent implements OnInit {
   ngOnInit() {
     this.idServicio = +this.route.snapshot.paramMap.get('idServicio');
     this.obtenerServicio();
+    this.obtenerProveedores();
   }
 
   obtenerServicio(){
@@ -31,6 +41,13 @@ export class ServicioDetailComponent implements OnInit {
           this.servicio=servicio;
         }
       )
+  }
+  obtenerProveedores(){
+    this.servicioS.getProveedores(this.idServicio).subscribe(
+      (proveedores)=>{
+        this.proveedoresServicio=proveedores;
+      }
+    )
   }
 
 }

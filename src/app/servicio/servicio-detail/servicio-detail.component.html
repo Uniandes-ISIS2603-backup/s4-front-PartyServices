@@ -1,5 +1,21 @@
 <div class="panel-body">
   <div class="border margin">
       <h1><span class="badge badge-secondary" style="background-color:#dc3545">{{servicio.tipo}}</span> </h1>
+      <div class="col-md-6">
+          <table class="table table-bordered">
+            <thead class="bg-danger">
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th> 
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let prov of proveedoresServicio" routerLink="/proveedor/{{prov?.id}}">
+                <td ><span>{{prov.id}}</span></td>
+                <td>{{prov.nombre}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
   </div>
 </div>
