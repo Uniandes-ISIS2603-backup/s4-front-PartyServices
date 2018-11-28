@@ -141,14 +141,14 @@ export class ValoracionListComponent implements OnInit {
         this.modalDialogService.openDialog(this.viewRef, {
             title: 'Borrar una valoracion',
             childComponent: SimpleModalComponent,
-            data: {text: 'Are you sure your want to delete this author from the BookStore?'},
+            data: {text: 'Quiere borrar esta valoracion de este proveedor?'},
             actionButtons: [
                 {
                     text: 'Yes',
                     buttonClass: 'btn btn-danger',
                     onAction: () => {
-                        this.valoracionService.deleteValoracion(this.idProveedor,this.valoracion_id).subscribe(() => {
-                            this.toastrService.error("The author was successfully deleted", "Author deleted");
+                        this.valoracionService.deleteValoracion(this.idProveedor,valoracionId).subscribe(() => {
+                            this.toastrService.error("La valoración fue correctamente borrada", "Valoracion Borrada");
                             this.ngOnInit();
                         }, err => {
                             this.toastrService.error(err, "Error");

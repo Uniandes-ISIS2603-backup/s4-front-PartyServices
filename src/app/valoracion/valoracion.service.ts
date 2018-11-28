@@ -73,7 +73,7 @@ export class ValoracionService {
     * @returns The confirmation that the author was updated
     */
     updateValoracion(valoracion : Valoracion, idProveedor: number): Observable<Valoracion> {
-      return this.http.post<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones,valoracion);
+      return this.http.put<Valoracion>(API_URL + proveedor+'/'+idProveedor + valoraciones+'/' +valoracion.id,valoracion);
     }
  
     
