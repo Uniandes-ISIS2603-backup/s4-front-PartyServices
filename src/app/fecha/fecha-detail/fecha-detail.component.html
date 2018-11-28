@@ -19,10 +19,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let evento of eventos">
-      <td>{{evento?.nombre}}</td>
-      <td  routerLink="/clientes/{{evento.cliente.id}}">{{evento?.cliente?.nombreUsuario}}</td>
-      <td><button class="btn btn-danger" (click)="abandonarEvento(evento?.id)">Abandonar evento</button></td>
+    <tr *ngFor="let eventoActual of eventos">
+      <td routerLink="/evento/{{eventoActual?.nombre}}">{{eventoActual?.nombre}}</td>
+      <td  >{{eventoActual?.cliente?.nombreUsuario}}</td>
+      <td ><button class="btn btn-danger" (click)="abandonarEvento(eventoActual?.id)">Abandonar evento</button></td>
     </tr>
   </tbody>
 </table>
