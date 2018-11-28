@@ -1,21 +1,17 @@
 <div class="row">
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Edit an tematica</h2>
-        <br>
+        <div class="col-12">
+                <br>
+                <h2 class="text-center">Editar Tematica</h2>
+                <br>
         <form name="tematica" (ngSubmit)="f.form.valid && editTematica()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="tematicaName"><b>Name</b></label>
-                <input type="text" name="tematicaName" class="form-control" id="tematicaName" [(ngModel)]="tematica.name"
+                <input type="text" name="tematicaName" class="form-control" id="tematicaName" [(ngModel)]="tematicaDetail.name"
                     #tematicaName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tematicaName.invalid }"
                     required>
                 <div class="invalid-feedback">
                     <div>The tematica's name is missing</div>
                 </div>
-            </div>
-            <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
             </div>
         </form>
     </div>
