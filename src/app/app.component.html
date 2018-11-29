@@ -29,6 +29,24 @@
                 <li class="nav nav-item">
                     <a id="servicioTag" class="nav-link" routerLink="/servicio/list">Servicios</a>
                 </li>
+                            <div class="navbar-nav ml-auto flex-column">
+                <div class="flex-row">
+                    <div class="form-inline">
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/signUp"><span class="fa fa-user"></span>
+                                Sign Up </a></li>
+                                <br>
+                        <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="form-inline">
+                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+                    </div>
+                </div>
+                <button id="checkout-navbar-item" type="button" class="btn btn-default">
+                    <a href="#"><span class="fa fa-shopping-cart"></span>Checkout</a>
+                </button>
+            </div>
             </ul>
         </div>
     </div>

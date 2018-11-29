@@ -19,12 +19,15 @@ export class AuthSignUpComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private toastrService: ToastrService,
+        
     ) { }
 
     user: User;
 
     roles: String[];
-
+    
+    showCreateProveedor: boolean;
+    showCreateCliente: boolean;
     /**
     * Sign the user up with the selected role
     */
@@ -37,8 +40,21 @@ export class AuthSignUpComponent implements OnInit {
     * This function will initialize the component
     */
     ngOnInit() {
+        this.showCreateCliente = false;
+        this.showCreateProveedor = false;
         this.user = new User();
         this.roles = ['Administrator', 'Client', 'Proveedor'];
     }
+    
+    showHideCreateProveedor(): void {
+        this.showCreateProveedor = !this.showCreateProveedor;
+        this.showCreateCliente = false;
+    }
+    
+       showHideCreateCliente(): void {
+        this.showCreateCliente = !this.showCreateCliente;
+        this.showCreateProveedor = false;
+    }
+    
 
 }

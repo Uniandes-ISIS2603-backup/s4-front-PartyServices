@@ -211,23 +211,14 @@ const routes: Routes = [
         children: [
             {
                 path: 'login',
-                component: AuthLoginComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                component: AuthLoginComponent
+               
+                
             },
             {
-                path: ':sign-up',
-                component: AuthSignUpComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                path: 'signUp',
+                component: AuthSignUpComponent
+                
             }
         ]
     }

@@ -14,6 +14,7 @@ const productos = '/producto';
 @Injectable()
 export class ProveedorService {
 
+  
    /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
@@ -40,6 +41,15 @@ export class ProveedorService {
          return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorId);
      }
      
+    validate(nombre, contra) : Observable<ProveedorDetail> {
+        
+        console.log(nombre);
+        console.log(contra);
+        console.log(API_URL + proveedores + '/' + nombre + '/' + contra);
+        console.log(this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + nombre + '/' + contra)); 
+        return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + nombre + '/' + contra); 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    }
      /**
     * Crea un nuevo cliente
     * @param cliente. El nuevo cliente a crear en la base de datos.

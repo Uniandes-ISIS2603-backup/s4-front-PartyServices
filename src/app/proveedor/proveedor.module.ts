@@ -13,7 +13,6 @@ import { AgendaModule } from '../agenda/agenda.module';
 import { ProductoModule } from '../producto/producto.module';
 import { ValoracionModule } from '../valoracion/valoracion.module';
 import { ProveedorEditComponent} from './proveedor-edit/proveedor-edit.component';
-
 @NgModule({
   imports: [
 
@@ -33,7 +32,7 @@ import { ProveedorEditComponent} from './proveedor-edit/proveedor-edit.component
   ],
   providers: [ProveedorService] ,
   exports: [
-    ProveedorListComponent
+    ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent
   ] 
 })
 export class ProveedorModule { }

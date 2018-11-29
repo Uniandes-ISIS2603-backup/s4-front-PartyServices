@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {ProveedorService} from '../proveedor.service';
@@ -29,8 +29,8 @@ export class ProveedorDetailComponent implements OnInit {
   /**
     * El proveedor
     */
-    proveedorDetail: Proveedor;
-    
+    @Input() proveedorDetail: Proveedor;
+      
    /**
     * El id del proveedor que viene en el path get .../proveedor/proveedor_id
     */
@@ -53,6 +53,13 @@ export class ProveedorDetailComponent implements OnInit {
                 this.proveedorDetail = proveedorDetail;
         });
     }
+    
+    /*validate():void{
+        this.proveedorService.validate(this.nombre, this.contrasenia)
+            .subscribe(proveedorDetail => {
+                this.proveedorDetail = proveedorDetail;
+        });
+    }*/
     
     getProductos(): void {
     this.proveedorService.getProductos()
@@ -81,9 +88,14 @@ export class ProveedorDetailComponent implements OnInit {
       
       this.showEdit=false;
       this.showCreate=false;
-      this.proveedor_Id = +this.route.snapshot.paramMap.get('id');
-      this.proveedorDetail = new ProveedorDetail();
-      this.getProveedorDetail();
+      if(!this.proveedorDetail){
+        this.proveedor_Id = +this.route.snapshot.paramMap.get('id');
+        this.proveedorDetail = new ProveedorDetail();
+        this.getProveedorDetail();
+      }
+      else{
+          this.proveedor_Id = this.proveedorDetail.Id;
+      }
       this.getProductos();
   }
   

@@ -19,7 +19,10 @@
                 </select>
             </div>
             <div class="justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+            <div *ngIf="showProveedor">
+                <app-proveedor-detail [proveedorDetail]="proveedor"></app-proveedor-detail>
             </div>
         </form>
     </div>
