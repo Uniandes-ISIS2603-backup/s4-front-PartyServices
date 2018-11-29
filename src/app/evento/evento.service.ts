@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Evento } from './evento';
 import { environment } from '../../environments/environment';
+import { Producto } from '../producto/producto';
 const API_URL = environment.apiURL;
 const eventos = '/evento';
 
@@ -14,7 +15,6 @@ export class EventoService {
      * @param http The HttpClient - This is necessary in order to perform requests
      */
     constructor(private http: HttpClient) { }
-
 
 
     /**
@@ -57,5 +57,24 @@ export class EventoService {
         return this.http.delete<boolean>(API_URL + eventos + '/' + nombre);
     }
 
+  
+    
+    /**
+     * Agrega un producto a un evento
+     * @param nombreProducto 
+     * @param nombreEvento 
+     */
+    postProductoAEvento(nombreProducto:string, nombreEvento:string):Observable<Producto>
+    {
+        return this.http.post<Producto>(API_URL + eventos +'/' + nombreEvento + '/' + 'producto' + '/' + nombreProducto ,null);
+    }
 
+    /**
+     * Obtiene los productos de un evento
+     * @param nombreEvento 
+     */
+    obtenerProductosDeEvento(nombreEvento:string):Observable<Producto[]>
+    {
+        return this.http.get<Producto[]>(API_URL + eventos + '/' + nombreEvento + "/producto");
+    }
 }

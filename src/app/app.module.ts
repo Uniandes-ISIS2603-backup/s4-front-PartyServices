@@ -24,6 +24,8 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import {AuthModule} from './auth/auth.module';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-instance.service';
+
+import { HomeModule } from '../app/home/home.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -49,7 +51,8 @@ import { ModalDialogInstanceService } from 'ngx-modal-dialog/src/modal-dialog-in
     BrowserAnimationsModule,
     NgxPermissionsModule.forRoot(),
     NgbModule,
-    ModalDialogModule.forRoot()
+    ModalDialogModule.forRoot(),
+    HomeModule
 
   ],
   bootstrap: [AppComponent],

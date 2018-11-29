@@ -12,11 +12,41 @@
                     <dd>{{evento.latitud}}</dd>
                     <dt style="background-color: #dc3545;color:aliceblue">Longitud:</dt>
                     <dd>{{evento.longitud}}</dd>
-
                 </dl>
+                <div class="col-md-3">
+                        <table class="table table-bordered">
+                          <thead style="background-color: #dc3545;color:aliceblue">
+                            <tr>
+                              <th>Lista de Productos</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let producto of productos">                       
+                                <dd class="figure-caption" routerLink="/producto/{{producto.nombre}}">{{producto.nombre}}</dd>                               
+                              <br>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
 
             </div>
             <div class="col-md-3 align-self-center">
+                <button *ngIf="!showAdd" (click)="showHideAdd()" type="button" class="btn" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-outline-light': showCreate }">Anadir
+                    un producto</button>
+
+                <div *ngIf="showAdd">
+                    <div class="form-group">
+                        <label for="producto"><b>Producto</b></label>
+                        <select title="Selecciona Producto" class="custom-select" id="producto" [(ngModel)]="nombreProducto"
+                            [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let prod of productos" value="{{prod?.nombre}}" [ngValue]="prod?.nombre">{{prod?.nombre}}</option>
+                        </select>
+                    </div>
+                    <button (click)="anadirProducto()" type="button" class="btn btn-success">Anadir</button>
+                    <button (click)="showHideAdd()" type="button" class="btn btn-danger">Cancelar</button>
+
+                </div>
+
                 <td>
                     <button *ngIf="!showEdit" class="btn btn-primary" (click)="showHideEdit(evento.nombre)"><span class="fa fa-pencil"></span>Editar
                         Evento</button>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import {NgxPermissionsGuard} from 'ngx-permissions';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { ProveedorListComponent } from '../proveedor/proovedor-list/proovedor-list.component';
@@ -20,18 +20,19 @@ import { FechaDetailComponent } from '../fecha/fecha-detail/fecha-detail.compone
 import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 
-import {NotificacionListComponent} from '../notificacion/notificacion-list/notificacion-list.component';
-import {NotificacionDetailComponent} from '../notificacion/notificacion-detail/notificacion-detail.component';
-import {TematicaListComponent} from '../tematica/tematica-list/tematica-list.component';
-import {TematicaDetailComponent} from '../tematica/tematica-detail/tematica-detail.component';
-import {ServicioListComponent} from '../servicio/servicio-list/servicio-list.component';
-import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+import { NotificacionListComponent } from '../notificacion/notificacion-list/notificacion-list.component';
+import { NotificacionDetailComponent } from '../notificacion/notificacion-detail/notificacion-detail.component';
+import { TematicaListComponent } from '../tematica/tematica-list/tematica-list.component';
+import { TematicaDetailComponent } from '../tematica/tematica-detail/tematica-detail.component';
+import { ServicioListComponent } from '../servicio/servicio-list/servicio-list.component';
+import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
 import { EventoListComponent } from '../evento/evento-list/evento-list.component';
 import { EventoDetailComponent } from '../evento/evento-detail/evento-detail.component';
 import { ServicioDetailComponent } from '../servicio/servicio-detail/servicio-detail.component';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { HomeComponent } from '../home/home/home.component';
 
 const routes: Routes = [
 
@@ -78,7 +79,7 @@ const routes: Routes = [
             {
                 path: ':nombre',
                 component: EventoDetailComponent,
-    
+
             }
 
         ]
@@ -95,25 +96,25 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ProveedorDetailComponent
-            },{
-           path: ':id/valoracion' ,
-           children: [
-            {
-                path: 'list',
-                component: ValoracionListComponent,
+            }, {
+                path: ':id/valoracion',
+                children: [
+                    {
+                        path: 'list',
+                        component: ValoracionListComponent,
 
-               
 
+
+                    },
+                    {
+
+                        path: ':idValoracion',
+                        component: ValoracionDetailComponent,
+                        pathMatch: 'full',
+
+                    }
+                ]
             },
-            {
-                
-            path: ':idValoracion',
-            component: ValoracionDetailComponent,
-            pathMatch: 'full',
-                            
-            }
-              ]
-             },
             {
                 path: 'agenda',
                 children: [
@@ -142,8 +143,8 @@ const routes: Routes = [
                 ]
             }
         ]
-        },
-        
+    },
+
     {
         path: 'servicio',
         children: [
@@ -157,7 +158,7 @@ const routes: Routes = [
             {
                 path: ':idServicio',
                 component: ServicioDetailComponent,
-                pathMatch:'full'
+                pathMatch: 'full'
             }
         ]
     },
@@ -172,25 +173,25 @@ const routes: Routes = [
                 path: ':id',
                 component: TematicaDetailComponent,
                 runGuardsAndResolvers: 'always'
-            },{
-           path: ':id/sugerencia' ,
-           children: [
-            {
-                path: 'list',
-                component: SugerenciaListComponent,
+            }, {
+                path: ':id/sugerencia',
+                children: [
+                    {
+                        path: 'list',
+                        component: SugerenciaListComponent,
 
-               
 
-            },
-            {
-                
-                                path: ':idSugerencia',
-                                component: SugerenciaDetailComponent,
-                                pathMatch: 'full',
-                            
+
+                    },
+                    {
+
+                        path: ':idSugerencia',
+                        component: SugerenciaDetailComponent,
+                        pathMatch: 'full',
+
+                    }
+                ]
             }
-              ]
-             }
         ]
     },
     {
@@ -230,7 +231,18 @@ const routes: Routes = [
                 }
             }
         ]
+    },
+    {
+
+        path: 'home',
+        component: HomeComponent
+    },
+
+    {
+        path: '**',
+        redirectTo: 'home',
     }
+
 ];
 
 @NgModule({
