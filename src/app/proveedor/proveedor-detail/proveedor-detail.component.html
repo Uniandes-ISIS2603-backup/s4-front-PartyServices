@@ -35,7 +35,7 @@
    
                 <br>
             <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                <button *ngxPermissionsOnly="['PROVEEDOR']" [ngClass]="{ 'btn-outline-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Agregar un Producto</button>
             </div>   
                 <div class="col-9">
