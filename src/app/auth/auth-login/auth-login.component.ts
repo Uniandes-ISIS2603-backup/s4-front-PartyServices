@@ -4,7 +4,7 @@ import { AuthService } from '../auth.service';
 
 import { User } from '../user';
 
-import {ProveedorDeatil} from '../../proveedor/proveedor-detail';
+import {ProveedorDetail} from '../../proveedor/proveedor-detail';
 import {ProveedorService} from '../../proveedor/proveedor.service';
 import { ToastrService } from 'ngx-toastr';
 

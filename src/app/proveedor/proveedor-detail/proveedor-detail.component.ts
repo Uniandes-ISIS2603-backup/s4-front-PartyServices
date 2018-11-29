@@ -94,7 +94,7 @@ export class ProveedorDetailComponent implements OnInit {
         this.getProveedorDetail();
       }
       else{
-          this.proveedor_Id = this.proveedorDetail.Id;
+          this.proveedor_Id = this.proveedorDetail.id;
       }
       this.getProductos();
   }
