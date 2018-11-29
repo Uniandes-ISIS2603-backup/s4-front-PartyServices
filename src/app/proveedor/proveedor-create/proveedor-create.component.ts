@@ -4,7 +4,6 @@ import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor'
-
 type DateString = {month: number, day: number, year: number};
 
 @Component({
@@ -31,6 +30,7 @@ export class ProveedorCreateComponent implements OnInit {
      * The new proveedor
      */
      proveedor: Proveedor;
+     
      
     estaEnAgenda:boolean;
 
@@ -68,7 +68,6 @@ export class ProveedorCreateComponent implements OnInit {
     * Creates a new proveedor
     */
     createProveedor(): Proveedor {
-        console.log(this.proveedor);
         this.proveedorService.createProveedor(this.proveedor)
             .subscribe((proveedor) => {
                 this.proveedor = proveedor;

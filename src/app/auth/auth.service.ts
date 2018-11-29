@@ -1,3 +1,5 @@
+
+
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
@@ -72,8 +74,7 @@ export class AuthService {
             this.setClientRole()
         } else if (role === 'Proveedor') {
             this.setProveedorRole()
-        }
-        this.router.navigateByUrl('/productos/list');
+        };
     }
 
     /**
