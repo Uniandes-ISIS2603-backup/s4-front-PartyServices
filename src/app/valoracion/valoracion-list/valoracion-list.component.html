@@ -11,13 +11,16 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="h4">Nombre del cliente:</th>    
+                        <th class="h4">Nombre del cliente</th>
+                        <th class="h4">Titulo</th>    
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let valoracion of valoraciones" >
                         <td style="cursor: pointer;" (click)="onSelected(valoracion.id)"> <dd>{{valoracion.cliente?.nombreUsuario}}</dd></td>
-                        
+                        <td> <dd>{{valoracion.titulo}}</dd></td>
+
                         <td>
                             <button class="btn btn-primary" (click)="showHideEdit(valoracion.id)"><span class="far fa-edit"></span></button>
                         </td>
